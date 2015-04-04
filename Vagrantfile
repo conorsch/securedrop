@@ -149,9 +149,8 @@ Vagrant.configure("2") do |config|
     override.vm.box = 'digital_ocean'
     override.vm.box_url = "https://github.com/smdahlen/vagrant-digitalocean/raw/master/box/digital_ocean.box"
     # TODO: check for existence of env var and warn if absent
-    provider.token = ENV['DO_SECUREDROP_TOKEN']
-    provider.image = 'snapVagrantSSHkey'
-    provider.region = 'nyc2'
+    provider.token = ENV['DO_SNAPCI_SECUREDROP']
+    provider.region = 'sfo1'
     provider.size = '512mb'
   end
 end
