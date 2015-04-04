@@ -152,5 +152,8 @@ Vagrant.configure("2") do |config|
     provider.token = ENV['DO_SNAPCI_SECUREDROP']
     provider.region = 'sfo1'
     provider.size = '512mb'
+    # allow automatic creation of "vagrant user"
+    override.ssh.username = 'vagrant'
+    provider.setup = true
   end
 end
