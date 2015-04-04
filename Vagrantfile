@@ -1,11 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# Added snap.rb file holds the digital ocean api token values
-# so we do not accidently check them into git
-
-require_relative 'snap.rb'
-include MyVars
 
 Vagrant.configure("2") do |config|
 
@@ -153,7 +148,8 @@ Vagrant.configure("2") do |config|
     override.ssh.private_key_path = "/var/snap-ci/repo/id_rsa"
     override.vm.box = 'digital_ocean'
     override.vm.box_url = "https://github.com/smdahlen/vagrant-digitalocean/raw/master/box/digital_ocean.box"
-    provider.token = SNAP_API_TOKEN
+    # TODO: check for existence of env var and warn if absent
+    provider.token = ENV['DO_SECUREDROP_TOKEN']
     provider.image = 'snapVagrantSSHkey'
     provider.region = 'nyc2'
     provider.size = '512mb'
