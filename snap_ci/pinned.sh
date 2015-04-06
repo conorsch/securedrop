@@ -10,15 +10,15 @@
 # Not sure if caching the vagrant plugins is going to save much time,
 # but this resource gives a good overview of the bundling procedure:
 # http://3ofcoins.net/2013/06/10/installing-vagrant-plugins-from-local-file/
-vagrant plugin install vagrant-digitalocean --plugin-version '0.7.0'
-vagrant plugin install vagrant-hostmanager
+time vagrant plugin install vagrant-digitalocean --plugin-version '0.7.0'
+time vagrant plugin install vagrant-hostmanager
 [[ -f ${SNAP_CACHE_DIR}/digital_ocean.box ]] || wget https://github.com/smdahlen/vagrant-digitalocean/raw/master/box/digital_ocean.box -O ${SNAP_CACHE_DIR}/digital_ocean.box
 # TODO: Check to see if the box was already added before doing again.
-vagrant box add digital_ocean ${SNAP_CACHE_DIR}/digital_ocean.box --force
+time vagrant box add digital_ocean ${SNAP_CACHE_DIR}/digital_ocean.box --force
 
 # Install Ansible dependencies
-sudo yum install ansible -y
+time sudo yum install ansible -y
 
 # Install serverspec dependencies
-sudo yum install ruby rubygems -y
-gem install rspec serverspec bundler rake --no-ri --no-rdoc
+time sudo yum install ruby rubygems -y
+time gem install rspec serverspec bundler rake --no-ri --no-rdoc
