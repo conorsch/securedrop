@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 # looks at $SNAP_WORKER_INDEX and provision the different environments.
 
 if (( ${SNAP_WORKER_TOTAL:-0} < 2 )); then

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # The /staging/ snap-ci stage will:
 # - Build new deb packages based on the environment variable BUILD_SKIP_TAGS
 # - Using DO snapshots of the a clean install of the most recent tagged version

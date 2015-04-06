@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # The development snap-ci stage will:
 # - Using DO snapshots of the a clean install of the most recent tagged version
 # used in production, will up the development droplets.
