@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 # Pin commands to install vagrant, ansible, serverspec
 # Pinning commands will ensure that they are ran in each snap-ci stage. This is
 # usefull when you only want to re-run one stage.
