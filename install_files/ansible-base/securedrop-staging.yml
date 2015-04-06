@@ -1,5 +1,5 @@
 ---
-- hosts: [ 'mon-staging', 'app-staging' ]
+- hosts: [ 'mon-staging', 'snap-mon-staging', 'app-staging', 'snap-app-staging' ]
 
   vars_files:
     - group_vars/securedrop.yml
@@ -11,7 +11,7 @@
 
   sudo: yes
 
-- hosts: [ 'mon-staging' ]
+- hosts: [ 'mon-staging', 'snap-mon-staging' ]
 
   vars_files:
     - group_vars/securedrop.yml
@@ -21,12 +21,12 @@
   roles:
     - { role: common-mon, tags: [ 'tor' ] }
     # this is a staging only role
-    - { role: install_local_pkgs, tags: [ 'install_local_pkgs' ] }
+    - { role: install_local_pkgs, tags: [ 'install_local_pkgs', 'mon_install_local_pkgs' ] }
     - ossec_server
 
   sudo: yes
 
-- hosts: [ 'app-staging' ]
+- hosts: [ 'app-staging', 'snap-app-staging' ]
 
   vars_files:
     - group_vars/securedrop.yml
@@ -40,7 +40,7 @@
     # being present.
     - { role: common-app, tags: [ 'tor' ] }
     # this is a staging only role
-    - { role: install_local_pkgs, tags: [ 'install_local_pkgs' ] }
+    - { role: install_local_pkgs, tags: [ 'install_local_pkgs', 'app_install_local_pkgs' ] }
     - { role: ossec_agent, tags: [ 'ossec' ] }
     - app
     - { role: app-test, tags: [ 'app-test' ] }
@@ -55,7 +55,7 @@
   # service needs to be listening and reachable, then agent needs to connect to
   # ossec server, agent needs to restart, then ossec server exemptions can be
   # removed and the ossec server process can restart.
-- hosts: [ 'mon-staging' ]
+- hosts: [ 'mon-staging', 'snap-mon-staging' ]
 
   vars_files:
     - group_vars/securedrop.yml
@@ -73,7 +73,7 @@
   # So iptables will not be reloaded until the exemptions are applied
   # for production the last task is apply iptables. This will break their
   # connection. After that point the admin will to proxy traffic over tor.
-- hosts: [ 'app-staging' ]
+- hosts: [ 'app-staging', 'snap-app-staging' ]
 
   vars_files:
     - group_vars/securedrop.yml
@@ -87,7 +87,7 @@
 
   sudo: yes
 
-- hosts: [ 'mon-staging' ]
+- hosts: [ 'mon-staging', 'snap-mon-staging' ]
 
   vars_files:
     - group_vars/securedrop.yml

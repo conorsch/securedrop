@@ -1,7 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-
 Vagrant.configure("2") do |config|
 
   # Vagrant 1.7.0+ removes the insecure_private_key by default
@@ -18,7 +17,7 @@ Vagrant.configure("2") do |config|
     development.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
     development.vm.provision "ansible" do |ansible|
       ansible.playbook = "install_files/ansible-base/securedrop-development.yml"
-      ansible.skip_tags = [ "non-development" ]
+      ansible.skip_tags = ENV['DEVELOPMENT_SKIP_TAGS']
       ansible.verbose = 'v'
     end
     development.vm.provider "virtualbox" do |v|
@@ -80,7 +79,7 @@ Vagrant.configure("2") do |config|
       #ansible.skip_tags = [ "grsec",  "ossec", "app-test" ]
       # Testing the full install install with local access exemptions
       # This requires to also up mon-staging or else authd will error
-      ansible.skip_tags =  [ "install_local_pkgs" ]
+      ansible.skip_tags = ENV['STAGING_SKIP_TAGS']
     end
   end
 
@@ -117,7 +116,7 @@ Vagrant.configure("2") do |config|
       ansible.verbose = 'v'
       # the production playbook verifies that staging default values are not
       # used will need to skip the this role to run in Vagrant
-      ansible.skip_tags = [ "validate" ]
+      ansible.skip_tags = ENV['PROD_SKIP_TAGS']
       # Taken from the parallel execution tips and tricks
       # https://docs.vagrantup.com/v2/provisioning/ansible.html
       ansible.limit = 'all'
@@ -131,7 +130,7 @@ Vagrant.configure("2") do |config|
     build.vm.provision "ansible" do |ansible|
       ansible.playbook = "install_files/ansible-base/build-deb-pkgs.yml"
       ansible.verbose = 'v'
-      #ansible.skip_tags = [ "ossec" ]
+      ansible.skip_tags = ENV['BUILD_SKIP_TAGS']
     end
     build.vm.provider "virtualbox" do |v|
       v.name = "build"
@@ -143,17 +142,66 @@ Vagrant.configure("2") do |config|
   #  config.cache.scope = :box
   #end
 
+
+  # For SNAP-CI environment
+  config.vm.define 'snap-mon-staging', autostart: false do |snap|
+    snap.vm.hostname = "snap-mon-staging"
+    snap.vm.box = "trusty64"
+    snap.hostmanager.aliases = %w(securedrop-monitor-server-alias)
+    snap.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
+    snap.vm.synced_folder './', '/vagrant', disabled: true
+    snap.vm.provider "virtualbox" do |v|
+      v.name = "snap-mon-staging"
+    end
+  end
+
+  config.vm.define 'snap-app-staging', autostart: false do |snap|
+    snap.vm.hostname = "snap-app-staging"
+    snap.vm.box = "trusty64"
+    snap.vm.network "forwarded_port", guest: 80, host: 8082
+    snap.vm.network "forwarded_port", guest: 8080, host: 8083
+    snap.vm.synced_folder './', '/vagrant', disabled: true
+    snap.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
+    snap.vm.provider "virtualbox" do |v|
+      v.name = "snap-app-staging"
+      # Running the functional tests with Selenium/Firefox has started causing out-of-memory errors.
+      #
+      # This started around October 14th and was first observed on the task-queue branch. There are two likely causes:
+      # 1. The new job queue backend (redis) is taking up a significant amount of memory. According to top, it is not (a couple MB on average).
+      # 2. Firefox 33 was released on October 13th: https://www.mozilla.org/en-US/firefox/33.0/releasenotes/ It may require more memory than the previous version did.
+    end
+    snap.vm.provision "ansible" do |ansible|
+      ansible.playbook = "install_files/ansible-base/securedrop-staging.yml"
+      ansible.verbose = 'v'
+      # Taken from the parallel execution tips and tricks
+      # https://docs.vagrantup.com/v2/provisioning/ansible.html
+      ansible.limit = 'all'
+      # Skipping the apparmor complain mode tasks to make the environment
+      # closer to prod
+      # Skipping sudoers because it breaks snap-ci -> digital ocean droplets
+      # connections
+      # Skipping grsec because it is not supported on Digital ocean droplets
+      # Skipping install_local_pkgs because we will need to coordinate the
+      # build vm to create the deb packages prior to the snapp-*-staging stage.
+      ansible.skip_tags =  [ "install_local_pkgs", "aa-complain", "sudoers", "grsec", "ossec" ]
+    end
+  end
+
+
   # This is needed for the Snap-ci to provision the digital ocean vps
   config.vm.provider :digital_ocean do |provider, override|
+    # In snap-ci the contents of the ssh keyfile should be saved as a `Secure
+    # Files` to the default locations /var/snap-ci/repo/id_rsa and
+    # /var/snap-ci/repo/id_rsa.pub
     override.ssh.private_key_path = "/var/snap-ci/repo/id_rsa"
+    override.ssh.username = "vagrant"
     override.vm.box = 'digital_ocean'
     override.vm.box_url = "https://github.com/smdahlen/vagrant-digitalocean/raw/master/box/digital_ocean.box"
-    # TODO: check for existence of env var and warn if absent
-    provider.token = ENV['DO_SNAPCI_SECUREDROP']
-    provider.region = 'sfo1'
-    provider.size = '512mb'
-    # allow automatic creation of "vagrant user"
-    override.ssh.username = 'vagrant'
-    provider.setup = true
+    provider.token = ENV['DO_API_TOKEN']
+    provider.ssh_key_name = ENV['DO_SSH_KEYFILE_NAME']
+    provider.image = ENV['DO_IMAGE_NAME']
+    provider.setup = 'true'
+    provider.region = ENV['DO_REGION']
+    provider.size = ENV['DO_SIZE']
   end
 end
