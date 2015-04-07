@@ -1,4 +1,4 @@
-require 'spec_helper'
+#require 'spec_helper'
 
 # Apparmor package dependencies
 ['apparmor', 'apparmor-utils' ].each do |pkg|

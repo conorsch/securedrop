@@ -1,4 +1,4 @@
-require 'spec_helper'
+#require 'spec_helper'
 
 describe iptables do
   # These are the staging specific rules that should not be present in prod

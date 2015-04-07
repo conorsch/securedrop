@@ -1,4 +1,4 @@
-require 'spec_helper'
+#require 'spec_helper'
 
 ['securedrop-grsec'].each do |pkg|
   describe package(pkg) do
