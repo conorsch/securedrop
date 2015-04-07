@@ -67,7 +67,7 @@ Vagrant.configure("2") do |config|
       ansible.verbose = 'v'
       # Taken from the parallel execution tips and tricks
       # https://docs.vagrantup.com/v2/provisioning/ansible.html
-      ansible.limit = 'all'
+      ansible.limit = 'app-staging'
       ansible.tags = ENV['STAGING_TAGS']
       # Quickest boot
       #ansible.skip_tags = [ "common", "ossec", 'app-test' ]
