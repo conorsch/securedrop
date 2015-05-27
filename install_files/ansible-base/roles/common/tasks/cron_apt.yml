@@ -1,4 +1,20 @@
 ---
+# unattended-upgrades conflicts with cron-apt for installing
+# security updates. By default unattended-upgrades doesn't
+# preserve edited configuration files, which will cause apt
+# to fail when trying to upgrade in headless mode.
+# Subsequent tasks below will configure cron-apt
+# to preserve old config files below via /etc/cron-apt/config
+- name: remove unattended-upgrades package
+  apt:
+    name: unattended-upgrades
+    state: absent
+    purge: yes
+  tags:
+    - apt
+    - cron-apt
+    - unattended-upgrades
+
 - name: install cron-apt to handle unattended security upgrades
   apt:
     name: cron-apt
