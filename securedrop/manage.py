@@ -58,7 +58,7 @@ def _start_test_rqworker(config):
 
 
 def _stop_test_rqworker():
-    os.kill(get_pid_from_pidfile(WORKER_PIDFILE), signal.SIGTERM)
+    os.kill(get_pid_from_pidfile(WORKER_PIDFILE), signal.SIGKILL)
     os.unlink(WORKER_PIDFILE)
 
 
