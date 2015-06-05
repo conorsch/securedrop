@@ -34,6 +34,9 @@ bundle exec rake spec:development
 # so the snap-ci stage times out (fails).
 vagrant ssh development --command "cd /vagrant/securedrop && ./test.sh" 0<&-
 
+echo "Opening snap shell for debugging."
+snap-shell
+
 echo ""
 echo "#### Rerunning tests ####"
 echo ""
