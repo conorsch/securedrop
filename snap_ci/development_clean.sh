@@ -22,8 +22,8 @@ vagrant up development --no-provision --provider digital_ocean
 vagrant provision development
 
 # Run serverspec tests
-cd /var/snap-ci/repo/spec_tests/
-bundle exec rake spec:development
+#cd /var/snap-ci/repo/spec_tests/
+#bundle exec rake spec:development
 
 # Run application tests
 # Important: these app tests are AFTER spectests because they've been hanging in snap.
