@@ -19,6 +19,8 @@ from db import db_session, Journalist
 
 from management import run
 
+import pystuck; pystuck.run_server()
+
 # We need to import config in each function because we're running the tests
 # directly, so it's important to set the environment correctly, depending on
 # development or testing, before importing config.
