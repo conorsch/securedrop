@@ -39,11 +39,11 @@ def get_pid_from_pidfile(pid_file_name):
 def _start_test_rqworker(config):
     # needed to determine the directory to run the worker in
     worker_running = False
-    try:
-        if psutil.pid_exists(get_pid_from_pidfile(WORKER_PIDFILE)):
-            worker_running = True
-    except IOError:
-        pass
+ #   try:
+    if psutil.pid_exists(get_pid_from_pidfile(WORKER_PIDFILE)):
+        worker_running = True
+#    except IOError:
+#        pass
 
     if not worker_running:
         tmp_logfile = open("/tmp/test_rqworker.log", "w")
@@ -59,6 +59,7 @@ def _start_test_rqworker(config):
 
 def _stop_test_rqworker():
     os.kill(get_pid_from_pidfile(WORKER_PIDFILE), signal.SIGTERM)
+    os.unlink(WORKER_PIDFILE)
 
 
 def test():
