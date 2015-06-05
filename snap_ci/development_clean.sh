@@ -39,3 +39,5 @@ echo "#### Rerunning tests ####"
 echo ""
 
 vagrant ssh development --command "cd /vagrant/securedrop && ./manage.py test" 0<&-
+
+echo "^ exit code from second test run is: $?"
