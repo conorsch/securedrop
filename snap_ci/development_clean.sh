@@ -15,7 +15,7 @@ function cleanup {
 
 # If the previous build in snap-ci failed, the droplet
 # will still exist. Ensure that it's gone with a pre-emptive destroy.
-cleanup
+#cleanup
 
 # Up the host in a separate command to avoid snap-ci command timeouts.
 vagrant up development --no-provision --provider digital_ocean
@@ -32,5 +32,5 @@ bundle exec rake spec:development
 # https://docs.snap-ci.com/troubleshooting/#my-build-is-timing-out
 # These app tests run fine, but always hang before returning to the shell,
 # so the snap-ci stage times out (fails).
-vagrant ssh development --command "cd /vagrant/securedrop && ./test.sh" 0<&-
+vagrant ssh development --command 'cd /vagrant/securedrop && ./manage.py test' 0<&-
 
