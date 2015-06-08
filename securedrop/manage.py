@@ -56,10 +56,10 @@ def _start_test_rqworker(config):
         pass
 
     if not worker_running:
-        sys.stdout.write("_start_ : pid existence check FALSE")
+        sys.stdout.write("_start_ : pid existence check FALSE\n")
         sys.stdout.flush()
         tmp_logfile = open("/tmp/test_rqworker.log", "w")
-        sys.stdout.write("_start_ : Calling rqworker via subprocess")
+        sys.stdout.write("_start_ : Calling rqworker via subprocess\n")
         sys.stdout.flush()
         subprocess.Popen(
             [
@@ -69,17 +69,17 @@ def _start_test_rqworker(config):
             ],
             stdout=tmp_logfile,
             stderr=subprocess.STDOUT)
-        sys.stdout.write("_start_ : Finished calling rqworker via subprocess")
+        sys.stdout.write("_start_ : Finished calling rqworker via subprocess\n")
         sys.stdout.flush()
 
 
 def _stop_test_rqworker():
-    sys.stdout.write("_stop_ : Entering def")
+    sys.stdout.write("_stop_ : Entering def\n")
     sys.stdout.flush()
-    sys.stdout.write("_stop_ : Killing rqworker process via SIGKILL")
+    sys.stdout.write("_stop_ : Killing rqworker process via SIGKILL\n")
     sys.stdout.flush()
     os.kill(get_pid_from_pidfile(WORKER_PIDFILE), signal.SIGKILL)
-    sys.stdout.write("_stop_ : Removing pid file from /tmp")
+    sys.stdout.write("_stop_ : Removing pid file from /tmp\n")
     sys.stdout.flush()
     os.unlink(WORKER_PIDFILE)
 
@@ -88,22 +88,22 @@ def test():
     """
     Runs the test suite
     """
-    sys.stdout.write("Entering _test_ def")
+    sys.stdout.write("Entering _test_ def\n")
     sys.stdout.flush()
     os.environ['SECUREDROP_ENV'] = 'test'
     import config
-    sys.stdout.write("_test_: Starting rqworker process")
+    sys.stdout.write("_test_: Starting rqworker process\n")
     sys.stdout.flush()
     _start_test_rqworker(config)
 
     test_cmds = ["py.test", "./test.sh"]
-    sys.stdout.write("_test_: Running test cmds")
+    sys.stdout.write("_test_: Running test cmds\n")
     sys.stdout.flush()
     test_rc = int(any([subprocess.call(cmd) for cmd in test_cmds]))
-    sys.stdout.write("_test_: Stopping rqworker process")
+    sys.stdout.write("_test_: Stopping rqworker process\n")
     sys.stdout.flush()
     _stop_test_rqworker()
-    sys.stdout.write("_test_: Exiting via sys.exit")
+    sys.stdout.write("_test_: Exiting via sys.exit\n")
     sys.stdout.flush()
     sys.exit(test_rc)
 
