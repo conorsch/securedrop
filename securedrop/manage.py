@@ -84,8 +84,9 @@ def test():
     print("_test_: Starting rqworker process")
     _start_test_rqworker(config)
 
-    print("_test_: Running test cmds")
     test_cmds = ["py.test", "./test.sh"]
+    print("_test_: Running test cmds")
+    test_rc = int(any([subprocess.call(cmd) for cmd in test_cmds]))
     print("_test_: Stopping rqworker process")
     _stop_test_rqworker()
     print("_test_: Exiting via sys.exit")
