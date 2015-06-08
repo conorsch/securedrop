@@ -30,7 +30,8 @@ import pystuck; pystuck.run_server()
 
 os.environ['SECUREDROP_ENV'] = 'dev'
 
-WORKER_PIDFILE = "/tmp/test_rqworker.pid"
+# WORKER_PIDFILE = "/tmp/test_rqworker.pid"
+from config import WORKER_PIDFILE
 
 
 def get_pid_from_pidfile(pid_file_name):
