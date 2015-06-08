@@ -40,21 +40,26 @@ def get_pid_from_pidfile(pid_file_name):
 
 
 def _start_test_rqworker(config):
-    print("_start_ : Entering def")
+    sys.stdout.write("_start_ : Entering def\n")
+    sys.stdout.flush()
     # needed to determine the directory to run the worker in
     worker_running = False
     try:
-        print("_start_ : Checking for pid existence")
+        sys.stdout.write("_start_ : Checking for pid existence\n")
+        sys.stdout.flush()
         if psutil.pid_exists(get_pid_from_pidfile(WORKER_PIDFILE)):
-            print("_start_ : pid existence check TRUE")
+            sys.stdout.write("_start_ : pid existence check TRUE\n")
+            sys.stdout.flush()
             worker_running = True
     except IOError:
         pass
 
     if not worker_running:
-        print("_start_ : pid existence check FALSE")
+        sys.stdout.write("_start_ : pid existence check FALSE")
+        sys.stdout.flush()
         tmp_logfile = open("/tmp/test_rqworker.log", "w")
-        print("_start_ : Calling rqworker via subprocess")
+        sys.stdout.write("_start_ : Calling rqworker via subprocess")
+        sys.stdout.flush()
         subprocess.Popen(
             [
                 "rqworker", "test",
@@ -63,14 +68,18 @@ def _start_test_rqworker(config):
             ],
             stdout=tmp_logfile,
             stderr=subprocess.STDOUT)
-        print("_start_ : Finished calling rqworker via subprocess")
+        sys.stdout.write("_start_ : Finished calling rqworker via subprocess")
+        sys.stdout.flush()
 
 
 def _stop_test_rqworker():
-    print("_stop_ : Entering def")
-    print("_stop_ : Killing rqworker process via SIGKILL")
+    sys.stdout.write("_stop_ : Entering def")
+    sys.stdout.flush()
+    sys.stdout.write("_stop_ : Killing rqworker process via SIGKILL")
+    sys.stdout.flush()
     os.kill(get_pid_from_pidfile(WORKER_PIDFILE), signal.SIGKILL)
-    print("_stop_ : Removing pid file from /tmp")
+    sys.stdout.write("_stop_ : Removing pid file from /tmp")
+    sys.stdout.flush()
     os.unlink(WORKER_PIDFILE)
 
 
@@ -78,18 +87,23 @@ def test():
     """
     Runs the test suite
     """
-    print("Entering _test_ def")
+    sys.stdout.write("Entering _test_ def")
+    sys.stdout.flush()
     os.environ['SECUREDROP_ENV'] = 'test'
     import config
-    print("_test_: Starting rqworker process")
+    sys.stdout.write("_test_: Starting rqworker process")
+    sys.stdout.flush()
     _start_test_rqworker(config)
 
     test_cmds = ["py.test", "./test.sh"]
-    print("_test_: Running test cmds")
+    sys.stdout.write("_test_: Running test cmds")
+    sys.stdout.flush()
     test_rc = int(any([subprocess.call(cmd) for cmd in test_cmds]))
-    print("_test_: Stopping rqworker process")
+    sys.stdout.write("_test_: Stopping rqworker process")
+    sys.stdout.flush()
     _stop_test_rqworker()
-    print("_test_: Exiting via sys.exit")
+    sys.stdout.write("_test_: Exiting via sys.exit")
+    sys.stdout.flush()
     sys.exit(test_rc)
 
 
