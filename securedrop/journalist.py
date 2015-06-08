@@ -145,6 +145,7 @@ def logout():
 
 
 @app.route('/admin', methods=('GET', 'POST'))
+@admin_required
 def admin_index():
     users = Journalist.query.all()
     return render_template("admin.html", users=users)
