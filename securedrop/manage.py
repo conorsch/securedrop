@@ -28,7 +28,7 @@ from management import run
 
 os.environ['SECUREDROP_ENV'] = 'dev'
 
-WORKER_PIDFILE = "/tmp/test_rqworker.pid"
+from config import WORKER_PIDFILE
 
 
 def get_pid_from_pidfile(pid_file_name):
