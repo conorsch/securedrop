@@ -7,8 +7,12 @@
 
 
 # Cache and install Vagrant
-[[ -f ${SNAP_CACHE_DIR}/$vagrant_rpm ]] || wget https://dl.bintray.com/mitchellh/vagrant/$vagrant_rpm -O ${SNAP_CACHE_DIR}/$vagrant_rpm
-[[ -x /usr/bin/vagrant ]] || sudo -E rpm -ivh ${SNAP_CACHE_DIR}/$vagrant_rpm
+vagrant_rpm="${vagrant_rpm:-vagrant_1.7.2_x86_64.rpm}"
+#[[ -f ${SNAP_CACHE_DIR}/$vagrant_rpm ]] || wget https://dl.bintray.com/mitchellh/vagrant/$vagrant_rpm -O ${SNAP_CACHE_DIR}/$vagrant_rpm
+#[[ -x /usr/bin/vagrant ]] || sudo -E rpm -ivh ${SNAP_CACHE_DIR}/$vagrant_rpm
+# temporarily force download of vagrant rpm to fix broken rpm package
+wget https://dl.bintray.com/mitchellh/vagrant/$vagrant_rpm -O ${SNAP_CACHE_DIR}/$vagrant_rpm
+sudo -E rpm -ivh ${SNAP_CACHE_DIR}/$vagrant_rpm
 # TODO: Check for vagrant plugins before installing them.
 
 # An older version of digital_ocean plugin is used because of an issue with the
