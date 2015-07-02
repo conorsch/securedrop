@@ -46,8 +46,8 @@ Vagrant.configure("2") do |config|
     staging.vm.hostname = "app-staging"
     staging.vm.box = "trusty64"
     staging.vm.network "private_network", ip: "10.0.1.2", virtualbox__intnet: true
-    staging.vm.network "forwarded_port", guest: 80, host: 8082
-    staging.vm.network "forwarded_port", guest: 8080, host: 8083
+    staging.vm.network "forwarded_port", guest: 80, host: 8082, auto_correct: true
+    staging.vm.network "forwarded_port", guest: 8080, host: 8083, auto_correct: true
     staging.vm.synced_folder './', '/vagrant', disabled: true
     staging.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
     staging.vm.provider "virtualbox" do |v|
