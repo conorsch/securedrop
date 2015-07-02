@@ -40,9 +40,6 @@ Vagrant.configure("2") do |config|
     staging.hostmanager.aliases = %w(securedrop-monitor-server-alias)
     staging.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
     staging.vm.synced_folder './', '/vagrant', disabled: true
-    staging.vm.provider "virtualbox" do |v|
-      v.name = "mon-staging"
-    end
   end
 
   config.vm.define 'app-staging', autostart: false do |staging|
@@ -54,7 +51,6 @@ Vagrant.configure("2") do |config|
     staging.vm.synced_folder './', '/vagrant', disabled: true
     staging.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
     staging.vm.provider "virtualbox" do |v|
-      v.name = "app-staging"
       # Running the functional tests with Selenium/Firefox has started causing out-of-memory errors.
       #
       # This started around October 14th and was first observed on the task-queue branch. There are two likely causes:
