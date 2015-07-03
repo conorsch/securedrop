@@ -21,9 +21,7 @@ Vagrant.configure("2") do |config|
       ansible.verbose = 'v'
     end
     development.vm.provider "virtualbox" do |v|
-      v.name = "development"
       # Running the functional tests with Selenium/Firefox has started causing out-of-memory errors.
-      #
       # This started around October 14th and was first observed on the task-queue branch. There are two likely causes:
       # 1. The new job queue backend (redis) is taking up a significant amount of memory. According to top, it is not (a couple MB on average).
       # 2. Firefox 33 was released on October 13th: https://www.mozilla.org/en-US/firefox/33.0/releasenotes/ It may require more memory than the previous version did.
@@ -93,9 +91,6 @@ Vagrant.configure("2") do |config|
     prod.vm.network "private_network", ip: "10.0.1.5", virtualbox__intnet: true
     prod.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
     prod.vm.synced_folder './', '/vagrant', disabled: true
-    prod.vm.provider "virtualbox" do |v|
-      v.name = "mon-prod"
-    end
   end
 
   config.vm.define 'app-prod', autostart: false do |prod|
@@ -110,7 +105,6 @@ Vagrant.configure("2") do |config|
     prod.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
     prod.vm.synced_folder './', '/vagrant', disabled: true
     prod.vm.provider "virtualbox" do |v|
-      v.name = "app-prod"
       # Running the functional tests with Selenium/Firefox has started causing out-of-memory errors.
       #
       # This started around October 14th and was first observed on the task-queue branch. There are two likely causes:
@@ -139,9 +133,6 @@ Vagrant.configure("2") do |config|
       ansible.verbose = 'v'
       ansible.skip_tags = ENV['BUILD_SKIP_TAGS']
     end
-    build.vm.provider "virtualbox" do |v|
-      v.name = "build"
-    end
   end
 
   config.vm.define 'snapci', autostart: false do |build|
@@ -151,9 +142,6 @@ Vagrant.configure("2") do |config|
     build.vm.provision "ansible" do |ansible|
       ansible.playbook = "install_files/ansible-base/securedrop-snapci.yml"
       ansible.verbose = 'vvvv'
-    end
-    build.vm.provider "virtualbox" do |v|
-      v.name = "snapci"
     end
   end
 
