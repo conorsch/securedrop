@@ -88,7 +88,7 @@ Vagrant.configure("2") do |config|
     end
     prod.vm.hostname = "mon-prod"
     prod.vm.box = "trusty64"
-    prod.vm.network "private_network", ip: "10.0.1.5", virtualbox__intnet: true
+    prod.vm.network "private_network", type: :dhcp
     prod.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
     prod.vm.synced_folder './', '/vagrant', disabled: true
   end
@@ -101,7 +101,7 @@ Vagrant.configure("2") do |config|
     end
     prod.vm.hostname = "app-prod"
     prod.vm.box = "trusty64"
-    prod.vm.network "private_network", ip: "10.0.1.4", virtualbox__intnet: true
+    prod.vm.network "private_network", type: :dhcp
     prod.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
     prod.vm.synced_folder './', '/vagrant', disabled: true
     prod.vm.provider "virtualbox" do |v|
