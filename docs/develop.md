@@ -60,8 +60,6 @@ If you're using Ubuntu, you can install a sufficiently recent version of Ansible
 
 *Tested: Ansible 1.8.4*
 
-**Warning: for now, we do not recommend installing vagrant-cachier.** It destroys apt's state unless the VMs are always shut down/rebooted with Vagrant, which conflicts with the tasks in the Ansible playbooks. The instructions in Vagrantfile that would enable vagrant-cachier are currently commented out.
-
 ## Mac OS X
 
 Install the requirements:
