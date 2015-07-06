@@ -246,6 +246,18 @@ To test the development environment in Tor Browser, you need to add an exception
 
 You should now be able to access the development server in the Tor Browser by navigating to `127.0.0.1:8080` and `127.0.0.1:8081`.
 
+## Vagrant plugins
+
+No Vagrant plugins are required for developing SecureDrop.
+However, several plugins may be useful:
+
+* [vagrant-digitalocean](https://github.com/smdahlen/vagrant-digitalocean) allows provisioning of machines as DigitalOcean droplets
+* [vagrant-pristine](https://github.com/fgrehm/vagrant-pristine) chains `destroy` and `up` commands for rebuilding boxes from scratch
+  (slated for inclusion in Vagrant core)
+* [vagrant-vbox-snapshot](https://github.com/dergachev/vagrant-vbox-snapshot) takes VirtualBox snapshots of machines for easy rollback
+
+Refer to the documentation for each plugin for setup information.
+
 # Version Notes
 
 This documentation has been tested and confirmed to work on:
