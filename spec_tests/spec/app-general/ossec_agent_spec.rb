@@ -2,8 +2,9 @@
 describe file('/etc/hosts') do
   localhost_regex = /^#{Regexp.quote('127.0.1.1')}(\s+#{property['app_hostname']}){2}$/
   its(:content) { should match localhost_regex }
-  # TODO: the "securedrop-monitor-server-alias" is an artifact of
-  # using the vagrant-hostmanager plugin. it may no longer be necessary
+  # The "securedrop-monitor-server-alias" entry is declared in host_vars/app.yml
+  # and in /var/ossec/etc/ossec.conf, as part of the securedrop-ossec-agent deb package.
+  # The strings in both locations must match.
   mon_host_regex = Regexp.quote("#{property['monitor_ip']}  #{property['monitor_hostname']} securedrop-monitor-server-alias")
   its(:content) { should match /^#{mon_host_regex}$/ }
 end
