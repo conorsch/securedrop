@@ -258,7 +258,6 @@ Vagrant 1.7.2
 ```
 
 ```
-vagrant-hostmanager (1.5.0)
 vagrant-login (1.0.1, system)
 vagrant-share (1.1.3, system)
 ```
