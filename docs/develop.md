@@ -268,8 +268,10 @@ Vagrant 1.7.2
 ```
 
 ```
-vagrant-login (1.0.1, system)
+vagrant-digitalocean (0.7.4)
+vagrant-pristine (0.3.0)
 vagrant-share (1.1.3, system)
+vagrant-vbox-snapshot (0.0.9)
 ```
 
 ```
