@@ -31,7 +31,6 @@ vagrant_url="https://dl.bintray.com/mitchellh/vagrant/${vagrant_rpm}"
 # https://github.com/smdahlen/vagrant-digitalocean/issues/187
 #/usr/bin/vagrant plugin install vagrant-digitalocean --plugin-version '0.7.0'
 vagrant plugin install vagrant-digitalocean
-vagrant plugin install vagrant-hostmanager
 
 # Install Ansible dependencies
 sudo yum install python-pip
