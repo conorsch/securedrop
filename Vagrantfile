@@ -163,12 +163,6 @@ Vagrant.configure("2") do |config|
     end
   end
 
-
-  # "Quick Start" config from https://github.com/fgrehm/vagrant-cachier#quick-start
-  #if Vagrant.has_plugin?("vagrant-cachier")
-  #  config.cache.scope = :box
-  #end
-
   # This is needed for Snap-CI to provision the DigitalOcean VPS.
   # Check for presence of `vagrant-digitalocean` plugin, and required env var,
   # and only configure this provider if both conditions are met. Otherwise,
