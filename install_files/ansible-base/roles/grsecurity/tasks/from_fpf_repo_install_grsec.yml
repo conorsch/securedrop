@@ -32,7 +32,9 @@
 
 - name: make the required grub paxctl changes
   command: paxctl -Cpm {{ item }}
-  with_items: grub_pax
+  with_items:
+    - /usr/sbin/grub-probe
+    - /usr/sbin/grub-mkdevicemap
   tags:
     - paxctl
     - kernel
@@ -40,7 +42,7 @@
 
 - name: install grsec package from fpf repo
   apt:
-    pkg: "{{ grsec_package }}"
+    pkg: securedrop-grsec
     state: latest
   async: 300
   poll: 10
