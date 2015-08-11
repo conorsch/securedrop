@@ -16,8 +16,8 @@
     owner: root
     mode: '0644'
   with_items:
-   - sshd_config
    - ssh_config
+   - sshd_config
   tags:
     - ssh
     - 2fa
