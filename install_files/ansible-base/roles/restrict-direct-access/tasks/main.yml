@@ -1,6 +1,6 @@
 ---
-- include: app_display_onions.yml
+- include: fetch_tor_config.yml
 
 - include: ssh.yml
 
-- include: app_iptables.yml
+- include: iptables.yml
