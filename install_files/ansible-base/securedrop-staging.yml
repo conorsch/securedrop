@@ -43,15 +43,13 @@
   # So iptables will not be reloaded until the exemptions are applied
   # for production the last task is apply iptables. This will break their
   # connection. After that point the admin will to proxy traffic over tor.
-- hosts: app-staging
+- hosts: staging
   roles:
     - { role: restrict-direct-access, tags: [ 'common', 'restrict-direct-access' ] }
     - { role: allow_direct_access, tags: [ 'common', 'allow_direct_access' ] }
-    - { role: backup, tags: backup }
   sudo: yes
 
-- hosts: mon-staging
+- hosts: app-staging
   roles:
-    - { role: restrict-direct-access, tags: [ 'common', 'restrict-direct-access' ] }
-    - { role: allow_direct_access, tags: [ 'common', 'allow_direct_access' ] }
+    - { role: backup, tags: backup }
   sudo: yes
