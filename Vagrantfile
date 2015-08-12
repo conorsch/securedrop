@@ -148,6 +148,11 @@ Vagrant.configure("2") do |config|
       ansible.playbook = "install_files/ansible-base/build-deb-pkgs.yml"
       ansible.verbose = 'v'
       ansible.skip_tags = ENV['BUILD_SKIP_TAGS']
+      ansible.groups = {
+        'development' => %(build),
+        'app' => %(build),
+        'securedrop:children' => %w(development),
+      }
     end
     build.vm.provider "virtualbox" do |v|
       v.name = "build"
