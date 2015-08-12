@@ -19,6 +19,11 @@ Vagrant.configure("2") do |config|
       ansible.playbook = "install_files/ansible-base/securedrop-development.yml"
       ansible.skip_tags = ENV['SECUREDROP_DEVELOPMENT_SKIP_TAGS'] || 'non-development'
       ansible.verbose = 'v'
+      ansible.groups = {
+        'development' => %(development),
+        'app' => %w(development),
+        'securedrop:children' => %w(development),
+      }
     end
     development.vm.provider "virtualbox" do |v|
       v.name = "development"
