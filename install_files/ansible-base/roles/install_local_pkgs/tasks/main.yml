@@ -1,4 +1,14 @@
 ---
+# gdebi is smart enough to pull down dependences listed in a .deb package
+- name: install gdebi for dependency management in local packages
+  apt:
+    name: gdebi
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+  tags:
+    - install_local_pkgs
+
 # This will look for packages in install_files/ansible-base
 - name: if defined copy local deb packages to target system
   copy:
@@ -8,13 +18,15 @@
   tags:
     - install_local_pkgs
 
-# TODO:
-# This should use the ansible apt module
-# apt: deb=/root/{{ item }}
-# but keep getting an error when using a list with that module. Using the shell
-# command as a temp work around until that is resolved.
+# There's a known bug in Ansible that causes installing
+# .deb packages via the apt module to fail when invoked
+# with `with_items`. See here:
+# https://github.com/ansible/ansible-modules-core/issues/1178
+# A temporary workaround is to use gdebi, which is smart
+# enough to handle pulling down dependencies listed in the
+# .deb package.
 - name: if defined install local deb packages
-  shell: "dpkg -i /root/{{ item }} || true && apt-get -f install -y"
+  command: gdebi -n /root/{{ item }}
   with_items: local_deb_packages
   tags:
     - install_local_pkgs
