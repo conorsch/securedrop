@@ -95,7 +95,7 @@ Vagrant.configure("2") do |config|
         'staging:children' => %w(app mon),
         'securedrop:children' => %w(app mon),
       }
-      ansible.skip_tags = ENV['SECUREDROP_STAGING_SKIP_TAGS'] || 'install_local_pkgs'
+      ansible.skip_tags = ENV['SECUREDROP_STAGING_SKIP_TAGS']
     end
   end
 
