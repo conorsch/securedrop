@@ -49,3 +49,5 @@ sysctl_flags:
     value: "1"
 
 ossec_group: ossec
+grsecurity: true
+

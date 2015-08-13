@@ -85,6 +85,10 @@ Vagrant.configure("2") do |config|
       #ansible.skip_tags = [ "grsec",  "ossec", "app-test" ]
       # Testing the full install install with local access exemptions
       # This requires to also up mon-staging or else authd will error
+
+      # Hack to trick Vagrant into parsing the command-line args for
+      # Ansible options, see https://gist.github.com/phantomwhale/9657134
+      ansible.raw_arguments = Shellwords.shellsplit(ENV['ANSIBLE_ARGS']) if ENV['ANSIBLE_ARGS']
       ansible.groups = {
         'app' => %(app-staging),
         'mon' => %(mon-staging),
