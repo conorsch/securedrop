@@ -50,4 +50,5 @@ sysctl_flags:
 
 ossec_group: ossec
 grsecurity: true
+install_local_packages: false
 
