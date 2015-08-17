@@ -31,7 +31,7 @@
   # service needs to be listening and reachable, then agent needs to connect to
   # ossec server, agent needs to restart, then ossec server exemptions can be
   # removed and the ossec server process can restart.
-- hosts: app-staging
+- hosts: mon-staging
   roles:
     - { role: remove_authd_exemptions, tags: ['ossec', 'ossec_server', 'remove_authd_exemptions' ] }
   sudo: yes
