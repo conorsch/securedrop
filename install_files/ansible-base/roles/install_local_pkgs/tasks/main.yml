@@ -9,7 +9,9 @@
   tags:
     - install_local_pkgs
 
-# This will look for packages in install_files/ansible-base
+# This will look for packages in install_files/ansible-base,
+# so the "build" directory is relative to playbook, which is
+# why the parent dirs ("..") are necessary.
 - name: if defined copy local deb packages to target system
   copy:
     src: ../../build/{{ item }}
