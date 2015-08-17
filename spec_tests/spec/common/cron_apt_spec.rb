@@ -60,8 +60,7 @@ describe file('/etc/cron-apt/action.d/3-download') do
 end
 
 desired_cronjobs = [
-  '0 4 * * * root    /usr/bin/test -x /usr/sbin/cron-apt && /usr/sbin/cron-apt',
-  '0 5 * * * root    /sbin/reboot',
+  '0 4 * * * root    /usr/bin/test -x /usr/sbin/cron-apt && /usr/sbin/cron-apt && /sbin/reboot',
 ]
 # ensure the cron.d config for cron-apt exists
 describe file('/etc/cron.d/cron-apt') do
