@@ -1,15 +1,5 @@
 # OSSEC Guide
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
-
-- [Setting up OSSEC alerts](#setting-up-ossec-alerts)
-  - [Using Gmail for OSSEC alerts](#using-gmail-for-ossec-alerts)
-- [Troubleshooting](#troubleshooting)
-- [Analyzing the Alerts](#analyzing-the-alerts)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Setting up OSSEC alerts
 

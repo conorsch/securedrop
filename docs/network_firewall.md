@@ -1,26 +1,6 @@
 Network Firewall Setup Guide
 ============================
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
-
-- [Before you begin](#before-you-begin)
-- [Initial Setup](#initial-setup)
-  - [Assign interfaces](#assign-interfaces)
-  - [Initial configuration](#initial-configuration)
-    - [Connect to the pfSense WebGUI](#connect-to-the-pfsense-webgui)
-    - [Setup Wizard](#setup-wizard)
-    - [Connect Interfaces and Test Connectivity](#connect-interfaces-and-test-connectivity)
-- [SecureDrop-specific Configuration](#securedrop-specific-configuration)
-  - [Set up OPT1](#set-up-opt1)
-  - [Disable DHCP on the LAN](#disable-dhcp-on-the-lan)
-    - [Disabling DHCP](#disabling-dhcp)
-    - [Assigning a static IP address to the Admin Workstation](#assigning-a-static-ip-address-to-the-admin-workstation)
-  - [Set up the network firewall rules](#set-up-the-network-firewall-rules)
-    - [Example Screenshots](#example-screenshots)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 Unfortunately, due to the wide variety of firewalls that may be used, we do not provide specific instructions to cover every type or variation in software or hardware.
 
