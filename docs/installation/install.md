@@ -86,7 +86,7 @@ Then click *Lock*, enter your password one more time and wait for the system tim
 
 Once that's done, follow the steps below to create a GPG key.
 
-* Open a terminal ![Terminal](images/terminal.png) and run `gpg --gen-key`
+* Open a terminal ![Terminal](/../images/terminal.png) and run `gpg --gen-key`
 * When it says, `Please select what kind of key you want`, choose `(1) RSA and RSA (default)`
 * When it asks, `What keysize do you want?` type **`4096`**
 * When it asks, `Key is valid for?` press Enter to keep the default
@@ -98,28 +98,28 @@ Once that's done, follow the steps below to create a GPG key.
 * It will pop up a box asking you to type a passphrase, but it's safe to click okay without typing one (since your persistent volume is encrypted, this GPG key is already protected)
 * Wait for your GPG key to finish generating
 
-To manage GPG keys using the graphical interface (a program called Seahorse), click the clipboard icon ![gpgApplet](images/gpgapplet.png) in the top right corner and select "Manage Keys". You should see the key that you just generated under "GnuPG Keys."
+To manage GPG keys using the graphical interface (a program called Seahorse), click the clipboard icon ![gpgApplet](../images/gpgapplet.png) in the top right corner and select "Manage Keys". You should see the key that you just generated under "GnuPG Keys."
 
-![My Keys](images/install/keyring.png)
+![My Keys](../images/install/keyring.png)
 
 Select the key you just generated and click "File" then "Export". Save the key to the *Transfer Device* as `SecureDrop.pgp`, and make sure you change the file type from "PGP keys" to "Armored PGP keys" which can be switched right above the 'Export' button. Click the 'Export' button after switching to armored keys.
 
 NOTE: This is the public key only.
 
-![My Keys](images/install/exportkey.png)
-![My Keys](images/install/exportkey2.png)
+![My Keys](../images/install/exportkey.png)
+![My Keys](../images/install/exportkey2.png)
 
 You'll need to verify the fingerprint for this new key during the `App Server` installation. Double-click on the newly generated key and change to the `Details` tab. Write down the 40 hexadecimal digits under `Fingerprint`. (Your GPG key fingerprint will be different than what's in this photo.)
 
-![Fingerprint](images/install/fingerprint.png)
+![Fingerprint](../images/install/fingerprint.png)
 
 ### Import GPG keys for journalists with access to SecureDrop
 
 While working on a story, journalists may need to transfer some documents or notes from the *Secure Viewing Station* to the journalist's work computer on the corporate network. To do this, the journalists should re-encrypt them with their own keys. If a journalist does not already have a personal GPG key, he or she can follow the same steps above to create one. The journalist should store the private key somewhere safe; the public key should be stored on the *Secure Viewing Station*.
 
-If the journalist does have a key, transfer their public key from wherever it is located to the *Secure Viewing Station*, using the *Transfer Device*. Open the file manager ![Nautilus](images/nautilus.png) and double-click on the public key to import it. If the public key is not importing, rename the file to end in ".asc" and try again.
+If the journalist does have a key, transfer their public key from wherever it is located to the *Secure Viewing Station*, using the *Transfer Device*. Open the file manager ![Nautilus](../images/nautilus.png) and double-click on the public key to import it. If the public key is not importing, rename the file to end in ".asc" and try again.
 
-![Importing Journalist GPG Keys](images/install/importkey.png)
+![Importing Journalist GPG Keys](../images/install/importkey.png)
 
 At this point, you are done with the *Secure Viewing Station* for now. You can shut down Tails, grab the *admin Tails USB* and move over to your regular workstation.
 
@@ -135,11 +135,11 @@ After you boot the *admin Tails USB* on your normal workstation, you should see 
 
 Enter an *Administration password* for use with this specific Tails session and click *Login*. (NOTE: the *Administration password* is a one-time password. It will reset every time you shut down Tails.)
 
-After Tails is fully booted, make sure you're connected to the Internet ![Network](images/network-wired.png) and that the Tor's Vidalia indicator onion ![Vidalia](images/vidalia.png) is green, using the icons in the upper right corner.
+After Tails is fully booted, make sure you're connected to the Internet ![Network](../images/network-wired.png) and that the Tor's Vidalia indicator onion ![Vidalia](../images/vidalia.png) is green, using the icons in the upper right corner.
 
 ### Download the SecureDrop repository
 
-The rest of the SecureDrop-specific configuration is assisted by files stored in the SecureDrop Git repository. We're going to be using this again once SecureDrop is installed, but you should download it now. To get started, open a terminal ![Terminal](images/terminal.png). You will use this Terminal throughout the rest of the install process.
+The rest of the SecureDrop-specific configuration is assisted by files stored in the SecureDrop Git repository. We're going to be using this again once SecureDrop is installed, but you should download it now. To get started, open a terminal ![Terminal](../images/terminal.png). You will use this Terminal throughout the rest of the install process.
 
 Start by running the following commands to download the git repository.
 
@@ -175,7 +175,7 @@ You can find the template in `/Persistent/securedrop/tails_files/securedrop-keep
 
 To use the template:
 
- * Open the KeePassX program ![KeePassX](images/keepassx.png) which is already installed on Tails
+ * Open the KeePassX program ![KeePassX](../images/keepassx.png) which is already installed on Tails
  * Select `File`, `Import from...`, and `KeePassX XML (*.xml)`
  * Navigate to the location of `securedrop-keepassx.xml`, select it, and click `Open`
  * Set a strong master password to protect the password database (you will have to write this down/memorize it)
@@ -384,7 +384,7 @@ To disconnect enter the command `exit`. Now do the same thing on the Monitor Ser
 
 Now SSH to the App Server, `sudo su`, cd to /var/www/securedrop, and run `./manage.py add_admin` to create the first admin user for yourself. Make a password and store it in your KeePassX database. This admin user is for the SecureDrop Admin + Document Interface and will allow you to create accounts for the journalists.
 
-The `add_admin` command will require you to keep another two-factor authentication code. Once that's done, you should open the Tor Browser ![TorBrowser](images/torbrowser.png) and navigate to the Document Interface's .onion address.
+The `add_admin` command will require you to keep another two-factor authentication code. Once that's done, you should open the Tor Browser ![TorBrowser](../images/torbrowser.png) and navigate to the Document Interface's .onion address.
 
 For adding journalist users, please refer now to our [Admin Interface Guide](admin_interface.md).
 

@@ -50,7 +50,7 @@ Start by inserting the Ubuntu installation media into the server. Boot or reboot
 
 After booting the Ubuntu image, select **Install Ubuntu Server**.
 
-![Ubuntu Server](/images/install/ubuntu_server.png)
+![Ubuntu Server](/../images/install/ubuntu_server.png)
 
 Follow the steps to select your language, country and keyboard settings. Once that's done, let the installation process continue.
 

@@ -24,7 +24,7 @@ This may be difficult if your website serves advertisements or utilizes a legacy
 
 If you do not serve ads on any of your site, you should also consider switching your whole site over to HTTPS by default immediately. If you do serve ads, consider pressuring your ad networks to enable you to switch to HTTPS for your entire website in the future.
 
-If your website needs to operate in both HTTPS and HTTP mode, use protocol-relative URLs for resources such as images, CSS and JavaScript in common templates to ensure your page does not end up in a mixed HTTPS/HTTP state.
+If your website needs to operate in both HTTPS and HTTP mode, use protocol-relative URLs for resources such as ../images, CSS and JavaScript in common templates to ensure your page does not end up in a mixed HTTPS/HTTP state.
 
 Consider submitting your domain to be included in the [Chrome HSTS preload list](https://hstspreload.appspot.com/) if you can meet all of the requirements. This will tell web browsers that the site is only ever to be reached over HTTPS.
 

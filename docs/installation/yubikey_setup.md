@@ -18,7 +18,7 @@ First choose the configuration slot for this token. Unless you already use the Y
 
 In the section title "OATH-HOTP parameters", you will need to change the default settings. First, *uncheck* the checkbox for "OATH Token Identifier (6 bytes)". Also uncheck the box for "Hide secret". This will display the data in the "Secret Key (20 bytes hex)" field. This data cannot be copied unless the "Hide secret" box is unchecked.
 
-![YubiKey OATH-HOTP Configuration](images/yubikey_oath_hotp_configuration.png)
+![YubiKey OATH-HOTP Configuration](../images/yubikey_oath_hotp_configuration.png)
 
 Now that you have chosen the correct configuration options for use with SecureDrop, click the "Write Configuration" button. Click through the warning about overwriting Configuration Slot 1 and choose a location to save the log file.
 

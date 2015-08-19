@@ -49,7 +49,7 @@ We will use the pfSense WebGUI to do the initial configuration of the network fi
 
 3. Launch the *Unsafe Browser*, *Applications → Internet → Unsafe Browser*.
 
-   ![Launching the Unsafe Browser](images/firewall/launching_unsafe_browser.png)
+   ![Launching the Unsafe Browser](../images/firewall/launching_unsafe_browser.png)
 
     1. Note that the *Unsafe Browser* is, as the name suggests, **unsafe** (its
        traffic is not routed through Tor). However, it is the only option in
@@ -58,11 +58,11 @@ We will use the pfSense WebGUI to do the initial configuration of the network fi
 
     2. A dialog will ask "Do you really want to launch the Unsafe Browser?". Click **Launch**.
 
-       ![You really want to launch the Unsafe Browser](images/firewall/unsafe_browser_confirmation_dialog.png)
+       ![You really want to launch the Unsafe Browser](../images/firewall/unsafe_browser_confirmation_dialog.png)
 
     3. You will see a pop-up notification that says "Starting the Unsafe Browser..."
 
-       ![Pop-up notification](images/firewall/starting_the_unsafe_browser.png)
+       ![Pop-up notification](../images/firewall/starting_the_unsafe_browser.png)
 
     4. After a few seconds, the Unsafe Browser should launch. The window has a
        bright red border to remind you to be careful when using it. You should
@@ -70,7 +70,7 @@ We will use the pfSense WebGUI to do the initial configuration of the network fi
        Browser for any other web browsing you might do on the Admin
        Workstation.
 
-       ![Unsafe Browser Homepage](images/firewall/unsafe_browser.png)
+       ![Unsafe Browser Homepage](../images/firewall/unsafe_browser.png)
 
 4. Navigate to the pfSense GUI in the *Unsafe Browser*: `https://192.168.1.1`
 
@@ -129,7 +129,7 @@ Once again, be sure that the CIDR prefix correctly corresponds to your subnet ma
 
 pfSense runs a DHCP server on the LAN interface by default. At this stage in the documentation, the Admin Workstation has an IP address assigned via that DHCP server. You can easily check your current IP address by *right-clicking* the networking icon (a blue cable going in to a white jack) in the top right of the menu bar, and choosing "Connection Information".
 
-![Connection Information](images/firewall/connection_information.png)
+![Connection Information](../images/firewall/connection_information.png)
 
 In order to tighten the firewall rules as much as possible, we recommend disabling the DHCP server and assigning a static IP address to the Admin Workstation instead.
 
@@ -143,15 +143,15 @@ Now you will need to assign a static IP to the Admin Workstation. Use the *Admin
 
 Start by *right-clicking* the networking icon in the top right of the menu bar, and choosing "Edit Connections...".
 
-![Edit Connections](images/firewall/edit_connections.png)
+![Edit Connections](../images/firewall/edit_connections.png)
 
 Select "Wired connection" from the list and click the "Edit..." button.
 
-![Edit Wired Connection](images/firewall/edit_wired_connection.png)
+![Edit Wired Connection](../images/firewall/edit_wired_connection.png)
 
 Change to the "IPv4 Settings" tab. Change "Method:" from "Automatic (DHCP)" to "Manual". Click the Add button and fill in the static networking information for the Admin Workstation.
 
-![Editing Wired Connection](images/firewall/editing_wired_connection.png)
+![Editing Wired Connection](../images/firewall/editing_wired_connection.png)
 
 Click "Save...". If the network does not come up within 15 seconds or so, try disconnecting and reconnecting your network cable to trigger the change. You will need you have succeeded in connecting with your new static IP when you see a pop-up notification that says "Tor is ready. You can now access the Internet".
 
@@ -179,9 +179,9 @@ We recognize that this process is cumbersome and may be difficult for people ine
 
 Here are some example screenshots of a working pfSense firewall configuration.
 
-![Firewall IP Aliases](images/firewall/ip_aliases.png)
-![Firewall Port Aliases](images/firewall/port_aliases.png)
-![Firewall LAN Rules](images/firewall/lan_rules.png)
-![Firewall OPT1 Rules](images/firewall/opt1_rules.png)
+![Firewall IP Aliases](../images/firewall/ip_aliases.png)
+![Firewall Port Aliases](../images/firewall/port_aliases.png)
+![Firewall LAN Rules](../images/firewall/lan_rules.png)
+![Firewall OPT1 Rules](../images/firewall/opt1_rules.png)
 
 Once you've set up the firewall, **exit the Unsafe Browser**, and continue with the instructions in the [Install Guide](installation/install.md#set-up-the-servers).
