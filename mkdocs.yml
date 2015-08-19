@@ -12,24 +12,25 @@ pages:
     - Install SecureDrop Application: installation/securedrop_app.md
     - Finalizing the Installation: installation/final_steps.md
 
-    - Hardware Requirements: installation/hardware.md
-    - Deployment Practices: installation/deployment_practices.md
-    - OSSEC Alerts: installation/ossec_alerts.md
-    - Yubikey Setup: installation/yubikey_setup.md
-
   - Support:
     - Source User Manual: source_user_manual.md
     - Journalist User Manual: journalist_user_manual.md
     - Admin User Manual: admin_interface.md
     - Using Tails: tails_guide.md
-    - Google Authenticator: google_authenticator.md
     - Upgrading SecureDrop:
       - Upgrading from 0.2.1: 0.2.1-upgrade-to-0.3.x.md
       - Upgrading from 0.3-pre: 0.3-pre-upgrade-to-0.3.x.md
     - Printing with Tails: tails_printing_guide.md
     - Terminology: terminology.md
-    - Threat Model: threat_model.md
     - Training Schedule: training_schedule.md
+
+  - Technical Information:
+    - Hardware Requirements: technical_information/hardware.md
+    - Deployment Practices: technical_information/deployment_practices.md
+    - OSSEC Alerts: technical_information/ossec_alerts.md
+    - Yubikey Setup: technical_information/yubikey_setup.md
+    - Threat Model: technical_information/threat_model.md
+    - Google Authenticator: technical_information/google_authenticator.md
 
   - Contributing:
     - Development Environment: develop.md
