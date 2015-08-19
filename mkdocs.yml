@@ -33,11 +33,11 @@ pages:
     - Google Authenticator: technical_information/google_authenticator.md
 
   - Contributing:
-    - Development Environment: develop.md
+    - Development Environment: contributing/develop.md
     - Running the Tests:
-      - Serverspec Tests: spec_tests.md
-      - Automated CI Tests: snap_ci.md
-    - AppArmor Profiles: apparmor_profiles.md
-    - Building .deb packages: creating_deb.md
+      - Serverspec Tests: contributing/spec_tests.md
+      - Automated CI Tests: contributing/snap_ci.md
+    - AppArmor Profiles: contributing/apparmor_profiles.md
+    - Building .deb packages: contributing/creating_deb.md
 
 theme: readthedocs
