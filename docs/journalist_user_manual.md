@@ -22,27 +22,27 @@ See our guide on setting up [Tails for the Admin and Journalist Workstation](tai
 
 After clicking on the SecureDrop `Document Interface` link, you can log in with your username, password, and two-factor authentication token, as shown in the first screenshot below.
 
-![Document Interface Login](/docs/images/manual/document6.png)
+![Document Interface Login](/images/manual/document6.png)
 
 If any sources have uploaded documents or sent you message, they will be listed on the homepage by a codename. **Note: The codename the journalists see is different than the codename that sources see.**
 
-![Document Interface](/docs/images/manual/document1.png)
+![Document Interface](/images/manual/document1.png)
 
 ### Move Documents to the Secure Viewing Station
 
 You will only be able to view the documents the source has sent you on the `Secure Viewing Station`. After clicking on an individual source you will see the page below with the messages that source has sent you. Click on a document or message name to save it, or select a number of documents and save them at once by clicking "Download Selected".
 
-![Load external content](/docs/images/manual/document4.png)
-![Download selected](/docs/images/manual/tbb_Document5.png)
+![Load external content](/images/manual/document4.png)
+![Download selected](/images/manual/tbb_Document5.png)
 
 In order to protect you from malware, the browser only allows you to download documents to a special sandbox folder, located at `/home/amnesia/Tor Browser`.
 
-![Download to sandbox folder](/docs/images/manual/tbb_Document6.png)
+![Download to sandbox folder](/images/manual/tbb_Document6.png)
 
 Once downloaded to the sandbox folder, move the document to the designated USB stick you will use to transfer the documents from your Tails `Journalist Workstation` to the `Secure Viewing Station`. This will be known as your `Transfer Device`.
 
-![Move to transfer device](/docs/images/manual/tbb_Document7.png)
-![Move to transfer device](/docs/images/manual/tbb_Document8.png)
+![Move to transfer device](/images/manual/tbb_Document7.png)
+![Move to transfer device](/images/manual/tbb_Document8.png)
 
 Eject your `Transfer Device` from your `Journalist Workstation`.
 
@@ -50,7 +50,7 @@ Next, boot up the `Secure Viewing Station` using Tails (remember, you must use a
 
 **Copy these documents to the Persistent folder before decrypting them. This an important step. Otherwise you might accidentally decrypt the documents on the USB stick, and they could be recoverable in the future.** You can do this by clicking on the `Computer` icon on your desk top, clicking on the `Transfer Device`, and then you can drag and drop the file into your Persistent folder.
 
-![Copy files to Persistent](/docs/images/manual/viewing1.png)
+![Copy files to Persistent](/images/manual/viewing1.png)
 
 Make sure to then return to your `Transfer Device` folder, right click on the file, and then click "Wipe" to securely wipe the file from your device.
 
@@ -58,15 +58,15 @@ Make sure to then return to your `Transfer Device` folder, right click on the fi
 
 To decrypt documents, return to your Persistent folder and double-click on zipped file folder. After you extract the files, click on each file individually, and it will prompt you for the application PGP key passphrase to decrypt the document.
 
-![Decrypting](/docs/images/manual/viewing2.png)
+![Decrypting](/images/manual/viewing2.png)
 
 When you decrypt the file it will have the same filename, but without the .gpg at the end.
 
-![Decrypted documents](/docs/images/manual/viewing3.png)
+![Decrypted documents](/images/manual/viewing3.png)
 
 You can double-click on the decrypted document to open it in its default application.
 
-![Opened document](/docs/images/manual/viewing4.png)
+![Opened document](/images/manual/viewing4.png)
 
 If the default application doesn't work, you can right-click on the document and choose `Open with Other Application...` to try opening the document with OpenOffice Writer, or Document Viewer. You can right-click on a file and choose `Rename...` to rename a document and give it a file extension.
 
@@ -75,7 +75,7 @@ If the default application doesn't work, you can right-click on the document and
 Click on the codename to see the page specifically for that source. You will see all of the messages that they have written and documents that they have uploaded. Documents and messages are encrypted to the application's GPG public key. In order to read the messages or look at the documents you will need to transfer them to the `Secure Viewing Station`.
 But first, if you'd like to reply to the source, write your message in the text field and click `Submit`.
 
-![Sent reply](/docs/images/manual/document2.png)
+![Sent reply](/images/manual/document2.png)
 
 Once your reply has been successfully submitted, you will be returned to the source page and see a message confirming that the reply was stored. The source will see your reply the next time they log in with their unique codename. To minimize sensitive data retention, the source interface UI encourages the source to delete the reply after reading it. If you notice one or more replies disappear from the list of documents, you may infer that the source read and deleted them. You may also delete replies if you change your mind after sending them.
 
@@ -83,11 +83,11 @@ Once your reply has been successfully submitted, you will be returned to the sou
 
 If the server experiences a large number of new sources signing up at once and is overloaded with submissions, you will need to flag sources for reply before you can communicate with them. Click the `Flag this source for reply` button.
 
-![Read documents](/docs/images/manual/document4.png)
+![Read documents](/images/manual/document4.png)
 
 After clicking the `Flag this source for reply` button, you'll see this confirmation page. Click through to get back to the page that displays that source's documents and replies.
 
-![Flag source for reply](/docs/images/manual/document3.png)
+![Flag source for reply](/images/manual/document3.png)
 
 You will not be able to reply until after the source logs in again and sees that you would like to talk to him or her. So you may have to sit and wait. After the source sees that you'd like to reply, a GPG key pair will automatically be generated and you can log back in and send a reply.
 
@@ -103,7 +103,7 @@ We recommend that you do as much work as you can inside of Tails before copying 
 
 When you no longer need documents you can right-click on them and choose Wipe to delete them.
 
-![Wiping documents](/docs/images/manual/viewing5.png)
+![Wiping documents](/images/manual/viewing5.png)
 
 ### Encrypt and move documents to Journalist Workstation
 
@@ -111,15 +111,15 @@ Before you move documents back to the `Transfer Device` to copy them to your wor
 
 Right-click on the document you want to encrypt and choose `Encrypt...`
 
-![Encrypting 1](/docs/images/manual/viewing6.png)
+![Encrypting 1](/images/manual/viewing6.png)
 
 Then choose the public keys of the journalist you want to encrypt the documents to and click `OK`.
 
-![Encrypting 2](/docs/images/manual/viewing7.png)
+![Encrypting 2](/images/manual/viewing7.png)
 
 When you are done you will have another document with the same filename but ending in .gpg that is encrypted to the GPG keys you selected. You can copy the encrypted documents to the `Transfer Device` to transfer them to your workstation.
 
-![Encrypted document](/docs/images/manual/viewing8.png)
+![Encrypted document](/images/manual/viewing8.png)
 
 ### Decrypt and prepare to publish
 

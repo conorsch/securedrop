@@ -1,4 +1,4 @@
-![SecureDrop](/docs/images/logo.png)
+![SecureDrop](/images/logo.png)
 
 [![Build Status](https://travis-ci.org/freedomofpress/securedrop.png)](http://travis-ci.org/freedomofpress/securedrop)
 
