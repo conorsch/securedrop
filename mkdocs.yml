@@ -4,21 +4,18 @@ pages:
   - Home: index.md
   - Installing SecureDrop:
     - Installation Overview: install.md
-    - Technical Documentation:
-      - Server Config: ubuntu_config.md
-      - Network Firewall: network_firewall.md
-      - OSSEC Alerts: ossec_alerts.md
-      - Yubikey Setup: yubikey_setup.md
     - Hardware Requirements: hardware.md
     - Deployment Practices: deployment_practices.md
+    - Server Config: ubuntu_config.md
+    - Network Firewall: network_firewall.md
+    - OSSEC Alerts: ossec_alerts.md
+    - Yubikey Setup: yubikey_setup.md
 
-  - Guides:
+  - Support:
     - Source User Manual: source_user_manual.md
     - Journalist User Manual: journalist_user_manual.md
     - Admin User Manual: admin_interface.md
     - Using Tails: tails_guide.md
-
-  - Support:
     - Google Authenticator: google_authenticator.md
     - Upgrading SecureDrop:
       - Upgrading from 0.2.1: 0.2.1-upgrade-to-0.3.x.md
@@ -28,7 +25,7 @@ pages:
     - Threat Model: threat_model.md
     - Training Schedule: training_schedule.md
 
-  - Contributing to SecureDrop:
+  - Contributing:
     - Development Environment: develop.md
     - Running the Tests:
       - Serverspec Tests: spec_tests.md
@@ -36,4 +33,4 @@ pages:
     - AppArmor Profiles: apparmor_profiles.md
     - Building .deb packages: creating_deb.md
 
-theme: readthedocs
+theme: yeti
