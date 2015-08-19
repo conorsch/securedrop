@@ -1,5 +1,11 @@
 site_name: SecureDrop
 pages:
   - Home: index.md
-  - Installation: install.md
+  - Installing SecureDrop:
+    - Installation Overview: install.md
+    - Hardware Requirements: hardware.md
+  - Contributing to SecureDrop:
+    - Development Environment: develop.md
+    - Running the Tests: spec_tests.md
+
 theme: readthedocs
