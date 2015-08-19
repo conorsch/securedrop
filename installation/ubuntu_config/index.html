@@ -1,210 +1,363 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Server Config - SecureDrop</title>
+  
 
-	<title>Server Config - SecureDrop</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico">
 
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link rel="stylesheet" href="../../css/highlight.css">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link href="../../css/extra.css" rel="stylesheet">
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../site/css/base.css" rel="stylesheet">
+  <link href="../../site/css/bootstrap-custom.min.css" rel="stylesheet">
+  <link href="../../site/css/extra.css" rel="stylesheet">
+  <link href="../../site/css/font-awesome-4.0.3.css" rel="stylesheet">
+  <link href="../../site/css/highlight.css" rel="stylesheet">
+  <link href="../../css/extra.css" rel="stylesheet">
 
-        
-    </head>
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Server Config";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="../../site/js/base.js"></script>
+  <script src="../../site/js/bootstrap-3.0.3.min.js"></script>
+  <script src="../../site/js/highlight.pack.js"></script>
+  <script src="../../site/js/jquery-1.10.2.min.js"></script>
+  <script src="../../site/mkdocs/js/lunr-0.5.7.min.js"></script>
+  <script src="../../site/mkdocs/js/mustache.min.js"></script>
+  <script src="../../site/mkdocs/js/require.js"></script>
+  <script src="../../site/mkdocs/js/search.js"></script>
+  <script src="../../site/mkdocs/js/text.js"></script>
 
-    <body>
+  
+</head>
 
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<body class="wy-body-for-nav" role="document">
 
-        <!-- Collapsed navigation -->
-        <div class="navbar-header">
-            <!-- Expander button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+  <div class="wy-grid-for-nav">
 
-            <!-- Main title -->
-            <a class="navbar-brand" href="../..">SecureDrop</a>
-        </div>
-
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
-            <!-- Main navigation -->
-            <ul class="nav navbar-nav">
-            
-            
-                <li >
-                    <a href="../..">Home</a>
-                </li>
-            
-            
-            
-                <li class="dropdown active">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                    
-                        <li >
-                            <a href="../install/">Installation Overview</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../hardware/">Hardware Requirements</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../deployment_practices/">Deployment Practices</a>
-                        </li>
-                    
-                        <li class="active">
-                            <a href="./">Server Config</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../network_firewall/">Network Firewall</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../ossec_alerts/">OSSEC Alerts</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../yubikey_setup/">Yubikey Setup</a>
-                        </li>
-                    
-                    </ul>
-                </li>
-            
-            
-            
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Support <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                    
-                        <li >
-                            <a href="../../source_user_manual/">Source User Manual</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../../journalist_user_manual/">Journalist User Manual</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../../admin_interface/">Admin User Manual</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../../tails_guide/">Using Tails</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../../google_authenticator/">Google Authenticator</a>
-                        </li>
-                    
-                        <li >
-                            <a href="">Upgrading SecureDrop</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../../tails_printing_guide/">Printing with Tails</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../../terminology/">Terminology</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../../threat_model/">Threat Model</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../../training_schedule/">Training Schedule</a>
-                        </li>
-                    
-                    </ul>
-                </li>
-            
-            
-            
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contributing <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                    
-                        <li >
-                            <a href="../../develop/">Development Environment</a>
-                        </li>
-                    
-                        <li >
-                            <a href="">Running the Tests</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../../apparmor_profiles/">AppArmor Profiles</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../../creating_deb/">Building .deb packages</a>
-                        </li>
-                    
-                    </ul>
-                </li>
-            
-            
-            </ul>
-
-            <!-- Search, Navigation and Repo links -->
-            <ul class="nav navbar-nav navbar-right">
-                <li >
-                    <a rel="next" href="../deployment_practices/">
-                        <i class="fa fa-arrow-left"></i> Previous
-                    </a>
-                </li>
-                <li >
-                    <a rel="prev" href="../network_firewall/">
-                        Next <i class="fa fa-arrow-right"></i>
-                    </a>
-                </li>
-                
-            </ul>
-        </div>
-    </div>
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> SecureDrop</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
 </div>
+      </div>
 
-        <div class="container">
-            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-    
-        <li class="main active"><a href="#ubuntu-install-guide">Ubuntu Install Guide</a></li>
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
         
-            <li><a href="#verify-the-ubuntu-installation-media">Verify the Ubuntu installation media</a></li>
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Installation</span></li>
+
         
-            <li><a href="#create-the-ubuntu-installation-media">Create the Ubuntu installation media</a></li>
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../intro/">Getting started</a>
         
-            <li><a href="#install-ubuntu">Install Ubuntu</a></li>
+    </li>
+
         
-    
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../setup_tails_usb_sticks/">Set up Tails USB Sticks</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../setup_svs/">Set up Secure Viewing Station</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../setup_admin_workstation/">Set up Admin Workstation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../network_firewall/">Network Firewall</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Server Config</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#ubuntu-install-guide">Ubuntu Install Guide</a></li>
+                
+                    <li><a class="toctree-l4" href="#verify-the-ubuntu-installation-media">Verify the Ubuntu installation media</a></li>
+                
+                    <li><a class="toctree-l4" href="#create-the-ubuntu-installation-media">Create the Ubuntu installation media</a></li>
+                
+                    <li><a class="toctree-l4" href="#start-installation">Start installation</a></li>
+                
+                    <li><a class="toctree-l4" href="#configure-the-network-manually">Configure the network manually</a></li>
+                
+                    <li><a class="toctree-l4" href="#continue-the-installation">Continue the installation</a></li>
+                
+                    <li><a class="toctree-l4" href="#partition-the-disks">Partition the disks</a></li>
+                
+                    <li><a class="toctree-l4" href="#finish-the-installation">Finish the installation</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../securedrop_app/">Install SecureDrop Application</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../final_steps/">Finalizing the Installation</a>
+        
+    </li>
+
+        
     </ul>
-</div></div>
-            <div class="col-md-9" role="main">
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Support</span></li>
 
-<h1 id="ubuntu-install-guide">Ubuntu Install Guide</h1>
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/source_user_manual/">Source User Manual</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/journalist_user_manual/">Journalist User Manual</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/admin_interface/">Admin User Manual</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/tails_guide/">Using Tails</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/upgrade/">Upgrading SecureDrop</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/tails_printing_guide/">Printing with Tails</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/terminology/">Terminology</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/training_schedule/">Training Schedule</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Technical Information</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/hardware/">Hardware Requirements</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/deployment_practices/">Deployment Practices</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/ossec_alerts/">OSSEC Alerts</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/yubikey_setup/">Yubikey Setup</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/threat_model/">Threat Model</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/google_authenticator/">Google Authenticator</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Contributing</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/develop/">Development Environment</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Running the Tests</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/spec_tests/">Serverspec Tests</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/snap_ci/">Automated CI Tests</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/apparmor_profiles/">AppArmor Profiles</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/creating_deb/">Building .deb packages</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">SecureDrop</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Installation &raquo;</li>
+        
+      
+    
+    <li>Server Config</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="ubuntu-install-guide">Ubuntu Install Guide</h1>
 <p>The <em>Application Server</em> and the <em>Monitor Server</em> specifically require the 64-bit version of <a href="http://releases.ubuntu.com/14.04.2/">Ubuntu Server 14.04.2 LTS (Trusty Tahr)</a>. The image you want to get is named <code>ubuntu-14.04.2-server-amd64.iso</code>. In order to verify the installation media, you should also download the files named <code>SHA256SUMS</code> and <code>SHA256SUMS.gpg</code>.</p>
 <h2 id="verify-the-ubuntu-installation-media">Verify the Ubuntu installation media</h2>
 <p>First you should make sure that the Ubuntu image you downloaded hasn't been modified by a malicious attacker by checking its integrity with cryptographic signatures and hashes  — which might sound complex but it's relatively easy to do. Before you can verify the Ubuntu installation media, you will need to download the associated public key.</p>
@@ -231,13 +384,13 @@ gpg --fingerprint C5986B4F1257FFA86632CBA746181433FBB75451
 
 <h2 id="create-the-ubuntu-installation-media">Create the Ubuntu installation media</h2>
 <p>To create the Ubuntu installation media, you can either burn the ISO image to a CD-R or create a bootable USB stick (see instructions for doing this on <a href="http://www.ubuntu.com/download/desktop/create-a-usb-stick-on-mac-osx">OS X</a>, <a href="http://www.ubuntu.com/download/desktop/create-a-usb-stick-on-ubuntu">Ubuntu</a> and <a href="http://www.ubuntu.com/download/desktop/create-a-usb-stick-on-windows">Windows</a>). As a reliable method we recommend using the <code>dd</code> command to copy the hybrid ISO directly to a USB drive rather than a utility like UNetbootin which can result in errors. Once you have a CD or USB with an ISO image of Ubuntu on it, you may begin the Ubuntu installation on both SecureDrop servers.</p>
-<h2 id="install-ubuntu">Install Ubuntu</h2>
+<h2 id="start-installation">Start installation</h2>
 <p>The steps below are the same for both the <em>Application Server</em> and the <em>Monitor Server</em>.</p>
 <p>Start by inserting the Ubuntu installation media into the server. Boot or reboot the server with the installation media inserted, and enter the boot menu. To enter the boot menu, you need to press a key as soon as you turn the server on. This key varies depending on server model, but common choices are Esc, F2, F10, and F12. Often, the server will briefly display a message on boot that shows which key should be pressed to enter the boot menu. Once you've entered the boot menu, select the installation media (USB or CD) and press Enter to boot it.</p>
 <p>After booting the Ubuntu image, select <strong>Install Ubuntu Server</strong>.</p>
-<p><img alt="Ubuntu Server" src="../../images/install/ubuntu_server.png" /></p>
+<p><img alt="Ubuntu Server" src="../../../images/install/ubuntu_server.png" /></p>
 <p>Follow the steps to select your language, country and keyboard settings. Once that's done, let the installation process continue.</p>
-<h3 id="configure-the-network-manually">Configure the network manually</h3>
+<h2 id="configure-the-network-manually">Configure the network manually</h2>
 <p>The Ubuntu installer will try to autoconfigure networking for the server you are setting up; however, SecureDrop 0.3 requires manual network configuration. You can hit <strong>Cancel</strong> at any point during network autoconfiguration to be given the choice to <em>Configure the network manually</em>.</p>
 <p>If network autoconfiguration completes before you can do this, the next window will ask for your hostname. To get back to the choice of configuring the network manually, <strong>Cancel</strong> the step that asks you to set a hostname and choose the manu option that says <strong>Configure the network manually</strong> instead.</p>
 <p>For a production install with a pfSense network firewall in place, the <em>Application Server</em> and the <em>Monitor Server</em> are on separate networks. You may choose your own network settings at this point, but make sure the settings you choose are unique on the firewall's network and remember to propagate your choices through the rest of the installation process.</p>
@@ -262,34 +415,66 @@ gpg --fingerprint C5986B4F1257FFA86632CBA746181433FBB75451
 </ul>
 </li>
 </ul>
-<h3 id="continue-the-installation">Continue the installation</h3>
+<h2 id="continue-the-installation">Continue the installation</h2>
 <p>You can choose whatever username and password you would like. To make things easier later you should use the same username and password on both servers. Make sure to save this password in your admin KeePassX database afterwards.</p>
 <p>Click 'no' when asked to encrypt the home directory. Then configure your time zone.</p>
-<h3 id="partition-the-disks">Partition the disks</h3>
+<h2 id="partition-the-disks">Partition the disks</h2>
 <p>Before setting up the server's disk partitions and filesystems in the next step, you will need to decide if you would like to enable <a href="https://www.eff.org/deeplinks/2012/11/privacy-ubuntu-1210-full-disk-encryption"><em>Full Disk Encryption (FDE)</em></a>. If the servers are ever powered down, FDE will ensure all of the information on them stays private in case they are seized or stolen.</p>
 <p>While FDE can be useful in some cases, we currently do not recommend that you enable it because there are not many scenarios where it will be a net security benefit for SecureDrop operators. Doing so will introduce the need for more passwords and add even more responsibility on the administrator of the system (see <a href="https://github.com/freedomofpress/securedrop/issues/511#issuecomment-50823554">this GitHub issue</a> for more information).</p>
 <p>If you wish to proceed without FDE as recommended, choose the installation option that says <em>Guided - use entire disk and set up LVM</em>.</p>
 <p>However, if you decide to go ahead and enable FDE, please note that doing so means SecureDrop will become unreachable after an automatic reboot. An administrator will need to be on hand to enter the password in order to decrypt the disks and complete the startup process, which will occur anytime there is an automatic software update, and also several times during SecureDrop's installation. We recommend that the servers be integrated with a monitoring solution that so that you receive an alert when the system becomes unavailable.</p>
 <p>To enable FDE, select <em>Guided - use entire disk and set up encrypted LVM</em> during the disk partitioning step and write the changes to disk. Follow the recommendations as to choosing a strong password. As the administrator, you will be responsible for keeping this passphrase safe. Write it down somewhere and memorize it if you can. <strong>If inadvertently lost it could result in total loss of the SecureDrop system.</strong></p>
 <p>After selecting either of those options you may be asked a few questions about overwriting anything currently on the server you are using. Select yes. You do not need an HTTP proxy, so when asked, you can just click continue.</p>
-<h3 id="finish-the-installation">Finish the installation</h3>
+<h2 id="finish-the-installation">Finish the installation</h2>
 <p>Wait for the base system to finish installing. When you get to the <em>Configure tasksel</em> screen, choose <strong>No automatic updates</strong>. The subsequent SecureDrop installation will include a task that handles regular software updates.</p>
 <p>When you get to the software selection screen, only choose <strong>OpenSSH server</strong> by hitting the space bar (Note: hitting enter before the space bar will force you to start the installation process over).</p>
 <p>Once <strong>OpenSSH Server</strong> is selected, hit <em>Continue</em>.</p>
 <p>You will then have to wait for the packages to finish installing.</p>
 <p>When the packages are finished installing, Ubuntu will automatically install the bootloader (GRUB). If it asks to install the bootloader to the Master Boot Record, choose <strong>Yes</strong>. When everything is done, reboot.</p>
-<p>You can now return to where you left off in the main SecureDrop install guide <a href="installation/install.md#install-the-securedrop-application">by clicking here</a>.</p></div>
+<p>You can now return to where you left off in the main SecureDrop install guide <a href="installation/install.md#install-the-securedrop-application">by clicking here</a>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../securedrop_app/" class="btn btn-neutral float-right" title="Install SecureDrop Application"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../network_firewall/" class="btn btn-neutral" title="Network Firewall"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
         </div>
+      </div>
 
-        <footer class="col-md-12">
-            <hr>
-            
-            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
-        </footer>
+    </section>
 
-        <script src="../../js/jquery-1.10.2.min.js"></script>
-        <script src="../../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../../js/highlight.pack.js"></script>
-        <script src="../../js/base.js"></script>
-    </body>
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../network_firewall/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../securedrop_app/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
 </html>

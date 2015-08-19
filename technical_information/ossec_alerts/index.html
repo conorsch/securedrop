@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>OSSEC Alerts - SecureDrop</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../site/css/base.css" rel="stylesheet">
+  <link href="../../site/css/bootstrap-custom.min.css" rel="stylesheet">
+  <link href="../../site/css/extra.css" rel="stylesheet">
+  <link href="../../site/css/font-awesome-4.0.3.css" rel="stylesheet">
+  <link href="../../site/css/highlight.css" rel="stylesheet">
+  <link href="../../css/extra.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "OSSEC Alerts";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="../../site/js/base.js"></script>
+  <script src="../../site/js/bootstrap-3.0.3.min.js"></script>
+  <script src="../../site/js/highlight.pack.js"></script>
+  <script src="../../site/js/jquery-1.10.2.min.js"></script>
+  <script src="../../site/mkdocs/js/lunr-0.5.7.min.js"></script>
+  <script src="../../site/mkdocs/js/mustache.min.js"></script>
+  <script src="../../site/mkdocs/js/require.js"></script>
+  <script src="../../site/mkdocs/js/search.js"></script>
+  <script src="../../site/mkdocs/js/text.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> SecureDrop</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Installation</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/intro/">Getting started</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/setup_tails_usb_sticks/">Set up Tails USB Sticks</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/setup_svs/">Set up Secure Viewing Station</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/setup_admin_workstation/">Set up Admin Workstation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/network_firewall/">Network Firewall</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/ubuntu_config/">Server Config</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/securedrop_app/">Install SecureDrop Application</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/final_steps/">Finalizing the Installation</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Support</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/source_user_manual/">Source User Manual</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/journalist_user_manual/">Journalist User Manual</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/admin_interface/">Admin User Manual</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/tails_guide/">Using Tails</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/upgrade/">Upgrading SecureDrop</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/tails_printing_guide/">Printing with Tails</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/terminology/">Terminology</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/training_schedule/">Training Schedule</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Technical Information</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../hardware/">Hardware Requirements</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment_practices/">Deployment Practices</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">OSSEC Alerts</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#ossec-guide">OSSEC Guide</a></li>
+                
+                    <li><a class="toctree-l4" href="#setting-up-ossec-alerts">Setting up OSSEC alerts</a></li>
+                
+                    <li><a class="toctree-l4" href="#troubleshooting">Troubleshooting</a></li>
+                
+                    <li><a class="toctree-l4" href="#analyzing-the-alerts">Analyzing the Alerts</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../yubikey_setup/">Yubikey Setup</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../threat_model/">Threat Model</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../google_authenticator/">Google Authenticator</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Contributing</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/develop/">Development Environment</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Running the Tests</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/spec_tests/">Serverspec Tests</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/snap_ci/">Automated CI Tests</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/apparmor_profiles/">AppArmor Profiles</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/creating_deb/">Building .deb packages</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">SecureDrop</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Technical Information &raquo;</li>
+        
+      
+    
+    <li>OSSEC Alerts</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="ossec-guide">OSSEC Guide</h1>
+<h2 id="setting-up-ossec-alerts">Setting up OSSEC alerts</h2>
+<p>OSSEC is an open source host-based intrusion detection system (IDS) that we use to perform log analysis, file integrity checking, policy monitoring, rootkit detection and real-time alerting. It is installed on the Monitor Server and constitutes that machine's main function. OSSEC works in a server-agent scheme, that is, the OSSEC server extends its existing functions to the App Server through an agent installed on that server, covering monitoring for both machines.</p>
+<p>In order to receive email alerts from OSSEC, you need to supply several settings to Ansible in the playbook for your environment. If you don't already have a working mail server or don't know what to do, then see the section below about using Gmail as a fallback option. We assume that you're working out of the 'securedrop' directory you cloned the code into, and editing install_files/ansible-base/prod-specific.yml prior to installing SecureDrop.</p>
+<p>What you need:
+<em> The GPG key that OSSEC will encrypt alerts to
+</em> The email address that will receive alerts from OSSEC
+<em> Information for your SMTP server or relay (hostname, port) and the fingerprint of its TLS certificate
+</em> Credentials for the email address that OSSEC will send alerts from</p>
+<p>Receiving email alerts from OSSEC requires that you have an SMTP relay to route the emails. You can use an SMTP relay hosted internally, if one is available to you, or you can use a third-party SMTP relay such as Gmail. The SMTP relay does not have to be on the same domain as the destination email address, i.e. smtp.gmail.com can be the SMTP relay and the destination address can be securedrop@freedom.press.</p>
+<p>While there are risks involved with receiving these alerts, such as information leakage through metadata, we feel the benefit of knowing how the SecureDrop servers are functioning is worth it. If a third-party SMTP relay is used, that relay will be able to learn information such as the IP address the alerts were sent from, the subject of the alerts, and the destination email address the alerts were sent to. Only the body of an alert email is encrypted with the recipient's GPG key. A third-party SMTP relay could also prevent you from receiving any or specific alerts.</p>
+<p>The SMTP relay that you use should support SASL authentication and SMTP TLS protocols TLSv1.2, TLSv1.1, and TLSv1. Most enterprise email solutions should be able to meet those requirements.</p>
+<p>These are the values you must specify in <code>prod-specific.yml</code>:</p>
+<ul>
+<li>GPG public key used to encrypt OSSEC alerts: <code>ossec_alert_gpg_public_key</code></li>
+<li>Fingerprint of key used when encrypting OSSEC alerts: <code>ossec_gpg_fpr</code></li>
+<li>The email address that will receive alerts from OSSEC: <code>ossec_alert_email</code></li>
+<li>The reachable hostname of your SMTP relay: <code>smtp_relay</code></li>
+<li>The secure SMTP port of your SMTP relay: <code>smtp_relay_port</code>
+   (typically 25, 587, or 465. must support TLS encryption)</li>
+<li>Email username to authenticate to the SMTP relay: <code>sasl_username</code></li>
+<li>Domain name of the email used to send OSSEC alerts: <code>sasl_domain</code></li>
+<li>Password of the email used to send OSSEC alerts: <code>sasl_password</code></li>
+<li>The fingerprint of your SMTP relay: <code>smtp_relay_fingerprint</code></li>
+</ul>
+<p>If you don't know what value to enter for one of these, please ask your organization's email administrator for the full configuration before proceeding. It is better to get these right the first time rather than changing them after SecureDrop is installed. If you're not sure of the correct <code>smtp_relay_port</code> number, you can use a simple mail client such as Thunderbird to test different settings or a port scanning tool such as nmap to see what's open. You could also use telnet to make sure you can connect to an SMTP server, which will always transmit a reply code of 220 meaning "Service ready" upon a successful connection.</p>
+<p>The <code>smtp_relay</code> mail server hostname is often, but not always, different from the <code>sasl_domain</code>, e.g. smtp.gmail.com and gmail.com.</p>
+<p>In some cases, authentication or transport encryption mechanisms will vary and you may require later edits to the Postfix configuration (mainly /etc/postfix/main.cf) on the Monitor Server in order to get alerts to work. You can consult <a href="http://www.postfix.org/documentation.html">Postfix's official documentation</a> for help, although we've described some common scenarios in the <a href="#Troubleshooting">troubleshooting section</a> of this document.</p>
+<p>If you have your GPG public key handy, copy it to install_files/ansible-base and then specify the filename in the <code>ossec_alert_gpg_public_key</code> line of prod-specific.yml.</p>
+<p>If you don't have your GPG key ready, you can run GnuPG on the command line in order to find, import and export your public key. It's best to copy the key from a trusted and verified source, but you can also request it from keyservers using the known longid. Looking it up by email address could cause you to obtain a wrong, malicious or expired key. Just replace the key ID in the following example with yours:</p>
+<p>Download your key and import it into the local keyring:</p>
+<pre><code>gpg --recv-keys 0xFD720AD9EBA34B1C
+</code></pre>
+<p>Export the key to a file:</p>
+<pre><code>gpg --export -a 0xFD720AD9EBA34B1C &gt; ossec.pub
+</code></pre>
+<p>Copy the key to a directory where it's accessible by the SecureDrop installation:</p>
+<pre><code>cp ossec.pub install_files/ansible-base/
+</code></pre>
+<p>The fingerprint is a unique identifier for an encryption key that is longer than, but contains both the shortid and longid. The value for <code>ossec_gpg_fpr</code> must be the full 40-character GPG fingerprint for this same key, with all capital letters and no spaces.  Here's a series of commands that will retrieve and format the fingerprint per our requirements:</p>
+<pre><code>gpg --with-colons --fingerprint 0xFD720AD9EBA34B1C | grep "^fpr" | cut -d: -f10
+</code></pre>
+<p>Next you specify the e-mail that you'll be sending alerts to, as <code>ossec_alert_email</code>. This could be your work email, or an alias for a group of IT administrators at your organization. It helps for your mail client to have the ability to filter the numerous messages from OSSEC into a separate folder.</p>
+<p>Now you can move on to the SMTP and SASL settings, which are straightforward. These correspond to the outgoing e-mail address used to send the alerts instead of where you're receiving them. If that e-mail is ossec@news-org.com, the <code>sasl_username</code> would be ossec and <code>sasl_domain</code> would be news-org.com.</p>
+<p>The Postfix configuration enforces certificate verification, and requires a fingerprint to be set. You can retrieve the fingerprint of your SMTP relay by running the command below (all on one line). Please note that you will need to replace <code>smtp.gmail.com</code> and <code>587</code> with the correct domain and port for your SMTP relay.</p>
+<pre><code>openssl s_client -connect smtp.gmail.com:587 -starttls smtp &lt; /dev/null 2&gt;/dev/null | openssl x509 -fingerprint -noout -in /dev/stdin | cut -d'=' -f2
+</code></pre>
+<p>If you are using Tails, you will not be able to connect directly with <code>openssl s_client</code> due to the default firewall rules. To get around this, proxy the requests over Tor by adding <code>torify</code> at the beginning of the command.</p>
+<p>The output of the command above should look like the following (<em>last updated Tue Jul 21 17:46:42 UTC 2015</em>):</p>
+<pre><code>6D:87:EE:CB:D0:37:2F:88:B8:29:06:FB:35:F4:65:00:7F:FD:84:29
+</code></pre>
+<p>Finally, enter the result as <code>smtp_relay_fingerprint</code>. Save <code>prod-specific.yml</code>, exit the editor and <a href="installation/install.md#install-securedrop">proceed with the installation</a> by running the playbooks.</p>
+<h3 id="using-gmail-for-ossec-alerts">Using Gmail for OSSEC alerts</h3>
+<p>It's easy to get SecureDrop to use Google's servers to deliver the alerts, but it's not ideal from a security perspective. This option should be regarded as a backup plan. Keep in mind that you're leaking metadata about the timing of alerts to a third party — the alerts are encrypted and only readable to you, however that timing may prove useful to an attacker.</p>
+<p>First you should <a href="https://accounts.google.com/SignUp?service=mail">sign up for a new account</a>. You may use an existing Gmail account, but it's best to compartmentalize these alerts from any of your other activities. Choose a strong and random passphrase. Skip the creation of a Google+ profile and continue straight to Gmail. Once the account is created you can log out and provide the values for <code>sasl_username</code> as your new Gmail username (without the domain), <code>sasl_domain</code>, which is typically gmail.com (or your custom Google Apps domain), and <code>sasl_passwd</code> for the password. The <code>smtp_relay</code> is smtp.gmail.com, <code>smtp_relay_port</code> is 587 and <code>smtp_relay_fingerprint</code> is noted in the example above.</p>
+<p>For enhanced security we recommend enabling <a href="https://www.google.com/landing/2step/">Google's 2-Step Verification</a> for any Gmail account that is dedicated to sending the alert emails. With 2-Step Verification enabled, you won't use the normal account password in this configuration — it will not work; instead you must navigate (using the settings in the top right) to Account &gt; Signing in &gt; App passwords, and generate a new App password which you will use as the <code>sasl_passwd</code>.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>Some OSSEC alerts should begin to arrive as soon as the installation has finished.</p>
+<p>The easiest way to test that OSSEC is working is to SSH to the Monitor Server and run <code>service ossec restart</code>. This will trigger an Alert level 3 saying: "Ossec server started."</p>
+<p>So you've finished installing SecureDrop, but you haven't received any OSSEC alerts. First, check your spam/junk folder. If they're not in there, then most likely there is a problem with the email configuration. In order to find out what's wrong, you'll have to SSH to the Monitor Server and take a look at the logs. To examine the mail log created by Postfix, run the following command:</p>
+<pre><code>tail /var/log/mail.log
+</code></pre>
+<p>The output will show you attempts to send the alerts and provide hints as to what went wrong. Here's a few possibilities and how to fix them:</p>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Connection timed out</td>
+<td>Check that the hostname and port is correct in the relayhost line of /etc/postfix/main.cf</td>
+</tr>
+<tr>
+<td>Server certificate not verified</td>
+<td>Check that smtp_tls_fingerprint_cert_match in /etc/postfix/main.cf is correct</td>
+</tr>
+<tr>
+<td>Authentication failure</td>
+<td>Edit /etc/postfix/sasl_passwd and make sure the username, domain and password are correct. Run <code>postmap /etc/postfix/sasl_passwd</code> to update when finished.</td>
+</tr>
+</tbody>
+</table>
+<p>After making changes to the Postfix configuration, you should run <code>service postfix reload</code> and test the new settings by restarting the OSSEC service.</p>
+<p>Note that if you change the SMTP relay port after installation for any reason, you must update not only the relayhost in main.cf and contents of sasl_passwd, but also the iptables firewall rules applying to outbound SMTP which are in <code>/etc/network/iptables/rules_v4</code>. We recommend modifying and re-running the Ansible playbook instead of doing things like this.</p>
+<p>Other log files that may contain useful information:</p>
+<ul>
+<li>
+<p>/var/log/procmail.log - there will be lines in this for every alert that gets triggered</p>
+</li>
+<li>
+<p>/var/ossec/logs/ossec.log - OSSEC's general operation is covered here</p>
+</li>
+<li>
+<p>/var/ossec/logs/alerts/alerts.log - contains details of every recent OSSEC alert</p>
+</li>
+<li>
+<p>/var/log/syslog - messages related to grsecurity, AppArmor and iptables</p>
+</li>
+</ul>
+<h2 id="analyzing-the-alerts">Analyzing the Alerts</h2>
+<p>Understanding the contents of the OSSEC alerts requires a background and knowledge in Linux systems administration. They may be confusing, and at first it will be hard to tell between a genuine problem and a fluke. You should examine these alerts regularly to ensure that the SecureDrop environment has not been compromised in any way, and follow up on any particularly concerning messages with direct investigation.</p>
+<p>If you believe that the system is behaving abnormally, you should contact us at support@freedom.press for help.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../yubikey_setup/" class="btn btn-neutral float-right" title="Yubikey Setup"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../deployment_practices/" class="btn btn-neutral" title="Deployment Practices"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../deployment_practices/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../yubikey_setup/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

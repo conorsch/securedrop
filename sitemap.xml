@@ -12,25 +12,25 @@
     
         
     <url>
-     <loc>None/installation/install/</loc>
+     <loc>None/installation/intro/</loc>
      <lastmod>2015-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/installation/hardware/</loc>
+     <loc>None/installation/setup_tails_usb_sticks/</loc>
      <lastmod>2015-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/installation/deployment_practices/</loc>
+     <loc>None/installation/setup_svs/</loc>
      <lastmod>2015-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/installation/ubuntu_config/</loc>
+     <loc>None/installation/setup_admin_workstation/</loc>
      <lastmod>2015-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -42,13 +42,19 @@
     </url>
         
     <url>
-     <loc>None/installation/ossec_alerts/</loc>
+     <loc>None/installation/ubuntu_config/</loc>
      <lastmod>2015-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/installation/yubikey_setup/</loc>
+     <loc>None/installation/securedrop_app/</loc>
+     <lastmod>2015-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/installation/final_steps/</loc>
      <lastmod>2015-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -58,31 +64,99 @@
     
         
     <url>
-     <loc>None/source_user_manual/</loc>
+     <loc>None/support/source_user_manual/</loc>
      <lastmod>2015-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/journalist_user_manual/</loc>
+     <loc>None/support/journalist_user_manual/</loc>
      <lastmod>2015-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/admin_interface/</loc>
+     <loc>None/support/admin_interface/</loc>
      <lastmod>2015-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/tails_guide/</loc>
+     <loc>None/support/tails_guide/</loc>
      <lastmod>2015-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/google_authenticator/</loc>
+     <loc>None/support/upgrade/</loc>
+     <lastmod>2015-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/support/tails_printing_guide/</loc>
+     <lastmod>2015-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/support/terminology/</loc>
+     <lastmod>2015-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/support/training_schedule/</loc>
+     <lastmod>2015-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/technical_information/hardware/</loc>
+     <lastmod>2015-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/technical_information/deployment_practices/</loc>
+     <lastmod>2015-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/technical_information/ossec_alerts/</loc>
+     <lastmod>2015-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/technical_information/yubikey_setup/</loc>
+     <lastmod>2015-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/technical_information/threat_model/</loc>
+     <lastmod>2015-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/technical_information/google_authenticator/</loc>
+     <lastmod>2015-08-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/contributing/develop/</loc>
      <lastmod>2015-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -94,53 +168,13 @@
     </url>
         
     <url>
-     <loc>None/tails_printing_guide/</loc>
+     <loc>None/contributing/apparmor_profiles/</loc>
      <lastmod>2015-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/terminology/</loc>
-     <lastmod>2015-08-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/threat_model/</loc>
-     <lastmod>2015-08-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/training_schedule/</loc>
-     <lastmod>2015-08-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>None/develop/</loc>
-     <lastmod>2015-08-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/apparmor_profiles/</loc>
-     <lastmod>2015-08-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/creating_deb/</loc>
+     <loc>None/contributing/creating_deb/</loc>
      <lastmod>2015-08-19</lastmod>
      <changefreq>daily</changefreq>
     </url>

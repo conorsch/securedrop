@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Threat Model - SecureDrop</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../site/css/base.css" rel="stylesheet">
+  <link href="../../site/css/bootstrap-custom.min.css" rel="stylesheet">
+  <link href="../../site/css/extra.css" rel="stylesheet">
+  <link href="../../site/css/font-awesome-4.0.3.css" rel="stylesheet">
+  <link href="../../site/css/highlight.css" rel="stylesheet">
+  <link href="../../css/extra.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Threat Model";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="../../site/js/base.js"></script>
+  <script src="../../site/js/bootstrap-3.0.3.min.js"></script>
+  <script src="../../site/js/highlight.pack.js"></script>
+  <script src="../../site/js/jquery-1.10.2.min.js"></script>
+  <script src="../../site/mkdocs/js/lunr-0.5.7.min.js"></script>
+  <script src="../../site/mkdocs/js/mustache.min.js"></script>
+  <script src="../../site/mkdocs/js/require.js"></script>
+  <script src="../../site/mkdocs/js/search.js"></script>
+  <script src="../../site/mkdocs/js/text.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> SecureDrop</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Installation</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/intro/">Getting started</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/setup_tails_usb_sticks/">Set up Tails USB Sticks</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/setup_svs/">Set up Secure Viewing Station</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/setup_admin_workstation/">Set up Admin Workstation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/network_firewall/">Network Firewall</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/ubuntu_config/">Server Config</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/securedrop_app/">Install SecureDrop Application</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/final_steps/">Finalizing the Installation</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Support</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/source_user_manual/">Source User Manual</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/journalist_user_manual/">Journalist User Manual</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/admin_interface/">Admin User Manual</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/tails_guide/">Using Tails</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/upgrade/">Upgrading SecureDrop</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/tails_printing_guide/">Printing with Tails</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/terminology/">Terminology</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/training_schedule/">Training Schedule</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Technical Information</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../hardware/">Hardware Requirements</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../deployment_practices/">Deployment Practices</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ossec_alerts/">OSSEC Alerts</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../yubikey_setup/">Yubikey Setup</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Threat Model</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#securedrop-threat-model">SecureDrop Threat Model</a></li>
+                
+                    <li><a class="toctree-l4" href="#assumptions">Assumptions</a></li>
+                
+                    <li><a class="toctree-l4" href="#attack-scenarios">Attack Scenarios</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../google_authenticator/">Google Authenticator</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Contributing</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/develop/">Development Environment</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Running the Tests</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/spec_tests/">Serverspec Tests</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/snap_ci/">Automated CI Tests</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/apparmor_profiles/">AppArmor Profiles</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/creating_deb/">Building .deb packages</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">SecureDrop</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Technical Information &raquo;</li>
+        
+      
+    
+    <li>Threat Model</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="securedrop-threat-model">SecureDrop Threat Model</h1>
+<p>This document outlines the threat model for SecureDrop 0.3 and is inspired by the <a href="https://pond.imperialviolet.org/threat.html">threat model document Adam Langley wrote for Pond</a>. The threat model is defined in terms of what each possible adversary can achieve. This document is still a work in progress. If you have questions or comments, please open an issue on GitHub or send an email to securedrop@freedom.press.</p>
+<h2 id="assumptions">Assumptions</h2>
+<h3 id="assumptions-about-the-source">Assumptions about the source</h3>
+<ul>
+<li>The source acts reasonably and in good faith, e.g. if the user were to give their codename or private key material to the attacker that would be unreasonable.</li>
+<li>The source would like to remain anonymous, even against a forensic attacker.</li>
+<li>The source obtains an authentic copy of Tails or the Tor Browser.</li>
+<li>The source follows our <a href="source_user_manual.md">guidelines</a> for using SecureDrop.</li>
+<li>The source is accessing an authentic SecureDrop site.</li>
+</ul>
+<h3 id="assumptions-about-the-admin-and-the-journalist">Assumptions about the admin and the journalist</h3>
+<ul>
+<li>The admin and the journalist act reasonably and in good faith, e.g. if either of them were to give their credentials or private key material to the attacker that would be unreasonable.</li>
+<li>The admin and the journalist obtain authentic copies of Tails.</li>
+<li>The journalist follows our <a href="journalist_user_manual.md">guidelines</a> for using SecureDrop and working with submitted documents.</li>
+</ul>
+<h3 id="assumptions-about-the-person-installing-securedrop-usually-the-admin">Assumptions about the person installing SecureDrop, usually the admin</h3>
+<ul>
+<li>The person acts reasonably and in good faith, e.g. if he or she were to give the attacker system-level access that would be unreasonable.</li>
+<li>The person obtains an authentic copy of SecureDrop and its dependencies.</li>
+<li>The person follows our guidelines for <a href="../deployment_practices/">deploying the system, setting up the landing page for the organization</a>, and for <a href="installation/install.md">installing SecureDrop</a>.</li>
+</ul>
+<h3 id="assumptions-about-the-sources-computer">Assumptions about the source's computer</h3>
+<ul>
+<li>The computer correctly executes Tails or the Tor Browser.</li>
+<li>The computer is not compromised by malware.</li>
+</ul>
+<h3 id="assumptions-about-the-admin-workstation-and-the-journalist-workstation">Assumptions about the Admin Workstation and the Journalist Workstation</h3>
+<ul>
+<li>The computer correctly executes Tails.</li>
+<li>The computer and the Tails device are not compromised by malware.</li>
+<li>The two-factor authentication device used with the workstation are not compromised by malware.</li>
+</ul>
+<h3 id="assumptions-about-the-secure-viewing-station">Assumptions about the Secure Viewing Station</h3>
+<ul>
+<li>The computer is airgapped.</li>
+<li>The computer correctly executes Tails.</li>
+<li>The computer and the Tails device are not compromised by malware.</li>
+</ul>
+<h3 id="assumptions-about-the-securedrop-hardware">Assumptions about the SecureDrop hardware</h3>
+<ul>
+<li>The servers correctly execute Ubuntu, SecureDrop and its dependencies.</li>
+<li>The servers, network firewall, and physical media are not compromised by malware.</li>
+</ul>
+<h3 id="assumptions-about-the-organization-hosting-securedrop">Assumptions about the organization hosting SecureDrop</h3>
+<ul>
+<li>The organization wants to preserve the anonymity of its sources.</li>
+<li>The organization acts in the interest of allowing sources to submit documents, regardless of the contents of these documents.</li>
+<li>The users of the system, and those with physical access to the servers, can be trusted to uphold the previous assumptions unless the entire organization has been compromised.</li>
+<li>The organization is prepared to push back on any and all requests to compromise the integrity of the system and its users, including requests to deanonymize sources, block document submissions, or hand over encrypted or decrypted submissions.</li>
+</ul>
+<h3 id="assumptions-about-the-world">Assumptions about the world</h3>
+<ul>
+<li>The security assumptions of RSA (4096-bit GPG and SSH keys) are valid.</li>
+<li>The security assumptions of scrypt with randomly-generated salts are valid.</li>
+<li>The security/anonymity assumptions of Tor and the Hidden Service protocol are valid.</li>
+<li>The security assumptions of the Tails operating system are valid.</li>
+</ul>
+<h2 id="attack-scenarios">Attack Scenarios</h2>
+<h3 id="what-the-application-server-can-achieve">What the Application Server can achieve</h3>
+<ul>
+<li>The server sees the plaintext codename, used as the login identifier, of every source.</li>
+<li>The server sees all HTTP requests made by the source, the admin, and the journalist.</li>
+<li>The server sees the plaintext submissions of every source.</li>
+<li>The server sees the plaintext communication between journalists and their sources.</li>
+<li>The server stores hashes of codenames, created with scrypt and randomly-generated salts.</li>
+<li>The server stores only encrypted submissions and communication on disk.</li>
+<li>The server stores a GPG key for each source, with the source's codename as the passphrase.</li>
+<li>The server may <a href="https://github.com/freedomofpress/securedrop/issues/802/pull/805">store plaintext submissions in memory for at most 24 hours</a>.</li>
+<li>The server stores sanitized Tor logs, created using the <a href="https://www.torproject.org/docs/tor-manual.html.en">SafeLogging option</a>, for the Source Interface, the Document Interface, and SSH.</li>
+<li>The server stores both access and error logs for the Document Interface.</li>
+<li>The server stores connection history and audit logs for the admin.</li>
+<li>The server can connect to the Monitor server using an SSH key and a passphrase.</li>
+</ul>
+<h3 id="what-the-monitor-server-can-achieve">What the Monitor Server can achieve</h3>
+<ul>
+<li>The server stores the plaintext alerts on disk, data may also reside in RAM.</li>
+<li>The server stores the GPG public key the OSSEC alerts are encrypted to.</li>
+<li>The server stores plaintext credentials for the SMTP relay used to send OSSEC alerts.</li>
+<li>The server stores the email address the encrypted OSSEC alerts are sent to.</li>
+<li>The server stores sanitized Tor logs, created using the <a href="https://www.torproject.org/docs/tor-manual.html.en">SafeLogging option</a>, for SSH.</li>
+<li>The server stores connection history and audit logs for the admin.</li>
+<li>The server stores OSSEC and Procmail logs on disk.</li>
+<li>The server can connect to the Application Server using an SSH key and a passphrase.</li>
+</ul>
+<h3 id="what-the-workstations-can-achieve">What the Workstations can achieve</h3>
+<ul>
+<li>The <strong>Admin Workstation</strong> requires Tails with a persistent volume, which stores information such as GPG and SSH keys, as well as a <a href="installation/install.md#passphrase-database">database with passphrases</a> for the Application Server, the Monitor Server, and the GPG key the Monitor Server will encrypt OSSEC alerts to.</li>
+<li>The <strong>Journalist Workstation</strong> requires Tails with a persistent volume, which stores information such as the Hidden Service value required to connect to the Document Interface, as well as a <a href="installation/install.md#passphrase-database">database with passphrases</a> for the Document Interface and the journalist's personal GPG key.</li>
+<li>The <strong>Secure Viewing Station</strong> requires Tails with a persistent volume, which stores information such as the SecureDrop application's GPG key, as well as a <a href="installation/install.md#passphrase-database">database with the passphrase</a> for that key.</li>
+</ul>
+<h3 id="what-a-compromise-of-the-sources-property-can-achieve">What a compromise of the source's property can achieve</h3>
+<ul>
+<li>Use of <a href="https://research.torproject.org/techreports/tbb-forensic-analysis-2013-06-28.pdf">the Tor Browser will leave traces</a> that can be discovered through a forensic analysis of the source's property following either a compromise or physical seizure. Unless the compromise or seizure happens while the source is submitting documents to SecureDrop, the traces will not include information about sites visited or actions performed in the browser.</li>
+<li>Use of Tails with a persistent volume will leave traces on the device the operating system was installed on. Unless the compromise or seizure happens while the source is submitting documents to SecureDrop, or using the persistent volume, the traces will not include information about sites visited or actions performed in the browser or on the system.</li>
+<li>SecureDrop 0.3 encourages sources to protect their codenames by memorizing them. If a source cannot memorize the codename right away, we recommend writing it down and keeping it in a safe place at first, and gradually working to memorize it over time. Once the source has memorized it, he or she should destroy the written copy. If the source does write down the codename, a compromise or physical seizure of the source's property may result in the attacker obtaining the source's codename.</li>
+<li>An attacker with access to the <strong>source's codename</strong> can:<ul>
+<li>Show that the source has visited the SecureDrop site, but not necessarily submitted anything.</li>
+<li>Upload new documents or submit messages.</li>
+<li>Communicate with the journalist as that source.</li>
+<li>See any replies from journalists that the source has not yet deleted.</li>
+</ul>
+</li>
+</ul>
+<h3 id="what-a-physical-seizure-of-the-sources-property-can-achieve">What a physical seizure of the source's property can achieve</h3>
+<ul>
+<li>Document use of Tor or Tails, but not necessarily research into SecureDrop</li>
+<li>Prevent the source from submitting documents by taking the device the documents are stored on.</li>
+<li>If the property is seized while powered on, the attacker can also analyze any plaintext information that resides in RAM.</li>
+<li>Tamper with the hardware.</li>
+<li>
+<p>A physical seizure of, and access to, the source's codename will allow the attacker to access the Source Interface as that source.</p>
+</li>
+<li>
+<p>A physical seizure of the admin's property will allow the attacker to:</p>
+<ul>
+<li>Prevent the admin from working on SecureDrop for some period of time.</li>
+<li>Access any stored, decrypted documents taken off the Secure Viewing Station.</li>
+<li>If the property is seized while powered on, the attacker can also analyze any plaintext information that resides in RAM.</li>
+</ul>
+</li>
+<li>A physical seizure of, and access to, the admin's Tails persistent volume, password database, and two-factor authentication device will allow the attacker to access both servers and the Document Interface.</li>
+</ul>
+<h3 id="what-a-compromise-of-the-admins-property-can-achieve">What a compromise of the admin's property can achieve</h3>
+<ul>
+<li>To access the Document Interface, the Application Server, or the Monitor Server, the attacker needs to obtain the admin's login credentials and the admin's two-factor authentication device. Unless the attacker has physical access to the servers, the attacker will also need to obtain the Hidden Service values for the Interface and the servers. This information is stored in a password-protected database in a persistent volume on the admin's Tails device. The volume is protected by a passphrase. If the admin's two-factor authentication device is a mobile phone, this will also be protected by a passphrase.</li>
+<li>An attacker with access to the <strong>admin's computer</strong> can:<ul>
+<li>Access any stored, decrypted documents taken off the Secure Viewing Station.</li>
+</ul>
+</li>
+<li>An attacker with access to the <strong>persistent volume</strong> on the admin's Tails device can:<ul>
+<li>Add, modify, and delete files on the volume.</li>
+<li>Access the Hidden Service values used by the Interfaces and the servers.</li>
+<li>Access SSH keys and passphrases for the Application Server and the Monitor Server.</li>
+<li>Access the GPG key and passphrase for the encrypted OSSEC email alerts.</li>
+<li>Access the credentials for the account the encrypt alerts are sent to.</li>
+<li>Access the admin's personal GPG key.</li>
+</ul>
+</li>
+<li>An attacker with admin access to the <strong>Document Interface</strong> can:<ul>
+<li>Add, modify, and delete journalist users.</li>
+<li>Change the codenames associated with sources within the Interface.</li>
+<li>Download, but not decrypt, submissions.</li>
+<li>Communicate with sources.</li>
+<li>Delete one or more submissions.</li>
+<li>Delete one or more sources, which destroys all communication with that source and prevents the source from ever logging back in with that codename.</li>
+</ul>
+</li>
+<li>An attacker with admin access to the <strong>Application Server</strong> can:<ul>
+<li>Add, modify, and delete software, configurations, and other files.</li>
+<li>See all HTTP requests made by the source, the admin, and the journalist.</li>
+<li>See the plaintext codename of a source as he or she is logging in.</li>
+<li>See the plaintext communication between a source and a journalist as it happens.</li>
+<li>See the stored list of hashed codenames.</li>
+<li>Access the GPG public key used to encrypt communications between a journalist and a source.</li>
+<li>Download stored, encrypted submissions and replies from the journalists.</li>
+<li>Decrypt replies from the journalists if the source's codename, and thus the passphrase, is known.</li>
+<li>Analyze any plaintext information that resides in RAM, which may include plaintext of submissions made within the past 24 hours.</li>
+<li>Review logs stored on the system.</li>
+<li>Access the Monitor Server.</li>
+</ul>
+</li>
+<li>An attacker with admin access to the <strong>Monitor Server</strong> can:<ul>
+<li>Add, modify, and delete software, configurations, and other files.</li>
+<li>Change the SMTP relay, email address, and GPG key used for OSSEC alerts.</li>
+<li>Analyze any plaintext information that resides in RAM.</li>
+<li>Review logs stored on the system.</li>
+<li>Trigger arbitrary commands to be executed by the OSSEC agent user, which, assuming the attacker is able to escalate privileges, may affect the Application Server.</li>
+</ul>
+</li>
+</ul>
+<h3 id="what-a-physical-seizure-of-the-admins-property-can-achieve">What a physical seizure of the admin's property can achieve</h3>
+<ul>
+<li>Tamper with the hardware.</li>
+<li>Prevent the admin from working on SecureDrop for some period of time.</li>
+<li>Access any stored, decrypted documents taken off the Secure Viewing Station.</li>
+<li>If the property is seized while powered on, the attacker can also analyze any plaintext information that resides in RAM.</li>
+<li>A physical seizure of, and access to, the admin's Tails persistent volume, password database, and two-factor authentication device will allow the attacker to access both servers and the Document Interface.</li>
+</ul>
+<h3 id="what-a-compromise-of-the-journalists-property-can-achieve">What a compromise of the journalist's property can achieve</h3>
+<ul>
+<li>To access the Document Interface, the attacker needs to obtain the journalist's login credentials and the journalist's two-factor authentication device. Unless the attacker has physical access to the server, the attacker will also need to obtain the Hidden Service value for the Interface. This information is stored in a password-protected database in a persistent volume on the journalist's Tails device. The volume is protected by a passphrase. If the journalist's two-factor authentication device is a mobile phone, this will also be protected by a passphrase.</li>
+<li>An attacker with access to the <strong>journalist's computer</strong> can:<ul>
+<li>Access any stored, decrypted documents taken off the Secure Viewing Station.</li>
+</ul>
+</li>
+<li>An attacker with access to the <strong>persistent volume</strong> on the journalist's Tails device can:<ul>
+<li>Add, modify, and delete files on the volume.</li>
+<li>Access the Hidden Service values used by the Document Interface.</li>
+<li>Access SSH keys and passphrases for the Application Server and the Monitor Server.</li>
+<li>Access the journalist's personal GPG key.</li>
+</ul>
+</li>
+<li>An attacker with journalist access to the <strong>Document Interface</strong> can:<ul>
+<li>Change the codenames associated with sources within the Interface.</li>
+<li>Download, but not decrypt, submissions.</li>
+<li>Delete one or more submissions.</li>
+<li>Communicate with sources.</li>
+</ul>
+</li>
+</ul>
+<h3 id="what-a-physical-seizure-of-the-journalists-property-can-achieve">What a physical seizure of the journalist's property can achieve</h3>
+<ul>
+<li>Tamper with the hardware.</li>
+<li>Prevent the journalist from working on SecureDrop for some period of time.</li>
+<li>Access any stored, decrypted documents taken off the Secure Viewing Station.</li>
+<li>If the property is seized while powered on, the attacker can also analyze any plaintext information that resides in RAM.</li>
+<li>A physical seizure of, and access to, the journalist's Tails persistent volume, password database, and two-factor authentication device will allow the attacker to access the Document Interface.</li>
+</ul>
+<h3 id="what-a-compromise-of-the-application-server-can-achieve">What a compromise of the Application Server can achieve</h3>
+<ul>
+<li>If the Application Server is compromised, the system user the attacker has control over defines what kind of information the attacker will be able to view and what kind of actions the attacker can perform.</li>
+<li>An attacker with access to the <strong>debian-tor</strong> user can:<ul>
+<li>View, modify, and delete all files owned by this user. This includes sanitized Tor logs, created using the <a href="https://www.torproject.org/docs/tor-manual.html.en">SafeLogging option</a>, for SSH, the Source Interface and the Document Interface.</li>
+<li>View, modify, and delete the Tor configuration file, root is required to reload the config.</li>
+</ul>
+</li>
+<li>An attacker with access to the <strong>ossec</strong> user can:<ul>
+<li>Add, view, modify, and delete the log files, and in doing so send inaccurate information to the Monitor Server and the admin.</li>
+</ul>
+</li>
+<li>An attacker with access to the <strong>www-data</strong> user can:<ul>
+<li>View, modify, and delete all files owned by this user. This includes all files in use by the SecureDrop application, such as text, code, the database containing encrypted submissions and communications. The attacker needs root access to reload configuration files.</li>
+<li>View, modify, and delete both access and error logs for the Document Interface.</li>
+<li>View any HTTP requests made by the source, the admin, and the journalist in that moment. This includes seeing plaintext codenames, submissions, and communications.</li>
+<li>Add and delete communications between a journalist and a source by writing to the database.</li>
+</ul>
+</li>
+<li>An attacker with access to the <strong>root</strong> user can:<ul>
+<li>Do anything the <strong>www-data</strong> user can do in terms of the SecureDrop application, this user is in full control of the server and can view, modify, and delete anything at will. This user is not able to decrypt submissions or communications, unless the attacker has access to the encryption key required to do so.</li>
+</ul>
+</li>
+</ul>
+<h3 id="what-a-physical-seizure-of-the-application-server-can-achieve">What a physical seizure of the Application Server can achieve</h3>
+<ul>
+<li>If the Application Server is seized, the attacker will be able to view any and all unencrypted files on the server. This includes all files in use by the SecureDrop Application. If the server is seized while it is powered on, the attacker can also analyze any plaintext information that resides in RAM. The attacker can also tamper with the hardware.</li>
+</ul>
+<h3 id="what-a-compromise-of-the-monitor-server-can-achieve">What a compromise of the Monitor Server can achieve</h3>
+<ul>
+<li>If the Monitor Server is compromised, the system user the attacker has control over defines what kind of information the attacker will be able to view and what kind of actions the attacker can perform.</li>
+<li>An attacker with access to the <strong>debian-tor</strong> user can:<ul>
+<li>View, modify, and delete all files owned by this user. This includes sanitized Tor logs, created using the <a href="https://www.torproject.org/docs/tor-manual.html.en">SafeLogging option</a>, for SSH.</li>
+<li>View, modify, and delete the Tor configuration file, root is required to reload the config.</li>
+</ul>
+</li>
+<li>An attacker with access to the <strong>ossec</strong> user can:<ul>
+<li>???</li>
+</ul>
+</li>
+<li>An attacker with access to the <strong>root</strong> user can:<ul>
+<li>Do anything the <strong>ossec</strong> user can do in terms of the SecureDrop application, this user is in full control of the server and can view, modify, and delete anything at will. This user is not able to decrypt encrypted email alerts, unless the attacker has access to the encryption key required to do so.</li>
+</ul>
+</li>
+</ul>
+<h3 id="what-a-physical-seizure-of-the-monitor-server-can-achieve">What a physical seizure of the Monitor Server can achieve</h3>
+<ul>
+<li>If the Monitor Server is seized, the attacker will be able to view any and all unencrypted files on the server. This includes all files in use by OSSEC. If the server is seized while it is powered on, the attacker can also analyze any plaintext information that resides in RAM. The attacker can also tamper with the hardware.</li>
+</ul>
+<h3 id="what-a-compromise-of-the-secure-viewing-station-can-achieve">What a compromise of the Secure Viewing Station can achieve</h3>
+<ul>
+<li>The Secure Viewing Station is only useful to an attacker while powered on and with the Tails persistent volume mounted. The attacker may learn more if the Transfer device is in use at the time of compromise or seizure. A physical seizure of this machine, the Tails device or the Transfer device will also achieve nothing, assuming that Tails' implementation of full-disk encryption works as expected.</li>
+<li>A compromise of the Secure Viewing Station allows the attacker to:<ul>
+<li>Run commands as the <strong>amnesia</strong> user.</li>
+<li>View, modify, and delete files owned by the <strong>amnesia</strong> user. This includes the GPG private key used to encrypt and decrypt submitted documents.</li>
+<li>View, modify, and delete encrypted--and possibly also decrypted submissions--if the Transfer device is in use.</li>
+</ul>
+</li>
+</ul>
+<h3 id="what-a-physical-seizure-of-the-secure-viewing-station-can-achieve">What a physical seizure of the Secure Viewing Station can achieve</h3>
+<ul>
+<li>The Secure Viewing Station is only useful to an attacker while powered on and with the Tails persistent volume mounted. The attacker may learn more if the Transfer device is in use at the time of compromise or seizure. A physical seizure of this machine, the Tails device or the Transfer device will also achieve nothing, assuming that Tails' implementation of full-disk encryption works as expected.</li>
+<li>A physical seizure of the Secure Viewing Station, while on and with the persistent volume decrypted and mounted, allows the attacker to:<ul>
+<li>Tamper with the hardware.</li>
+<li>Run commands as the <strong>amnesia</strong> user.</li>
+<li>View, modify, and delete the GPG private key used to encrypt and decrypt submitted documents.</li>
+<li>View, modify, and delete encrypted--and possibly also decrypted submissions--if the Transfer device is in use.</li>
+</ul>
+</li>
+</ul>
+<h3 id="what-a-local-network-attacker-can-achieve-against-the-source-admin-or-journalist">What a local network attacker can achieve against the source, admin, or journalist:</h3>
+<ul>
+<li>A local network can observe when they are using Tor.</li>
+<li>A local network can block Tor and prevent them from accessing SecureDrop.</li>
+<li>A local network may be able to deduce use of SecureDrop by looking at request sizes, plaintext uploads and encrypted downloads, although <a href="https://blog.torproject.org/blog/critique-website-traffic-fingerprinting-attacks">research suggests this is very difficult</a>.</li>
+</ul>
+<h3 id="what-a-global-adversary-can-achieve-against-the-source-admin-or-journalist">What a global adversary can achieve against the source, admin, or journalist:</h3>
+<ul>
+<li>A global adversary capable of observing all Internet traffic may have more luck than the local network attacker in deducing use of SecureDrop by looking at request sizes, plaintext uploads and encrypted downloads.</li>
+<li>A global adversary may be able to link a source to a specific SecureDrop server.</li>
+<li>A global adversary may be able to link a source to a specific journalist.</li>
+<li>A global adversary may be able to correlate data points during a leak investigation, including looking at who has read up on SecureDrop and who has used Tor.</li>
+<li>A global adversary may be able to forge an SSL certificate and use it to spoof an organization's HTTPS landing page, thereby tricking the source into visiting a fake SecureDrop site.</li>
+</ul>
+<h3 id="what-a-random-person-on-the-internet-can-achieve">What a random person on the Internet can achieve</h3>
+<ul>
+<li>A random person can attempt to DoS the SecureDrop server and overwhelm the journalists by generating a high number of codenames and uploading many large documents.</li>
+<li>A random person can submit empty, forged, or inaccurate documents.</li>
+<li>A random person can submit malicious documents, e.g. malware that will attempt to compromise the Secure Viewing Station.</li>
+<li>A random person can attempt to get sensitive information from a SecureDrop user's browser session, such as the source's codename.</li>
+<li>A random person can attempt to compromise the SecureDrop server by attacking the exposed attack surface, including the kernel network stack, Tor, Apache, the SecureDrop web interfaces, Python, OpenSSH, and the TLS implementation.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../google_authenticator/" class="btn btn-neutral float-right" title="Google Authenticator"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../yubikey_setup/" class="btn btn-neutral" title="Yubikey Setup"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../yubikey_setup/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../google_authenticator/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

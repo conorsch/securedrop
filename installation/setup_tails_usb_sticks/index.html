@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Set up Tails USB Sticks - SecureDrop</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../site/css/base.css" rel="stylesheet">
+  <link href="../../site/css/bootstrap-custom.min.css" rel="stylesheet">
+  <link href="../../site/css/extra.css" rel="stylesheet">
+  <link href="../../site/css/font-awesome-4.0.3.css" rel="stylesheet">
+  <link href="../../site/css/highlight.css" rel="stylesheet">
+  <link href="../../css/extra.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Set up Tails USB Sticks";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="../../site/js/base.js"></script>
+  <script src="../../site/js/bootstrap-3.0.3.min.js"></script>
+  <script src="../../site/js/highlight.pack.js"></script>
+  <script src="../../site/js/jquery-1.10.2.min.js"></script>
+  <script src="../../site/mkdocs/js/lunr-0.5.7.min.js"></script>
+  <script src="../../site/mkdocs/js/mustache.min.js"></script>
+  <script src="../../site/mkdocs/js/require.js"></script>
+  <script src="../../site/mkdocs/js/search.js"></script>
+  <script src="../../site/mkdocs/js/text.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> SecureDrop</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Installation</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../intro/">Getting started</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Set up Tails USB Sticks</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#set-up-tails-usb-sticks">Set up Tails USB sticks</a></li>
+                
+                    <li><a class="toctree-l4" href="#installing-tails">Installing Tails</a></li>
+                
+                    <li><a class="toctree-l4" href="#enabling-persistence-storage-on-tails">Enabling Persistence Storage on Tails</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../setup_svs/">Set up Secure Viewing Station</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../setup_admin_workstation/">Set up Admin Workstation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../network_firewall/">Network Firewall</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ubuntu_config/">Server Config</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../securedrop_app/">Install SecureDrop Application</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../final_steps/">Finalizing the Installation</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Support</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/source_user_manual/">Source User Manual</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/journalist_user_manual/">Journalist User Manual</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/admin_interface/">Admin User Manual</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/tails_guide/">Using Tails</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/upgrade/">Upgrading SecureDrop</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/tails_printing_guide/">Printing with Tails</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/terminology/">Terminology</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/training_schedule/">Training Schedule</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Technical Information</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/hardware/">Hardware Requirements</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/deployment_practices/">Deployment Practices</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/ossec_alerts/">OSSEC Alerts</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/yubikey_setup/">Yubikey Setup</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/threat_model/">Threat Model</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/google_authenticator/">Google Authenticator</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Contributing</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/develop/">Development Environment</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Running the Tests</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/spec_tests/">Serverspec Tests</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/snap_ci/">Automated CI Tests</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/apparmor_profiles/">AppArmor Profiles</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/creating_deb/">Building .deb packages</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">SecureDrop</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Installation &raquo;</li>
+        
+      
+    
+    <li>Set up Tails USB Sticks</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="set-up-tails-usb-sticks">Set up Tails USB sticks</h1>
+<p>Before installing the SecureDrop application, the first thing you need to do is set up several USB sticks with the Tails operating system. Tails is a privacy-enhancing live operating system that runs on removable media, such as a DVD or a USB stick. It sends all your Internet traffic through Tor, does not touch your computer's hard drive, and securely wipes unsaved work on shutdown.</p>
+<p>You'll need to install Tails onto at least four USB sticks and enable persistent storage, which is an encrypted volume that allows you to save information even when Tails securely wipes everything else:</p>
+<ol>
+<li>
+<p><em>offline Tails USB</em></p>
+</li>
+<li>
+<p><em>admin Tails USB</em></p>
+</li>
+<li>
+<p><em>journalist Tails USB</em>.</p>
+</li>
+<li>
+<p><em>long-term storage Tails USB</em></p>
+</li>
+</ol>
+<p>You will need one Tails USB for each journalist, so if you have more than one journalist checking SecureDrop, you'll need to create even more. It's a good idea to label or color-code these in order to tell them apart.</p>
+<h2 id="installing-tails">Installing Tails</h2>
+<p>We recommend creating an initial Tails Live DVD or USB, and then using that to create additional Tails Live USBs with the <em>Tails Installer</em>, a special program that is only available from inside Tails. <em>You will only be able to create persistent volumes on USB sticks that had Tails installed via the Tails Installer</em>.</p>
+<p>The <a href="https://tails.boum.org/">Tails website</a> has detailed and up-to-date instructions on how to download and verify Tails, and how to create a bootable Tails USB stick. Follow the instructions at these links and then return to this page:</p>
+<ul>
+<li><a href="https://tails.boum.org/download/index.en.html">Download and verify the Tails .iso</a></li>
+<li><a href="https://tails.boum.org/doc/first_steps/installation/index.en.html">Install onto a USB stick or SD card</a></li>
+</ul>
+<p>Note that this process will take some time because once you have one copy of Tails, you have to create each additional Tails USB, shut down, and boot into each one to complete the next step.</p>
+<p>Also, you should be aware that Tails doesn't always completely shut down and reboot properly when you click "restart", so if you notice a signficant delay, you may have to manually power off and restart your computer for it to work properly.</p>
+<h2 id="enabling-persistence-storage-on-tails">Enabling Persistence Storage on Tails</h2>
+<p>Creating an encrypted persistent volume will allow you to securely save information and settings in the free space that is left on your Tails USB. This information will remain available to you even if you reboot Tails. (Tails securely erases all other data on every shutdown.)</p>
+<p>You will need to create a persistent storage on each Tails USB, with a unique password for each.</p>
+<p>Please use the instructions on the <a href="https://tails.boum.org/doc/first_steps/persistence/index.en.html">Tails website</a> to make the persistent volume on each Tails USB stick you create.</p>
+<p>When creating the persistence volume, you will be asked to select from a list of features, such as 'Personal Data'. We recommend that you enable <strong>all</strong> features.</p>
+<p>Some other things to keep in mind:</p>
+<ul>
+<li>
+<p>You will want to create a persistent volume for all three main Tails USBs: the <em>offline Tails USB</em>, the <em>admin Tails USB</em>, and the <em>journalist Tails USB</em>.</p>
+</li>
+<li>
+<p>The admin and the journalist should create separate passwords for their own USBs.</p>
+</li>
+<li>
+<p>Only the journalist should have access to the <em>offline Tails USB password</em>, though during the initial installation, often the admin will create their own password to facilitate setup and then the journalist can change it afterwards.</p>
+</li>
+<li>
+<p>Unlike many of the other passphrases for SecureDrop, the persistence volume passwords must be remembered by the admin and journalist. So after creating each passphrase, you should write it down until you can memorize it, and then destroy the paper you wrote it on.</p>
+</li>
+</ul>
+<p>NOTE: Make sure that you never use the <em>offline Tails USB</em> on a computer connected to the Internet or a local network. This USB will be used on the air-gapped <em>Secure Viewing Station</em> only.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../setup_svs/" class="btn btn-neutral float-right" title="Set up Secure Viewing Station"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../intro/" class="btn btn-neutral" title="Getting started"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../intro/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../setup_svs/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Serverspec Tests - SecureDrop</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../site/css/base.css" rel="stylesheet">
+  <link href="../../site/css/bootstrap-custom.min.css" rel="stylesheet">
+  <link href="../../site/css/extra.css" rel="stylesheet">
+  <link href="../../site/css/font-awesome-4.0.3.css" rel="stylesheet">
+  <link href="../../site/css/highlight.css" rel="stylesheet">
+  <link href="../../css/extra.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Serverspec Tests";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="../../site/js/base.js"></script>
+  <script src="../../site/js/bootstrap-3.0.3.min.js"></script>
+  <script src="../../site/js/highlight.pack.js"></script>
+  <script src="../../site/js/jquery-1.10.2.min.js"></script>
+  <script src="../../site/mkdocs/js/lunr-0.5.7.min.js"></script>
+  <script src="../../site/mkdocs/js/mustache.min.js"></script>
+  <script src="../../site/mkdocs/js/require.js"></script>
+  <script src="../../site/mkdocs/js/search.js"></script>
+  <script src="../../site/mkdocs/js/text.js"></script>
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> SecureDrop</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Installation</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/intro/">Getting started</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/setup_tails_usb_sticks/">Set up Tails USB Sticks</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/setup_svs/">Set up Secure Viewing Station</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/setup_admin_workstation/">Set up Admin Workstation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/network_firewall/">Network Firewall</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/ubuntu_config/">Server Config</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/securedrop_app/">Install SecureDrop Application</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../installation/final_steps/">Finalizing the Installation</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Support</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/source_user_manual/">Source User Manual</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/journalist_user_manual/">Journalist User Manual</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/admin_interface/">Admin User Manual</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/tails_guide/">Using Tails</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/upgrade/">Upgrading SecureDrop</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/tails_printing_guide/">Printing with Tails</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/terminology/">Terminology</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/training_schedule/">Training Schedule</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Technical Information</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/hardware/">Hardware Requirements</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/deployment_practices/">Deployment Practices</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/ossec_alerts/">OSSEC Alerts</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/yubikey_setup/">Yubikey Setup</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/threat_model/">Threat Model</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/google_authenticator/">Google Authenticator</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Contributing</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../develop/">Development Environment</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Running the Tests</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Serverspec Tests</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#serverspec-tests">Serverspec tests</a></li>
+                
+                    <li><a class="toctree-l4" href="#install-directions-ubuntu">Install directions (Ubuntu)</a></li>
+                
+                    <li><a class="toctree-l4" href="#spectest-layout">Spectest layout</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../snap_ci/">Automated CI Tests</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../apparmor_profiles/">AppArmor Profiles</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../creating_deb/">Building .deb packages</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">SecureDrop</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Running the Tests &raquo;</li>
+        
+      
+    
+    <li>Serverspec Tests</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="serverspec-tests">Serverspec tests</h1>
+<p><a href="http://serverspec.org/">serverspec</a> tests verify the end state of the vagrant machines. 
+Any changes to the Ansible configuration should have a corresponding spectest.</p>
+<h2 id="install-directions-ubuntu">Install directions (Ubuntu)</h2>
+<pre><code>apt-get install bundler
+cd spec_tests/
+bundle update
+</code></pre>
+
+<h3 id="running-the-tests">Running the tests</h3>
+<pre><code>cd spec_tests/
+bundle exec rake spec
+</code></pre>
+
+<p>This will run the tests against all configured hosts, specifically: 
+<em> development
+</em> app-staging
+<em> mon-staging
+</em> build</p>
+<p>In order to run the tests, each VM will be created and provisioned, if necessary.
+Running all VMs concurrently may cause performance problems if you have less
+than 8GB of RAM. You can isolate specific machines for faster testing:</p>
+<pre><code>cd spec_tests
+bundle exec rake --tasks # check output for desired machine
+bundle exec rake spec:development
+</code></pre>
+
+<h3 id="updating-the-tests">Updating the tests</h3>
+<p>Changes to the ansible config should result in failing spectests, but
+only if an existing task was modified. If you add a new task, make sure 
+to add a corresponding spectest to validate that state after a new provisioning run.
+Tests import variables from separate YAML files than the Ansible playbooks:</p>
+<pre><code>spec_tests/spec/vars
+├── development.yml
+└── staging.yml
+</code></pre>
+
+<p>Any variable changes in the Ansible config should have a corresponding entry 
+in these vars files. These vars are dynamically loaded for each host via the
+<code>spec_helper.rb</code> file. Make sure to add your tests to relevant location 
+for the host you plan to test:</p>
+<pre><code>spec_tests/spec/app-staging
+├── apache_spec.rb
+├── apparmor_spec.rb
+├── iptables_spec.rb
+├── ossec_agent_spec.rb
+├── securedrop_app_spec.rb
+├── securedrop_app_test_spec.rb
+└── tor_spec.rb
+</code></pre>
+
+<p>In the example above, to add a new test for the <code>app-staging</code> host,
+add a new file to the <code>spec_tests/spec/app-staging</code> directory.</p>
+<h2 id="spectest-layout">Spectest layout</h2>
+<p>The serverspec tests are mostly broken up according to
+machines in the Vagrantfile:</p>
+<pre><code>spec_tests/spec
+├── app-staging
+├── build
+├── common-development
+├── common-staging
+├── development
+├── mon-staging
+└── vars
+</code></pre>
+
+<p>There are a few exceptions:</p>
+<ul>
+<li><code>common-development</code> shares tests between <code>development</code> and <code>app-staging</code></li>
+<li><code>common-staging</code> shares tests between <code>app-staging</code> and <code>mon-staging</code></li>
+</ul>
+<p>Ideally the serverspec tests would be broken up according to roles, mirroring
+the Ansible configuration. Prior to the reorganization of the Ansible
+layout, the tests are rather tightly coupled to hosts. The layout 
+of spectests is therefore subject to change.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../snap_ci/" class="btn btn-neutral float-right" title="Automated CI Tests"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../develop/" class="btn btn-neutral" title="Development Environment"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../develop/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../snap_ci/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

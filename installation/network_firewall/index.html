@@ -1,210 +1,355 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Network Firewall - SecureDrop</title>
+  
 
-	<title>Network Firewall - SecureDrop</title>
+  <link rel="shortcut icon" href="../../img/favicon.ico">
 
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link rel="stylesheet" href="../../css/highlight.css">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link href="../../css/extra.css" rel="stylesheet">
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../site/css/base.css" rel="stylesheet">
+  <link href="../../site/css/bootstrap-custom.min.css" rel="stylesheet">
+  <link href="../../site/css/extra.css" rel="stylesheet">
+  <link href="../../site/css/font-awesome-4.0.3.css" rel="stylesheet">
+  <link href="../../site/css/highlight.css" rel="stylesheet">
+  <link href="../../css/extra.css" rel="stylesheet">
 
-        
-    </head>
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Network Firewall";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+  <script src="../../site/js/base.js"></script>
+  <script src="../../site/js/bootstrap-3.0.3.min.js"></script>
+  <script src="../../site/js/highlight.pack.js"></script>
+  <script src="../../site/js/jquery-1.10.2.min.js"></script>
+  <script src="../../site/mkdocs/js/lunr-0.5.7.min.js"></script>
+  <script src="../../site/mkdocs/js/mustache.min.js"></script>
+  <script src="../../site/mkdocs/js/require.js"></script>
+  <script src="../../site/mkdocs/js/search.js"></script>
+  <script src="../../site/mkdocs/js/text.js"></script>
 
-    <body>
+  
+</head>
 
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<body class="wy-body-for-nav" role="document">
 
-        <!-- Collapsed navigation -->
-        <div class="navbar-header">
-            <!-- Expander button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+  <div class="wy-grid-for-nav">
 
-            <!-- Main title -->
-            <a class="navbar-brand" href="../..">SecureDrop</a>
-        </div>
-
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
-            <!-- Main navigation -->
-            <ul class="nav navbar-nav">
-            
-            
-                <li >
-                    <a href="../..">Home</a>
-                </li>
-            
-            
-            
-                <li class="dropdown active">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                    
-                        <li >
-                            <a href="../install/">Installation Overview</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../hardware/">Hardware Requirements</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../deployment_practices/">Deployment Practices</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../ubuntu_config/">Server Config</a>
-                        </li>
-                    
-                        <li class="active">
-                            <a href="./">Network Firewall</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../ossec_alerts/">OSSEC Alerts</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../yubikey_setup/">Yubikey Setup</a>
-                        </li>
-                    
-                    </ul>
-                </li>
-            
-            
-            
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Support <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                    
-                        <li >
-                            <a href="../../source_user_manual/">Source User Manual</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../../journalist_user_manual/">Journalist User Manual</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../../admin_interface/">Admin User Manual</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../../tails_guide/">Using Tails</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../../google_authenticator/">Google Authenticator</a>
-                        </li>
-                    
-                        <li >
-                            <a href="">Upgrading SecureDrop</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../../tails_printing_guide/">Printing with Tails</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../../terminology/">Terminology</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../../threat_model/">Threat Model</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../../training_schedule/">Training Schedule</a>
-                        </li>
-                    
-                    </ul>
-                </li>
-            
-            
-            
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contributing <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                    
-                        <li >
-                            <a href="../../develop/">Development Environment</a>
-                        </li>
-                    
-                        <li >
-                            <a href="">Running the Tests</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../../apparmor_profiles/">AppArmor Profiles</a>
-                        </li>
-                    
-                        <li >
-                            <a href="../../creating_deb/">Building .deb packages</a>
-                        </li>
-                    
-                    </ul>
-                </li>
-            
-            
-            </ul>
-
-            <!-- Search, Navigation and Repo links -->
-            <ul class="nav navbar-nav navbar-right">
-                <li >
-                    <a rel="next" href="../ubuntu_config/">
-                        <i class="fa fa-arrow-left"></i> Previous
-                    </a>
-                </li>
-                <li >
-                    <a rel="prev" href="../ossec_alerts/">
-                        Next <i class="fa fa-arrow-right"></i>
-                    </a>
-                </li>
-                
-            </ul>
-        </div>
-    </div>
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> SecureDrop</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
 </div>
+      </div>
 
-        <div class="container">
-            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-    
-        <li class="main active"><a href="#network-firewall-setup-guide">Network Firewall Setup Guide</a></li>
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Home</a>
         
-            <li><a href="#before-you-begin">Before you begin</a></li>
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Installation</span></li>
+
         
-            <li><a href="#initial-setup">Initial Setup</a></li>
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../intro/">Getting started</a>
         
-            <li><a href="#securedrop-specific-configuration">SecureDrop-specific Configuration</a></li>
+    </li>
+
         
-    
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../setup_tails_usb_sticks/">Set up Tails USB Sticks</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../setup_svs/">Set up Secure Viewing Station</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../setup_admin_workstation/">Set up Admin Workstation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Network Firewall</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#network-firewall-setup-guide">Network Firewall Setup Guide</a></li>
+                
+                    <li><a class="toctree-l4" href="#before-you-begin">Before you begin</a></li>
+                
+                    <li><a class="toctree-l4" href="#initial-setup">Initial Setup</a></li>
+                
+                    <li><a class="toctree-l4" href="#securedrop-specific-configuration">SecureDrop-specific Configuration</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ubuntu_config/">Server Config</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../securedrop_app/">Install SecureDrop Application</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../final_steps/">Finalizing the Installation</a>
+        
+    </li>
+
+        
     </ul>
-</div></div>
-            <div class="col-md-9" role="main">
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Support</span></li>
 
-<h1 id="network-firewall-setup-guide">Network Firewall Setup Guide</h1>
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/source_user_manual/">Source User Manual</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/journalist_user_manual/">Journalist User Manual</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/admin_interface/">Admin User Manual</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/tails_guide/">Using Tails</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/upgrade/">Upgrading SecureDrop</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/tails_printing_guide/">Printing with Tails</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/terminology/">Terminology</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../support/training_schedule/">Training Schedule</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Technical Information</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/hardware/">Hardware Requirements</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/deployment_practices/">Deployment Practices</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/ossec_alerts/">OSSEC Alerts</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/yubikey_setup/">Yubikey Setup</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/threat_model/">Threat Model</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../technical_information/google_authenticator/">Google Authenticator</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Contributing</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/develop/">Development Environment</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Running the Tests</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/spec_tests/">Serverspec Tests</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/snap_ci/">Automated CI Tests</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/apparmor_profiles/">AppArmor Profiles</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../contributing/creating_deb/">Building .deb packages</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">SecureDrop</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Installation &raquo;</li>
+        
+      
+    
+    <li>Network Firewall</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="network-firewall-setup-guide">Network Firewall Setup Guide</h1>
 <p>Unfortunately, due to the wide variety of firewalls that may be used, we do not provide specific instructions to cover every type or variation in software or hardware.</p>
 <p>This guide will focus on pfSense, and assumes your firewall has at least three interfaces: WAN, LAN, and OPT1. These are the default interfaces on the recommended Netgate firewall, and it should be easy to configure any pfSense firewall with 3 or more NICs this way.</p>
 <p>To avoid duplication, this guide refers to sections of the <a href="http://data.sfb.bg.ac.rs/sftp/bojan.radic/Knjige/Guide_pfsense.pdf">pfSense Guide</a>, so you will want to have that handy.</p>
@@ -244,7 +389,7 @@
 <p>Launch the <em>Unsafe Browser</em>, <em>Applications → Internet → Unsafe Browser</em>.</p>
 </li>
 </ol>
-<p><img alt="Launching the Unsafe Browser" src="../images/firewall/launching_unsafe_browser.png" /></p>
+<p><img alt="Launching the Unsafe Browser" src="../../images/firewall/launching_unsafe_browser.png" /></p>
 <pre><code>1. Note that the *Unsafe Browser* is, as the name suggests, **unsafe** (its
    traffic is not routed through Tor). However, it is the only option in
    this context because Tails [intentionally][tails_issue_7976] disables
@@ -252,11 +397,11 @@
 
 2. A dialog will ask "Do you really want to launch the Unsafe Browser?". Click **Launch**.
 
-   ![You really want to launch the Unsafe Browser](images/firewall/unsafe_browser_confirmation_dialog.png)
+   ![You really want to launch the Unsafe Browser](../images/firewall/unsafe_browser_confirmation_dialog.png)
 
 3. You will see a pop-up notification that says "Starting the Unsafe Browser..."
 
-   ![Pop-up notification](images/firewall/starting_the_unsafe_browser.png)
+   ![Pop-up notification](../images/firewall/starting_the_unsafe_browser.png)
 
 4. After a few seconds, the Unsafe Browser should launch. The window has a
    bright red border to remind you to be careful when using it. You should
@@ -264,7 +409,7 @@
    Browser for any other web browsing you might do on the Admin
    Workstation.
 
-   ![Unsafe Browser Homepage](images/firewall/unsafe_browser.png)
+   ![Unsafe Browser Homepage](../images/firewall/unsafe_browser.png)
 </code></pre>
 <ol>
 <li>
@@ -306,18 +451,18 @@
 <p>Once again, be sure that the CIDR prefix correctly corresponds to your subnet mask (and should be <code>/24</code> in most cases). Pfsense should automatically calculate this for you, but you should always check.  Leave everything else as the default. Save and Apply Changes.</p>
 <h3 id="disable-dhcp-on-the-lan">Disable DHCP on the LAN</h3>
 <p>pfSense runs a DHCP server on the LAN interface by default. At this stage in the documentation, the Admin Workstation has an IP address assigned via that DHCP server. You can easily check your current IP address by <em>right-clicking</em> the networking icon (a blue cable going in to a white jack) in the top right of the menu bar, and choosing "Connection Information".</p>
-<p><img alt="Connection Information" src="../images/firewall/connection_information.png" /></p>
+<p><img alt="Connection Information" src="../../images/firewall/connection_information.png" /></p>
 <p>In order to tighten the firewall rules as much as possible, we recommend disabling the DHCP server and assigning a static IP address to the Admin Workstation instead.</p>
 <h4 id="disabling-dhcp">Disabling DHCP</h4>
 <p>To disable DHCP, navigate to "Services → DHCP Server". Uncheck the box to "Enable DHCP servers on LAN interface", scroll down, and click the Save button.</p>
 <h4 id="assigning-a-static-ip-address-to-the-admin-workstation">Assigning a static IP address to the Admin Workstation</h4>
 <p>Now you will need to assign a static IP to the Admin Workstation. Use the <em>Admin Workstation IP</em> that you selected earlier, and make sure you use the same IP when setting up the firewall rules later.</p>
 <p>Start by <em>right-clicking</em> the networking icon in the top right of the menu bar, and choosing "Edit Connections...".</p>
-<p><img alt="Edit Connections" src="../images/firewall/edit_connections.png" /></p>
+<p><img alt="Edit Connections" src="../../images/firewall/edit_connections.png" /></p>
 <p>Select "Wired connection" from the list and click the "Edit..." button.</p>
-<p><img alt="Edit Wired Connection" src="../images/firewall/edit_wired_connection.png" /></p>
+<p><img alt="Edit Wired Connection" src="../../images/firewall/edit_wired_connection.png" /></p>
 <p>Change to the "IPv4 Settings" tab. Change "Method:" from "Automatic (DHCP)" to "Manual". Click the Add button and fill in the static networking information for the Admin Workstation.</p>
-<p><img alt="Editing Wired Connection" src="../images/firewall/editing_wired_connection.png" /></p>
+<p><img alt="Editing Wired Connection" src="../../images/firewall/editing_wired_connection.png" /></p>
 <p>Click "Save...". If the network does not come up within 15 seconds or so, try disconnecting and reconnecting your network cable to trigger the change. You will need you have succeeded in connecting with your new static IP when you see a pop-up notification that says "Tor is ready. You can now access the Internet".</p>
 <h3 id="set-up-the-network-firewall-rules">Set up the network firewall rules</h3>
 <p>Since there are a variety of firewalls with different configuration interfaces and underlying sets of software, we cannot provide a set of network firewall rules to match every use case. Instead, we provide a firewall rules template in <code>install_files/network_firewall/rules</code>. This template is written in the iptables format, which you will need to manually translate for your firewall and preferred configuration method.</p>
@@ -344,22 +489,54 @@
 <p>We recognize that this process is cumbersome and may be difficult for people inexperienced in managing networks to understand. We are working on automating much of this for the next SecureDrop release.  If you're unsure how to set up your firewall, use the screenshots in the next section as your guide.</p>
 <h4 id="example-screenshots">Example Screenshots</h4>
 <p>Here are some example screenshots of a working pfSense firewall configuration.</p>
-<p><img alt="Firewall IP Aliases" src="../images/firewall/ip_aliases.png" />
-<img alt="Firewall Port Aliases" src="../images/firewall/port_aliases.png" />
-<img alt="Firewall LAN Rules" src="../images/firewall/lan_rules.png" />
-<img alt="Firewall OPT1 Rules" src="../images/firewall/opt1_rules.png" /></p>
-<p>Once you've set up the firewall, <strong>exit the Unsafe Browser</strong>, and continue with the instructions in the <a href="installation/install.md#set-up-the-servers">Install Guide</a>.</p></div>
+<p><img alt="Firewall IP Aliases" src="../../images/firewall/ip_aliases.png" />
+<img alt="Firewall Port Aliases" src="../../images/firewall/port_aliases.png" />
+<img alt="Firewall LAN Rules" src="../../images/firewall/lan_rules.png" />
+<img alt="Firewall OPT1 Rules" src="../../images/firewall/opt1_rules.png" /></p>
+<p>Once you've set up the firewall, <strong>exit the Unsafe Browser</strong>, and continue with the instructions in the <a href="installation/install.md#set-up-the-servers">Install Guide</a>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ubuntu_config/" class="btn btn-neutral float-right" title="Server Config"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../setup_admin_workstation/" class="btn btn-neutral" title="Set up Admin Workstation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
         </div>
+      </div>
 
-        <footer class="col-md-12">
-            <hr>
-            
-            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
-        </footer>
+    </section>
 
-        <script src="../../js/jquery-1.10.2.min.js"></script>
-        <script src="../../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../../js/highlight.pack.js"></script>
-        <script src="../../js/base.js"></script>
-    </body>
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../setup_admin_workstation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../ubuntu_config/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
 </html>
