@@ -4,13 +4,20 @@ pages:
   - Home: index.md
   - Installing SecureDrop:
     - Installation Overview: install.md
+    - Technical Documentation:
+      - Server Config: ubuntu_config.md
+      - Network Firewall: network_firewall.md
+      - OSSEC Alerts: ossec_alerts.md
+      - Yubikey Setup: yubikey_setup.md
     - Hardware Requirements: hardware.md
     - Deployment Practices: deployment_practices.md
+
   - Guides:
     - Source User Manual: source_user_manual.md
     - Journalist User Manual: journalist_user_manual.md
     - Admin User Manual: admin_interface.md
     - Using Tails: tails_guide.md
+
   - Support:
     - Google Authenticator: google_authenticator.md
     - Upgrading SecureDrop:
@@ -19,10 +26,14 @@ pages:
     - Printing with Tails: tails_printing_guide.md
     - Terminology: terminology.md
     - Threat Model: threat_model.md
+    - Training Schedule: training_schedule.md
+
   - Contributing to SecureDrop:
     - Development Environment: develop.md
     - Running the Tests:
       - Serverspec Tests: spec_tests.md
       - Automated CI Tests: snap_ci.md
+    - AppArmor Profiles: apparmor_profiles.md
+    - Building .deb packages: creating_deb.md
 
 theme: readthedocs
