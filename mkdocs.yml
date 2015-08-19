@@ -7,6 +7,7 @@ pages:
     - Set up Tails USB Sticks: installation/setup_tails_usb_sticks.md
     - Set up Secure Viewing Station: installation/setup_svs.md
     - Set up Admin Workstation: installation/setup_admin_workstation.md
+    - Install SecureDrop Application: installation/securedrop_app.md
     - Hardware Requirements: installation/hardware.md
     - Deployment Practices: installation/deployment_practices.md
     - Server Config: installation/ubuntu_config.md
