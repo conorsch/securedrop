@@ -1,0 +1,5 @@
+site_name: SecureDrop
+pages:
+  - Home: index.md
+  - Installation: install.md
+theme: readthedocs
