@@ -22,7 +22,7 @@ This document outlines the threat model for SecureDrop 0.3 and is inspired by th
 
  * The person acts reasonably and in good faith, e.g. if he or she were to give the attacker system-level access that would be unreasonable.
  * The person obtains an authentic copy of SecureDrop and its dependencies.
- * The person follows our guidelines for [deploying the system, setting up the landing page for the organization](deployment_practices.md), and for [installing SecureDrop](install.md).
+ * The person follows our guidelines for [deploying the system, setting up the landing page for the organization](deployment_practices.md), and for [installing SecureDrop](installation/install.md).
 
 ### Assumptions about the source's computer
 
@@ -90,9 +90,9 @@ This document outlines the threat model for SecureDrop 0.3 and is inspired by th
 
 ### What the Workstations can achieve
 
- * The **Admin Workstation** requires Tails with a persistent volume, which stores information such as GPG and SSH keys, as well as a [database with passphrases](install.md#passphrase-database) for the Application Server, the Monitor Server, and the GPG key the Monitor Server will encrypt OSSEC alerts to.
- * The **Journalist Workstation** requires Tails with a persistent volume, which stores information such as the Hidden Service value required to connect to the Document Interface, as well as a [database with passphrases](install.md#passphrase-database) for the Document Interface and the journalist's personal GPG key.
- * The **Secure Viewing Station** requires Tails with a persistent volume, which stores information such as the SecureDrop application's GPG key, as well as a [database with the passphrase](install.md#passphrase-database) for that key.
+ * The **Admin Workstation** requires Tails with a persistent volume, which stores information such as GPG and SSH keys, as well as a [database with passphrases](installation/install.md#passphrase-database) for the Application Server, the Monitor Server, and the GPG key the Monitor Server will encrypt OSSEC alerts to.
+ * The **Journalist Workstation** requires Tails with a persistent volume, which stores information such as the Hidden Service value required to connect to the Document Interface, as well as a [database with passphrases](installation/install.md#passphrase-database) for the Document Interface and the journalist's personal GPG key.
+ * The **Secure Viewing Station** requires Tails with a persistent volume, which stores information such as the SecureDrop application's GPG key, as well as a [database with the passphrase](installation/install.md#passphrase-database) for that key.
 
 ### What a compromise of the source's property can achieve
 

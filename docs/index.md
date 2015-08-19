@@ -28,7 +28,7 @@ These computers should all physically be in your organization's office.
 
 ## How to Install SecureDrop
 
-See the [Installation Guide](install.md).
+See the [Installation Guide](installation/install.md).
 
 ## How to Use SecureDrop
 

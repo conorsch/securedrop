@@ -56,7 +56,7 @@ Time: 30 min
 
 Time: 6 hours
 
-* Follow [Installing SecureDrop](install.md)
+* Follow [Installing SecureDrop](installation/install.md)
 
 
 ##Day 2: Journalist and Admin Training

@@ -72,7 +72,7 @@ The output of the command above should look like the following (*last updated Tu
 
     6D:87:EE:CB:D0:37:2F:88:B8:29:06:FB:35:F4:65:00:7F:FD:84:29
 
-Finally, enter the result as `smtp_relay_fingerprint`. Save `prod-specific.yml`, exit the editor and [proceed with the installation](install.md#install-securedrop) by running the playbooks.
+Finally, enter the result as `smtp_relay_fingerprint`. Save `prod-specific.yml`, exit the editor and [proceed with the installation](installation/install.md#install-securedrop) by running the playbooks.
 
 ### Using Gmail for OSSEC alerts
 
