@@ -3,7 +3,7 @@ site_name: SecureDrop
 pages:
   - Home: index.md
   - Installation:
-    - Installation Overview: installation/install.md
+    - Getting started: installation/intro.md
     - Set up Tails USB Sticks: installation/setup_tails_usb_sticks.md
     - Set up Secure Viewing Station: installation/setup_svs.md
     - Set up Admin Workstation: installation/setup_admin_workstation.md
