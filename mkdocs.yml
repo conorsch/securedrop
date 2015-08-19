@@ -17,9 +17,7 @@ pages:
     - Journalist User Manual: support/journalist_user_manual.md
     - Admin User Manual: support/admin_interface.md
     - Using Tails: support/tails_guide.md
-    - Upgrading SecureDrop:
-      - Upgrading from 0.2.1: support/0.2.1-upgrade-to-0.3.x.md
-      - Upgrading from 0.3-pre: support/0.3-pre-upgrade-to-0.3.x.md
+    - Upgrading SecureDrop: support/upgrade.md
     - Printing with Tails: support/tails_printing_guide.md
     - Terminology: support/terminology.md
     - Training Schedule: support/training_schedule.md
