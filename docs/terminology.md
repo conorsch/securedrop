@@ -62,15 +62,15 @@ When we use the phrase "sneakernet" we mean physically moving documents on the T
 
 ### USBs/DVDs/CDs
 
- * CD, DVD, or USB to use when [installing Ubuntu on the Application Server and the Monitor Server](/docs/ubuntu_config.md).
- * CD, DVD, or USB to use when [setting up Tails Live with persistence](/docs/tails_guide.md).
+ * CD, DVD, or USB to use when [installing Ubuntu on the Application Server and the Monitor Server](ubuntu_config.md).
+ * CD, DVD, or USB to use when [setting up Tails Live with persistence](tails_guide.md).
  * Brand new USB, marked *transfer*, to use as the *Transfer Device*.
 
 Additionally, you will need a minimum of 4 USB sticks which will become Tails Live USBs with persistence. You should mark two *offline*, one *online*, and one *admin*. This is enough to set up a system with one admin and one journalist (note that the same person can perform both of these roles). To add more administrators or journalists, you will need more USB sticks.
 
 Finally, each user, whether admin or journalist, will need a *Two-Factor Authenticator*.
 
-Each journalist will also need a *Transfer Device* for transferring files between the *Secure Viewing Station* and their *Journalist Workstation*, and a personal GPG key. Make sure you [create GPG keys](/docs/journalist_user_manual.md#create-gpg-key-for-the-journalist) for journalists who do not already have one.
+Each journalist will also need a *Transfer Device* for transferring files between the *Secure Viewing Station* and their *Journalist Workstation*, and a personal GPG key. Make sure you [create GPG keys](journalist_user_manual.md#create-gpg-key-for-the-journalist) for journalists who do not already have one.
 
 The second *offline* Tails Live USB with persistence will be used as the encrypted offline backup. This device will be a copy of the main *SVS* Tails Live USB with persistence.
 
@@ -82,7 +82,7 @@ There are several roles for SecureDrop and each requires knowing a unique set of
 
 A SecureDrop installation will require at least two roles, an admin and a journalist, and each role will require a number of strong, unique passphrases. The Secure Viewing Station, which will be used by the journalist, also requires secure and unique passphrases. The list below is meant to be an overview of the accounts, passphrases and two-factor secrets that are required by SecureDrop.
 
-We have created a KeePassX password database template that both the admin and the journalist can use on Tails to ensure they not only generate strong passphrases, but also store them safely. By using KeePassX to generate strong, unique passphrases, you will be able to achieve excellent security while also maintaining usability, since you will only have to personally memorize a small number of strong passphrases. More information about using the password database template on Tails is included in the [Tails Setup Guide](/docs/tails_guide.md#passphrase-database).
+We have created a KeePassX password database template that both the admin and the journalist can use on Tails to ensure they not only generate strong passphrases, but also store them safely. By using KeePassX to generate strong, unique passphrases, you will be able to achieve excellent security while also maintaining usability, since you will only have to personally memorize a small number of strong passphrases. More information about using the password database template on Tails is included in the [Tails Setup Guide](tails_guide.md#passphrase-database).
 
 ### Admin
 

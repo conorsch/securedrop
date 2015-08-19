@@ -9,20 +9,20 @@ This document outlines the threat model for SecureDrop 0.3 and is inspired by th
  * The source acts reasonably and in good faith, e.g. if the user were to give their codename or private key material to the attacker that would be unreasonable.
  * The source would like to remain anonymous, even against a forensic attacker.
  * The source obtains an authentic copy of Tails or the Tor Browser.
- * The source follows our [guidelines](/docs/source_user_manual.md) for using SecureDrop.
+ * The source follows our [guidelines](source_user_manual.md) for using SecureDrop.
  * The source is accessing an authentic SecureDrop site.
 
 ### Assumptions about the admin and the journalist
 
  * The admin and the journalist act reasonably and in good faith, e.g. if either of them were to give their credentials or private key material to the attacker that would be unreasonable.
  * The admin and the journalist obtain authentic copies of Tails.
- * The journalist follows our [guidelines](/docs/journalist_user_manual.md) for using SecureDrop and working with submitted documents.
+ * The journalist follows our [guidelines](journalist_user_manual.md) for using SecureDrop and working with submitted documents.
 
 ### Assumptions about the person installing SecureDrop, usually the admin
 
  * The person acts reasonably and in good faith, e.g. if he or she were to give the attacker system-level access that would be unreasonable.
  * The person obtains an authentic copy of SecureDrop and its dependencies.
- * The person follows our guidelines for [deploying the system, setting up the landing page for the organization](/docs/deployment_practices.md), and for [installing SecureDrop](/docs/install.md).
+ * The person follows our guidelines for [deploying the system, setting up the landing page for the organization](deployment_practices.md), and for [installing SecureDrop](install.md).
 
 ### Assumptions about the source's computer
 
@@ -90,9 +90,9 @@ This document outlines the threat model for SecureDrop 0.3 and is inspired by th
 
 ### What the Workstations can achieve
 
- * The **Admin Workstation** requires Tails with a persistent volume, which stores information such as GPG and SSH keys, as well as a [database with passphrases](/docs/install.md#passphrase-database) for the Application Server, the Monitor Server, and the GPG key the Monitor Server will encrypt OSSEC alerts to.
- * The **Journalist Workstation** requires Tails with a persistent volume, which stores information such as the Hidden Service value required to connect to the Document Interface, as well as a [database with passphrases](/docs/install.md#passphrase-database) for the Document Interface and the journalist's personal GPG key.
- * The **Secure Viewing Station** requires Tails with a persistent volume, which stores information such as the SecureDrop application's GPG key, as well as a [database with the passphrase](/docs/install.md#passphrase-database) for that key.
+ * The **Admin Workstation** requires Tails with a persistent volume, which stores information such as GPG and SSH keys, as well as a [database with passphrases](install.md#passphrase-database) for the Application Server, the Monitor Server, and the GPG key the Monitor Server will encrypt OSSEC alerts to.
+ * The **Journalist Workstation** requires Tails with a persistent volume, which stores information such as the Hidden Service value required to connect to the Document Interface, as well as a [database with passphrases](install.md#passphrase-database) for the Document Interface and the journalist's personal GPG key.
+ * The **Secure Viewing Station** requires Tails with a persistent volume, which stores information such as the SecureDrop application's GPG key, as well as a [database with the passphrase](install.md#passphrase-database) for that key.
 
 ### What a compromise of the source's property can achieve
 

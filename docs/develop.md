@@ -78,7 +78,7 @@ There are several predefined virtual environments in the Vagrantfile: developmen
 * **mon-prod**: This is like a production installation with all of the hardening applied but virtualized
 
 If you plan to alter the configuration of any of these machines,
-make sure to review the [Development Guide for Serverspec Tests](/docs/spec_tests.md).
+make sure to review the [Development Guide for Serverspec Tests](spec_tests.md).
 
 ## Development
 

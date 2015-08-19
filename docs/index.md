@@ -28,16 +28,16 @@ These computers should all physically be in your organization's office.
 
 ## How to Install SecureDrop
 
-See the [Installation Guide](/docs/install.md).
+See the [Installation Guide](install.md).
 
 ## How to Use SecureDrop
 
-* [How to use SecureDrop as a source](/docs/source_user_manual.md)
-* [How to use SecureDrop as a journalist](/docs/journalist_user_manual.md)
+* [How to use SecureDrop as a source](source_user_manual.md)
+* [How to use SecureDrop as a journalist](journalist_user_manual.md)
 
 ## How to Contribute to SecureDrop
 
-See the [Development Guide](/docs/develop.md).
+See the [Development Guide](develop.md).
 
 ## License
 

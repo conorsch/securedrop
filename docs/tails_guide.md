@@ -3,7 +3,7 @@
 
 To log-in SecureDrop and retreived messages sent by sources, the journalist must be using the Tails operating system. The admin must also use Tails to access the *Document Interface* and create new users.
 
-If you followed the [SecureDrop Installation instructions](/docs/install.md) correctly, you should have already created a *journalist Tails USB* and an *admin Tails USB* and enabled the persistence volume on each. If you have not, or need to create another *journalist Tails USB* for a second journalist, follow the steps below.
+If you followed the [SecureDrop Installation instructions](install.md) correctly, you should have already created a *journalist Tails USB* and an *admin Tails USB* and enabled the persistence volume on each. If you have not, or need to create another *journalist Tails USB* for a second journalist, follow the steps below.
 
 If you already know how to boot the *admin Tails USB* or the *journalist Tails USB* with persistence, you can skip down to the step 'download the repository'.
 

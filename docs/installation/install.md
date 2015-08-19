@@ -5,9 +5,9 @@ This guide outlines the steps required to install SecureDrop 0.3.x. If you are l
 
 ## Before you begin
 
-When running commands or editing configuration files that include filenames, version numbers, userames, and hostnames or IP addresses, make sure it all matches your setup. This guide contains several words and phrases associated with SecureDrop that you may not be familiar with. A basic familiarity with Linux, the GNU core utilities and Bash shell is highly advantageous. It's recommended that you read our [Terminology Guide](/docs/terminology.md) once before starting and keep it open in another tab to refer back to.
+When running commands or editing configuration files that include filenames, version numbers, userames, and hostnames or IP addresses, make sure it all matches your setup. This guide contains several words and phrases associated with SecureDrop that you may not be familiar with. A basic familiarity with Linux, the GNU core utilities and Bash shell is highly advantageous. It's recommended that you read our [Terminology Guide](terminology.md) once before starting and keep it open in another tab to refer back to.
 
-You will also need the inventory of hardware items for the installation listed in our [Hardware Guide](/docs/hardware.md).
+You will also need the inventory of hardware items for the installation listed in our [Hardware Guide](hardware.md).
 
 ### Set up Tails USB sticks
 
@@ -66,7 +66,7 @@ The *Secure Viewing Station (SVS)* is a computer that is kept offline and only e
 
 We recommend that you physically remove the hard drive and networking cards, such as wireless and Bluetooth, from this machine. If you are unable to remove a card, place tape over the port or otherwise physically disable it. If you have questions about using an older machine for this purpose, please contact us at securedrop@freedom.press.
 
-At this point, you should have created a Tails Live USB with persistence on the *offline Tails USB*. If you haven't, follow the instructions in the first half of our [Tails Guide](/docs/tails_guide.md).
+At this point, you should have created a Tails Live USB with persistence on the *offline Tails USB*. If you haven't, follow the instructions in the first half of our [Tails Guide](tails_guide.md).
 
 Boot your *offline Tails USB* on the *Secure Viewing Station*.
 
@@ -184,7 +184,7 @@ To use the template:
 
 ## Set up the Network Firewall
 
-Now that you've set up your password manager, you can move on to setting up the Network Firewall. You should stay logged in to your *admin Tails USB*, but please go to our [Network Firewall Guide](/docs/network_firewall.md) for instructions for setting up the Network Firewall. When you are done, you will be sent back here to continue with the next section.
+Now that you've set up your password manager, you can move on to setting up the Network Firewall. You should stay logged in to your *admin Tails USB*, but please go to our [Network Firewall Guide](network_firewall.md) for instructions for setting up the Network Firewall. When you are done, you will be sent back here to continue with the next section.
 
 ## Set up the Servers
 
@@ -196,7 +196,7 @@ Install Ubuntu Server 14.04 (Trusty) on both servers. This setup is fairly easy,
 * The hostname for the servers are, conventionally, `app` and `mon`.  Adhering to this isn't necessary, but it will make the rest of your install easier.
 * The username and password for these two servers **must be the same**.
 
-For detailed instructions on installing and configuring Ubuntu for use with SecureDrop, see our [Ubuntu Install Guide](/docs/ubuntu_config.md).
+For detailed instructions on installing and configuring Ubuntu for use with SecureDrop, see our [Ubuntu Install Guide](ubuntu_config.md).
 
 When you are done, make sure you save the following information:
 
@@ -262,7 +262,7 @@ Make sure you have the following information and files before continuing:
 * The SecureDrop application's GPG key fingerprint
 * The email address that will receive alerts from OSSEC
 * The GPG public key and fingerprint for the email address that will receive the alerts
-* Connection information for the SMTP relay that handles OSSEC alerts. For more information, see the [OSSEC Alerts Guide](/docs/ossec_alerts.md).
+* Connection information for the SMTP relay that handles OSSEC alerts. For more information, see the [OSSEC Alerts Guide](ossec_alerts.md).
 * The first username of a journalist who will be using SecureDrop (you can add more later)
 * The username of the system administrator
 * (Optional) An image to replace the SecureDrop logo on the *Source Interface* and *Document Interface*
@@ -376,7 +376,7 @@ Now you can simply use `ssh app` and `ssh mon` to connect to each server, and it
 
 As part of the SecureDrop installation process, you will need to set up two-factor authentication on the App Server and Monitor Server using the Google Authenticator mobile app.
 
-After your torrc has been updated with the HidServAuth values, connect to the App Server using `ssh` and run `google-authenticator`. Follow the instructions in [our Google Authenticator guide](/docs/google_authenticator.md) to set up the app on your Android or iOS device.
+After your torrc has been updated with the HidServAuth values, connect to the App Server using `ssh` and run `google-authenticator`. Follow the instructions in [our Google Authenticator guide](google_authenticator.md) to set up the app on your Android or iOS device.
 
 To disconnect enter the command `exit`. Now do the same thing on the Monitor Server. You'll end up with an account for each server in the Google Authenticator app that generates two-factor codes needed for logging in.
 
@@ -386,7 +386,7 @@ Now SSH to the App Server, `sudo su`, cd to /var/www/securedrop, and run `./mana
 
 The `add_admin` command will require you to keep another two-factor authentication code. Once that's done, you should open the Tor Browser ![TorBrowser](images/torbrowser.png) and navigate to the Document Interface's .onion address.
 
-For adding journalist users, please refer now to our [Admin Interface Guide](/docs/admin_interface.md).
+For adding journalist users, please refer now to our [Admin Interface Guide](admin_interface.md).
 
 ## Finalizing the Installation
 
@@ -399,19 +399,19 @@ Some of the final configuration is included in these testing steps, so *do not s
  * Post-install you can now SSH _only_ over Tor, so use the onion URLs from app-ssh-aths and mon-ssh-aths and the user created during the Ubuntu installation i.e. `ssh <username>@m5apx3p7eazqj3fp.onion`.
 2. Make sure the Source Interface is available, and that you can make a submission.
  * Do this by opening the Tor Browser and navigating to the onion URL from `app-source-ths`. Proceed through the codename generation (copy this down somewhere) and you can submit a message or attach any random unimportant file.
- * Usage of the Source Interface is covered by our [Source User Manual](/docs/source_user_manual.md).
+ * Usage of the Source Interface is covered by our [Source User Manual](source_user_manual.md).
 3. Test that you can access the Document Interface, and that you can log in as the admin user you just created.
  * Open the Tor Browser and navigate to the onion URL from app-document-aths. Enter your password and two-factor authentication code to log in.
  * If you have problems logging in to the Admin/Document Interface, SSH to the App Server and restart the ntp daemon to synchronize the time: `sudo service ntp restart`. Also check that your smartphone's time is accurate and set to network time in its device settings.
 4. Test replying to the test submission.
  * While logged in as an admin, you can send a reply to the test source submission you made earlier.
- * Usage of the Document Interface is covered by our [Journalist User Manual](/docs/journalist_user_manual.md).
+ * Usage of the Document Interface is covered by our [Journalist User Manual](journalist_user_manual.md).
 5. Test that the source received the reply.
  * Within Tor Browser, navigate back to the app-source-ths URL and use your previous test source codename to log in (or reload the page if it's still open) and check that the reply you just made is present.
 6. We highly recommend that you create persistent bookmarks for the Source and Document Interface addresses within Tor Browser.
 7. Remove the test submissions you made prior to putting SecureDrop to real use. On the main Document Interface page, select all sources and click 'Delete selected'.
 
-Once you've tested the installation and verified that everything is working, see [How to Use SecureDrop](/docs/journalist_user_manual.md).
+Once you've tested the installation and verified that everything is working, see [How to Use SecureDrop](journalist_user_manual.md).
 
 ### Additional testing
 
@@ -419,6 +419,6 @@ Once you've tested the installation and verified that everything is working, see
 2. Run `uname -r` to verify you are booted into grsecurity kernel. The string `grsec` should be in the output.
 3. Check the AppArmor status on each server with `sudo aa-status`. On a production instance all profiles should be in enforce mode.
 4. Check the current applied iptables rules with `iptables-save`. It should output *approximately* 50 lines.
-5. You should have received an email alert from OSSEC when it first started. If not, review our [OSSEC Alerts Guide](/docs/ossec_alerts.md).
+5. You should have received an email alert from OSSEC when it first started. If not, review our [OSSEC Alerts Guide](ossec_alerts.md).
 
 If you have any feedback on the installation process, please let us know! We're always looking for ways to improve, automate and make things easier.
