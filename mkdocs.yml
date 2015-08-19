@@ -4,6 +4,7 @@ pages:
   - Home: index.md
   - Installation:
     - Installation Overview: installation/install.md
+    - Setup Tails USB Sticks: installation/setup_tails_usb_sticks.md
     - Hardware Requirements: installation/hardware.md
     - Deployment Practices: installation/deployment_practices.md
     - Server Config: installation/ubuntu_config.md
