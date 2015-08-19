@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+	<title>Source User Manual - SecureDrop</title>
+
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <link href="../css/base.css" rel="stylesheet">
+        <link href="../css/extra.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">SecureDrop</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../installation/install/">Installation Overview</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../installation/hardware/">Hardware Requirements</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../installation/deployment_practices/">Deployment Practices</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../installation/ubuntu_config/">Server Config</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../installation/network_firewall/">Network Firewall</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../installation/ossec_alerts/">OSSEC Alerts</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../installation/yubikey_setup/">Yubikey Setup</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Support <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li class="active">
+                            <a href="./">Source User Manual</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../journalist_user_manual/">Journalist User Manual</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../admin_interface/">Admin User Manual</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../tails_guide/">Using Tails</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../google_authenticator/">Google Authenticator</a>
+                        </li>
+                    
+                        <li >
+                            <a href="">Upgrading SecureDrop</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../tails_printing_guide/">Printing with Tails</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../terminology/">Terminology</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../threat_model/">Threat Model</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../training_schedule/">Training Schedule</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contributing <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../develop/">Development Environment</a>
+                        </li>
+                    
+                        <li >
+                            <a href="">Running the Tests</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../apparmor_profiles/">AppArmor Profiles</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../creating_deb/">Building .deb packages</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li >
+                    <a rel="next" href="../installation/yubikey_setup/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../journalist_user_manual/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#how-to-use-securedrop-as-a-source">How To Use SecureDrop As A Source</a></li>
+        
+            <li><a href="#securedrop-depends-on-the-tor-browser">SecureDrop Depends on the Tor Browser</a></li>
+        
+            <li><a href="#using-securedrop-as-a-source">Using SecureDrop As a Source</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="how-to-use-securedrop-as-a-source">How To Use SecureDrop As A Source</h1>
+<h2 id="securedrop-depends-on-the-tor-browser">SecureDrop Depends on the Tor Browser</h2>
+<p>Sources submitting documents or messages to SecureDrop must connect to the SecureDrop Interface using the Tor network, free software that makes users' internet activity much more difficult to trace. The easiest and most secure way to use Tor is to download the Tor Browser Bundle from https://www.torproject.org/. This bundle installs the Tor browser, as well as an application that is used to connect to the Tor network.</p>
+<p>The Tor Browser can be used to access Tor <em>hidden service URLs</em>, which have domain names that end in ".onion". Media organizations will provide links to the .onion URLs of their SecureDrop pages, and we <a href="https://freedom.press/securedrop/directory">maintain a list</a> of official pages as well. Sources can and should use the <a href="https://tails.boum.org">Tails operating system</a> for a higher level of security.</p>
+<h2 id="using-securedrop-as-a-source">Using SecureDrop As a Source</h2>
+<p>Open the Tor Browser and navigate to the .onion hidden service URL provided by the media organization whose SecureDrop page you would like to visit. The page should look similar to the screenshot below. If this is the first time you're using the Tor browser, it's likely that you have Javascript enabled. If you do, you will see the red warning below which will explain that this is a security risk. If you don't have Javascript enabled, you can skip the next step.</p>
+<p><img alt="Javascript warning" src="../images/manual/source-step1.png" /></p>
+<p>Click the <code>Learn how to disable it</code> link on the Javascript warning and a message will pop up explaining how to disable Javascript. Follow the instructions and refresh the page if it does not happen automatically.</p>
+<p><img alt="Fix Javascript warning" src="../images/manual/source-step2.png" /></p>
+<p>The page should now look similar to the screenshot below. If this is the first time you are using SecureDrop, click the <code>Submit Documents</code> button.</p>
+<p><img alt="Source Interface" src="../images/manual/source-step3-and-step7.png" /></p>
+<p>You should now see a screen that shows the unique codename that SecureDrop has generated for you. In the example screenshot below the codename is <code>sink los radium bcd nab privy nadir</code>, but yours will be different. It is extremely important that you both remember this code and keep it secret. After submitting documents, you will need to provide this code to log back in and check for responses.</p>
+<p>The best way to protect your codename is to memorize it. If you cannot memorize it right away, we recommend writing it down and keeping it in a safe place at first, and gradually working to memorize it over time. Once you have memorized it, you should destroy the written copy.</p>
+<p>SecureDrop allows you to choose the length of your codename, in case you want to create a longer codename for extra security. Once you have generated a codename and put it somewhere safe, click <code>Continue</code>.</p>
+<p><img alt="Memorizing your codename" src="../images/manual/source-step4.png" /></p>
+<p>You will next be brought to the submission interface, where you may upload a document, enter a message to send to journalists, or both. You can only submit one document at a time, so you may want to combine several files into a zip archive if necessary. The maximum submission size is currently 500MB. If the files you wish to upload are over that limit, we recommend that you send a message to the journalist explaining this, so that they can set up another method for transferring the documents.</p>
+<p>When your submission is ready, click <code>Submit</code>.</p>
+<p><img alt="Submit a document" src="../images/manual/source-step5.png" /></p>
+<p>After clicking <code>Submit</code>, a confirmation page should appear, showing that your message and/or documents have been sent successfully. On this page you can make another submission or view responses to your previous messages.</p>
+<p><img alt="Confirmation page" src="../images/manual/source-step6.png" /></p>
+<p>If you have already submitted a document and would like to check for responses, click the <code>Check for a Response</code> button on the media organization's SecureDrop homepage.</p>
+<p><img alt="Source Interface" src="../images/manual/source-step3-and-step7.png" /></p>
+<p>The next page will ask for your secret codename. Enter it and click <code>Continue</code>.</p>
+<p><img alt="Check for response" src="../images/manual/source-step8.png" /></p>
+<p>If a journalist has responded, his or her message will appear on the next page. This page also allows you to upload another document or send another message to the journalist. Be sure to delete any messages here before navigating away.</p>
+<p><img alt="Check for a reply" src="../images/manual/source-step9.png" /></p>
+<p>After you delete the message from the journalist, make sure you see the below message.</p>
+<p><img alt="Delete received messages" src="../images/manual/source-step10.png" /></p>
+<p>If the server experiences a large number of new sources signing up at once and is overloaded with submissions, the journalist will flag your message on their end and you will see the message below. They can't write a reply to you until you've seen this message for security reasons. This will only happen the first time a journalist replies and with subsequent replies you will skip this step. Click <code>Refresh</code> or log in again to see if a journalist has responded.</p>
+<p><img alt="Check for an initial response" src="../images/manual/source_flagged_for_reply.png" /></p>
+<p>Repeat these steps to continue communicating with the journalist.</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script src="../js/base.js"></script>
+    </body>
+</html>

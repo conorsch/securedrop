@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	<title>Network Firewall - SecureDrop</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/extra.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">SecureDrop</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../install/">Installation Overview</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../hardware/">Hardware Requirements</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../deployment_practices/">Deployment Practices</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../ubuntu_config/">Server Config</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="./">Network Firewall</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../ossec_alerts/">OSSEC Alerts</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../yubikey_setup/">Yubikey Setup</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Support <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../source_user_manual/">Source User Manual</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../journalist_user_manual/">Journalist User Manual</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../admin_interface/">Admin User Manual</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../tails_guide/">Using Tails</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../google_authenticator/">Google Authenticator</a>
+                        </li>
+                    
+                        <li >
+                            <a href="">Upgrading SecureDrop</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../tails_printing_guide/">Printing with Tails</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../terminology/">Terminology</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../threat_model/">Threat Model</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../training_schedule/">Training Schedule</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contributing <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../develop/">Development Environment</a>
+                        </li>
+                    
+                        <li >
+                            <a href="">Running the Tests</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../apparmor_profiles/">AppArmor Profiles</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../creating_deb/">Building .deb packages</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li >
+                    <a rel="next" href="../ubuntu_config/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../ossec_alerts/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#network-firewall-setup-guide">Network Firewall Setup Guide</a></li>
+        
+            <li><a href="#before-you-begin">Before you begin</a></li>
+        
+            <li><a href="#initial-setup">Initial Setup</a></li>
+        
+            <li><a href="#securedrop-specific-configuration">SecureDrop-specific Configuration</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="network-firewall-setup-guide">Network Firewall Setup Guide</h1>
+<p>Unfortunately, due to the wide variety of firewalls that may be used, we do not provide specific instructions to cover every type or variation in software or hardware.</p>
+<p>This guide will focus on pfSense, and assumes your firewall has at least three interfaces: WAN, LAN, and OPT1. These are the default interfaces on the recommended Netgate firewall, and it should be easy to configure any pfSense firewall with 3 or more NICs this way.</p>
+<p>To avoid duplication, this guide refers to sections of the <a href="http://data.sfb.bg.ac.rs/sftp/bojan.radic/Knjige/Guide_pfsense.pdf">pfSense Guide</a>, so you will want to have that handy.</p>
+<h2 id="before-you-begin">Before you begin</h2>
+<p>First, consider how the firewall will be connected to the Internet. You need to be able to provision two unique subnets for SecureDrop: the app subnet and the monitor subnet. There are a number of possible ways to configure this, and the best way will depend on the network that you are connecting to.</p>
+<p>Note that many firewalls, including the recommended Netgate pfSense, automatically set up the LAN interface on 192.168.1.1/24. The <code>/24</code> subnet is a very common choice for home routers. If you are connecting the firewall to a router with the same subnet (common in a small office, home, or testing environment), you will probably be unable to connect to the network at first. However, you will be able to connect from the LAN to the pfSense WebGUI configuration wizard, and from there you will be able to configure the network so it is working correctly.</p>
+<p>The app subnet will need at least three IP addresses: one for the gateway, one for the app server, and one for the admin workstation. The monitor subnet will need at least two IP addresses: one for the gateway and one for the monitor server.</p>
+<p>We assume that you have examined your network configuration and have selected two appropriate subnets. We will refer to your chosen subnets as "App Subnet" and "Monitor Subnet" throughout the rest of the documentation. For the examples in the documentation, we have chosen:</p>
+<ul>
+<li>App Subnet: 10.20.1.0/24</li>
+<li>App Gateway: 10.20.1.1</li>
+<li>App Server: 10.20.1.2</li>
+<li>
+<p>Admin Workstation: 10.20.1.3</p>
+</li>
+<li>
+<p>Monitor Subnet: 10.20.2.0/24</p>
+</li>
+<li>Monitor Gateway: 10.20.2.1</li>
+<li>Monitor Server: 10.20.2.2</li>
+</ul>
+<h2 id="initial-setup">Initial Setup</h2>
+<p>Unpack the firewall, connect power, and power on.</p>
+<h3 id="assign-interfaces">Assign interfaces</h3>
+<p>Section 3.2.3, "Assigning Interfaces", of the pfSense Guide. Some firewalls, like the Netgate recommended in the Hardware Guide, have this set up already, in which case you can skip this step.</p>
+<h3 id="initial-configuration">Initial configuration</h3>
+<p>We will use the pfSense WebGUI to do the initial configuration of the network firewall.</p>
+<h4 id="connect-to-the-pfsense-webgui">Connect to the pfSense WebGUI</h4>
+<ol>
+<li>
+<p>Boot the Admin Workstation into Tails from the Admin Live USB.</p>
+</li>
+<li>
+<p>Connect the Admin Workstation to the switch on the LAN.</p>
+</li>
+<li>
+<p>Launch the <em>Unsafe Browser</em>, <em>Applications → Internet → Unsafe Browser</em>.</p>
+</li>
+</ol>
+<p><img alt="Launching the Unsafe Browser" src="../images/firewall/launching_unsafe_browser.png" /></p>
+<pre><code>1. Note that the *Unsafe Browser* is, as the name suggests, **unsafe** (its
+   traffic is not routed through Tor). However, it is the only option in
+   this context because Tails [intentionally][tails_issue_7976] disables
+   LAN access in the *Tor Browser*.
+
+2. A dialog will ask "Do you really want to launch the Unsafe Browser?". Click **Launch**.
+
+   ![You really want to launch the Unsafe Browser](images/firewall/unsafe_browser_confirmation_dialog.png)
+
+3. You will see a pop-up notification that says "Starting the Unsafe Browser..."
+
+   ![Pop-up notification](images/firewall/starting_the_unsafe_browser.png)
+
+4. After a few seconds, the Unsafe Browser should launch. The window has a
+   bright red border to remind you to be careful when using it. You should
+   close it once you're done configuring the firewall and use the Tor
+   Browser for any other web browsing you might do on the Admin
+   Workstation.
+
+   ![Unsafe Browser Homepage](images/firewall/unsafe_browser.png)
+</code></pre>
+<ol>
+<li>
+<p>Navigate to the pfSense GUI in the <em>Unsafe Browser</em>: <code>https://192.168.1.1</code></p>
+</li>
+<li>
+<p>The firewall uses a self-signed certificate, so you will see a "This Connection Is Untrusted" warning when you connect. This is expected (see Section 4.5.6 of the pfSense Guide). You can safely continue by clicking "I Understand the Risks", "Add Exception...", and "Confirm Security Exception."</p>
+</li>
+<li>
+<p>You should see the login page for the pfSense GUI. Log in with the default username and password (admin / pfsense).</p>
+</li>
+</ol>
+<h4 id="setup-wizard">Setup Wizard</h4>
+<p>If you're setting up a brand new (or recently factory reset) router, pfSense will start you on the Setup Wizard. Click next, then next again. Don't sign up for a pfSense Gold subscription.</p>
+<p>On the "General Information" page, we recommend leaving your hostname as the default (pfSense). There is no relevant domain for SecureDrop, so we recommend setting this to "securedrop.local" or something similar. Use whatever DNS servers you wish. If you don't know what DNS servers to use, we recommend using Google's DNS servers: <code>8.8.8.8</code> and <code>8.8.4.4</code>. Click Next.</p>
+<p>Leave the defaults for "Time Server Information". Click Next.</p>
+<p>On "Configure WAN Interface", enter the appropriate configuration for your network. Consult your local sysadmin if you are unsure what to enter here. For many environments, the default of DHCP will work and the rest of the fields can be left blank. Click Next.</p>
+<p>For "Configure LAN Interface", set the IP address and subnet mask of the Application Subnet for the LAN interface.  Be sure that the CIDR prefix correctly corresponds to your subnet mask-- pfsense should automatically calculate this for you, but you should always check. In most cases, your CIDR prefix should be <code>/24</code>.  Click Next.</p>
+<p>Set a strong admin password. We recommend generating a random password with KeePassX, and saving it in the Tails Persistent folder using the provided KeePassX database template. Click Next.</p>
+<p>Click Reload.</p>
+<p>If you changed the LAN Interface settings, you will no longer be able to connect after reloading the firewall and the next request will probably time out. This is not a problem - the firewall has reloaded and is working correctly. To connect to the new LAN interface, unplug and reconnect your network cable to have a new network address assigned to you via DHCP. Note that if you used a subnet with fewer addresses than <code>/24</code>, the default DHCP configuration in pfSense may not work. In this case, you should assign the Admin Workstation a static IP address that is known to be in the subnet to continue.</p>
+<p>Now the WebGUI will be available on the App Gateway address. Navigate to <code>https://&lt;App Gateway IP&gt;</code> in the <em>Unsafe Browser</em>, and do the same dance as before to log in to the pfSense WebGUI and continue configuring the firewall.</p>
+<h4 id="connect-interfaces-and-test-connectivity">Connect Interfaces and Test Connectivity</h4>
+<p>Now that the initial configuration is completed, you can connect the WAN port without potentially conflicting with the default LAN settings (as explained earlier). Connect the WAN port to the external network. You can watch the WAN entry in the Interfaces table on the pfSense WebGUI homepage to see as it changes from down (red arrow pointing down) to up (green arrow pointing up). The WAN's IP address will be shown once it comes up.</p>
+<p>Finally, test connectivity to make sure you are able to connect to the Internet through the WAN. The easiest way to do this is to use ping (Diagnostics → Ping in the WebGUI).</p>
+<h2 id="securedrop-specific-configuration">SecureDrop-specific Configuration</h2>
+<p>SecureDrop uses the firewall to achieve two primary goals:</p>
+<ol>
+<li>Isolating SecureDrop from the existing network, which may be compromised (especially if it is a venerable network in a large organization like a newsroom).</li>
+<li>Isolating the app and the monitor servers from each other as much as possible, to reduce attack surface.</li>
+</ol>
+<p>In order to use the firewall to isolate the app and monitor servers from each other, we need to connect them to separate interfaces, and then set up firewall rules that allow them to communicate.</p>
+<h3 id="set-up-opt1">Set up OPT1</h3>
+<p>We set up the LAN interface during the initial configuration. We now need to set up the OPT1 interface. Start by connecting the Monitor Server to the OPT1 port. Then use the WebGUI to configure the OPT1 interface. Go to <code>Interfaces → OPT1</code>, and check the box to "Enable Interface". Use these settings:</p>
+<ul>
+<li>IPv4 Configuration Type: Static IPv4</li>
+<li>IPv4 Address: Monitor Gateway</li>
+</ul>
+<p>Once again, be sure that the CIDR prefix correctly corresponds to your subnet mask (and should be <code>/24</code> in most cases). Pfsense should automatically calculate this for you, but you should always check.  Leave everything else as the default. Save and Apply Changes.</p>
+<h3 id="disable-dhcp-on-the-lan">Disable DHCP on the LAN</h3>
+<p>pfSense runs a DHCP server on the LAN interface by default. At this stage in the documentation, the Admin Workstation has an IP address assigned via that DHCP server. You can easily check your current IP address by <em>right-clicking</em> the networking icon (a blue cable going in to a white jack) in the top right of the menu bar, and choosing "Connection Information".</p>
+<p><img alt="Connection Information" src="../images/firewall/connection_information.png" /></p>
+<p>In order to tighten the firewall rules as much as possible, we recommend disabling the DHCP server and assigning a static IP address to the Admin Workstation instead.</p>
+<h4 id="disabling-dhcp">Disabling DHCP</h4>
+<p>To disable DHCP, navigate to "Services → DHCP Server". Uncheck the box to "Enable DHCP servers on LAN interface", scroll down, and click the Save button.</p>
+<h4 id="assigning-a-static-ip-address-to-the-admin-workstation">Assigning a static IP address to the Admin Workstation</h4>
+<p>Now you will need to assign a static IP to the Admin Workstation. Use the <em>Admin Workstation IP</em> that you selected earlier, and make sure you use the same IP when setting up the firewall rules later.</p>
+<p>Start by <em>right-clicking</em> the networking icon in the top right of the menu bar, and choosing "Edit Connections...".</p>
+<p><img alt="Edit Connections" src="../images/firewall/edit_connections.png" /></p>
+<p>Select "Wired connection" from the list and click the "Edit..." button.</p>
+<p><img alt="Edit Wired Connection" src="../images/firewall/edit_wired_connection.png" /></p>
+<p>Change to the "IPv4 Settings" tab. Change "Method:" from "Automatic (DHCP)" to "Manual". Click the Add button and fill in the static networking information for the Admin Workstation.</p>
+<p><img alt="Editing Wired Connection" src="../images/firewall/editing_wired_connection.png" /></p>
+<p>Click "Save...". If the network does not come up within 15 seconds or so, try disconnecting and reconnecting your network cable to trigger the change. You will need you have succeeded in connecting with your new static IP when you see a pop-up notification that says "Tor is ready. You can now access the Internet".</p>
+<h3 id="set-up-the-network-firewall-rules">Set up the network firewall rules</h3>
+<p>Since there are a variety of firewalls with different configuration interfaces and underlying sets of software, we cannot provide a set of network firewall rules to match every use case. Instead, we provide a firewall rules template in <code>install_files/network_firewall/rules</code>. This template is written in the iptables format, which you will need to manually translate for your firewall and preferred configuration method.</p>
+<p>For pfSense, see Section 6 of the pfSense Guide for information on setting up firewall rules through the WebGUI. Here are some tips on interpreting the rules template for pfSense:</p>
+<ol>
+<li>Create aliases for the repeated values (IPs and ports).</li>
+<li>pfSense is a stateful firewall, which means that you don't need corresponding rules for the iptables rules that allow incoming traffic in response to outgoing traffic (<code>--state ESTABLISHED,RELATED</code>). pfSense does this for you automatically.</li>
+<li>
+<p>You should create the rules on the interface where the traffic originates from. The easy way to do this is look at the sources (<code>-s</code>) of each of the iptables rules, and create that rule on the corresponding interface:</p>
+</li>
+<li>
+<p><code>-s APP_IP</code> → <code>LAN</code></p>
+</li>
+<li>
+<p><code>-s MONITOR_IP</code> → <code>OPT1</code></p>
+</li>
+<li>
+<p>Make sure you delete the default "allow all" rule on the LAN interface. Leave the "Anti-Lockout" rule enabled.</p>
+</li>
+<li>Any traffic that is not explicitly passed is logged and dropped by default in pfSense, so you don't need to add explicit rules (<code>LOGNDROP</code>) for that.</li>
+<li>Since some of the rules are almost identical except for whether they allow traffic from the App Server or the Monitor Server (<code>-s MONITOR_IP,APP_IP</code>), you can use the "add a new rule based on this one" button to save time creating a copy of the rule on the other interface.</li>
+<li>If you are having trouble with connections, the firewall logs can be very helpful. You can find them in the WebGUI in <em>Status → System Logs → Firewall</em>.</li>
+</ol>
+<p>We recognize that this process is cumbersome and may be difficult for people inexperienced in managing networks to understand. We are working on automating much of this for the next SecureDrop release.  If you're unsure how to set up your firewall, use the screenshots in the next section as your guide.</p>
+<h4 id="example-screenshots">Example Screenshots</h4>
+<p>Here are some example screenshots of a working pfSense firewall configuration.</p>
+<p><img alt="Firewall IP Aliases" src="../images/firewall/ip_aliases.png" />
+<img alt="Firewall Port Aliases" src="../images/firewall/port_aliases.png" />
+<img alt="Firewall LAN Rules" src="../images/firewall/lan_rules.png" />
+<img alt="Firewall OPT1 Rules" src="../images/firewall/opt1_rules.png" /></p>
+<p>Once you've set up the firewall, <strong>exit the Unsafe Browser</strong>, and continue with the instructions in the <a href="installation/install.md#set-up-the-servers">Install Guide</a>.</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>

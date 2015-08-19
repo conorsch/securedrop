@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+	<title>Admin User Manual - SecureDrop</title>
+
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <link href="../css/base.css" rel="stylesheet">
+        <link href="../css/extra.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">SecureDrop</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../installation/install/">Installation Overview</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../installation/hardware/">Hardware Requirements</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../installation/deployment_practices/">Deployment Practices</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../installation/ubuntu_config/">Server Config</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../installation/network_firewall/">Network Firewall</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../installation/ossec_alerts/">OSSEC Alerts</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../installation/yubikey_setup/">Yubikey Setup</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Support <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../source_user_manual/">Source User Manual</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../journalist_user_manual/">Journalist User Manual</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="./">Admin User Manual</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../tails_guide/">Using Tails</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../google_authenticator/">Google Authenticator</a>
+                        </li>
+                    
+                        <li >
+                            <a href="">Upgrading SecureDrop</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../tails_printing_guide/">Printing with Tails</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../terminology/">Terminology</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../threat_model/">Threat Model</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../training_schedule/">Training Schedule</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contributing <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../develop/">Development Environment</a>
+                        </li>
+                    
+                        <li >
+                            <a href="">Running the Tests</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../apparmor_profiles/">AppArmor Profiles</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../creating_deb/">Building .deb packages</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li >
+                    <a rel="next" href="../journalist_user_manual/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../tails_guide/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#admin-interface-guide">Admin Interface Guide</a></li>
+        
+            <li><a href="#adding-users">Adding Users</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="admin-interface-guide">Admin Interface Guide</h1>
+<p>At this point, you (the administrator) should have your own username and password, plus two-factor authentication through either the Google Authenticator app on your smartphone or a YubiKey.</p>
+<h2 id="adding-users">Adding Users</h2>
+<p>Now you can add new logins for the journalists at your news organization who will be checking the system for submissions. Make sure the journalist is physically in the same room as you when you do this, as they will have to create a password and scan a barcode for their two-factor authentication. Since you’re logged in, this is the screen you should see now:</p>
+<p><img alt="“SecureDrop main page”" src="../images/admin_main_home.png" /></p>
+<p>In the top right corner click the “Admin” link, which should bring you to this page:</p>
+<p><img alt="“SecureDrop admin home”" src="../images/admin_secondary_home.png" /></p>
+<p>Once there, click ‘Add User’ button, which will take you to this page:</p>
+<p><img alt="“Add a new user”" src="../images/admin_add_new_user.png" /></p>
+<p>Here, you will hand the keyboard over to the journalist so they can create their own username and password. Once they’re done entering a username and password for themselves, select whether you would like them to also be an administrator (this allows them to add or delete other journalist accounts), and whether they will be using Google Authenticator or a YubiKey for two-factor authentication.</p>
+<h3 id="google-authenticator">Google Authenticator</h3>
+<p>If they are using Google Authenticator for their two-factor, they can just proceed to the next page:</p>
+<p><img alt="“Enable Google Authenticator”" src="../images/admin_enable_authenticator.png" /></p>
+<p>At this point, the journalist should make sure they have downloaded the Google Authenticator app to their smartphone. It can be installed from the Apple Store for an iPhone or from the Google Play store for an Android phone. Once you download it and open it, the app does not require setup. It should prompt you to scan a barcode. The journalist should use their phone's camera to scan the barcode on the screen.</p>
+<p>If they have difficulty scanning the barcode, they can use the "Manual Entry" option and use their phone's keyboard to input the random characters that are highlighted in yellow.</p>
+<p>Inside the Google Authenticator app, a new entry for this account will appear on the main screen, with a six digit number that recycles to a new number every thirty seconds. Enter the six digit number under “Verification code” at the bottom of the SecureDrop screen here, and hit enter:</p>
+<p><img alt="“Verify Google Authenticator works”" src="../images/admin_enter_verification.png" /></p>
+<p>If Google Authenticator was set up correctly, you will be redirected back to the Admin Interface and will see a flashed message that says "Two factor token successfully verified for user <em>new username</em>!".</p>
+<h3 id="yubikey">YubiKey</h3>
+<p>If the journalist wishes to use a YubiKey for two-factor authentication, check the box next to "I'm using a YubiKey". You will then need to enter the OATH-HOTP Secret Key that your YubiKey is configured with. For more information, read the <a href="yubikey_setup.md">YubiKey Setup Guide</a>.</p>
+<p><img alt="&quot;Enable YubiKey&quot;" src="../images/admin_enable_yubikey.png" /></p>
+<p>Once you've configured your YubiKey and entered the Secret Key, click <em>Add user</em>. On the next page, enter a code from your YubiKey by inserting it into the workstation and pressing the button.</p>
+<p><img alt="&quot;Enable YubiKey&quot;" src="../images/admin_verify_yubikey.png" /></p>
+<p>If everything was set up correctly, you will be redirected back to the Admin Interface, where you should see a flashed message that says "Two factor token successfully verified for user <em>new username</em>!".</p>
+<p>Congratulations! You have successfully set up a journalist on SecureDrop. Make sure the journalist remembers their username and password and always has their 2 factor authentication device in their possession when they attempt to log in to SecureDrop.</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script src="../js/base.js"></script>
+    </body>
+</html>
