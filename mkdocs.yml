@@ -2,7 +2,7 @@
 site_name: SecureDrop
 pages:
   - Home: index.md
-  - Installing SecureDrop:
+  - Installation:
     - Installation Overview: install.md
     - Hardware Requirements: hardware.md
     - Deployment Practices: deployment_practices.md
