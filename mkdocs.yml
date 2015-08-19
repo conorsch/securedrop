@@ -7,12 +7,13 @@ pages:
     - Set up Tails USB Sticks: installation/setup_tails_usb_sticks.md
     - Set up Secure Viewing Station: installation/setup_svs.md
     - Set up Admin Workstation: installation/setup_admin_workstation.md
+    - Network Firewall: installation/network_firewall.md
+    - Server Config: installation/ubuntu_config.md
     - Install SecureDrop Application: installation/securedrop_app.md
     - Finalizing the Installation: installation/final_steps.md
+
     - Hardware Requirements: installation/hardware.md
     - Deployment Practices: installation/deployment_practices.md
-    - Server Config: installation/ubuntu_config.md
-    - Network Firewall: installation/network_firewall.md
     - OSSEC Alerts: installation/ossec_alerts.md
     - Yubikey Setup: installation/yubikey_setup.md
 
@@ -38,4 +39,4 @@ pages:
     - AppArmor Profiles: apparmor_profiles.md
     - Building .deb packages: creating_deb.md
 
-theme: yeti
+theme: readthedocs

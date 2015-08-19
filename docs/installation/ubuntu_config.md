@@ -1,6 +1,5 @@
 # Ubuntu Install Guide
 
-
 The *Application Server* and the *Monitor Server* specifically require the 64-bit version of [Ubuntu Server 14.04.2 LTS (Trusty Tahr)](http://releases.ubuntu.com/14.04.2/). The image you want to get is named `ubuntu-14.04.2-server-amd64.iso`. In order to verify the installation media, you should also download the files named `SHA256SUMS` and `SHA256SUMS.gpg`.
 
 ## Verify the Ubuntu installation media
@@ -42,7 +41,7 @@ ubuntu-14.04.2-server-amd64.iso: OK
 
 To create the Ubuntu installation media, you can either burn the ISO image to a CD-R or create a bootable USB stick (see instructions for doing this on [OS X](http://www.ubuntu.com/download/desktop/create-a-usb-stick-on-mac-osx), [Ubuntu](http://www.ubuntu.com/download/desktop/create-a-usb-stick-on-ubuntu) and [Windows](http://www.ubuntu.com/download/desktop/create-a-usb-stick-on-windows)). As a reliable method we recommend using the `dd` command to copy the hybrid ISO directly to a USB drive rather than a utility like UNetbootin which can result in errors. Once you have a CD or USB with an ISO image of Ubuntu on it, you may begin the Ubuntu installation on both SecureDrop servers.
 
-## Install Ubuntu
+## Start installation
 
 The steps below are the same for both the *Application Server* and the *Monitor Server*.
 
@@ -54,7 +53,7 @@ After booting the Ubuntu image, select **Install Ubuntu Server**.
 
 Follow the steps to select your language, country and keyboard settings. Once that's done, let the installation process continue.
 
-### Configure the network manually
+## Configure the network manually
 
 The Ubuntu installer will try to autoconfigure networking for the server you are setting up; however, SecureDrop 0.3 requires manual network configuration. You can hit **Cancel** at any point during network autoconfiguration to be given the choice to *Configure the network manually*.
 
@@ -79,13 +78,13 @@ Below is the configuration you should enter, assuming you used the network setti
     * Hostname: mon
     * Domain name should be left blank
 
-### Continue the installation
+## Continue the installation
 
 You can choose whatever username and password you would like. To make things easier later you should use the same username and password on both servers. Make sure to save this password in your admin KeePassX database afterwards.
 
 Click 'no' when asked to encrypt the home directory. Then configure your time zone.
 
-### Partition the disks
+## Partition the disks
 
 Before setting up the server's disk partitions and filesystems in the next step, you will need to decide if you would like to enable [*Full Disk Encryption (FDE)*](https://www.eff.org/deeplinks/2012/11/privacy-ubuntu-1210-full-disk-encryption). If the servers are ever powered down, FDE will ensure all of the information on them stays private in case they are seized or stolen.
 
@@ -99,7 +98,7 @@ To enable FDE, select *Guided - use entire disk and set up encrypted LVM* during
 
 After selecting either of those options you may be asked a few questions about overwriting anything currently on the server you are using. Select yes. You do not need an HTTP proxy, so when asked, you can just click continue.
 
-### Finish the installation
+## Finish the installation
 
 Wait for the base system to finish installing. When you get to the *Configure tasksel* screen, choose **No automatic updates**. The subsequent SecureDrop installation will include a task that handles regular software updates.
 
