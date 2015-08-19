@@ -3,13 +3,13 @@ site_name: SecureDrop
 pages:
   - Home: index.md
   - Installation:
-    - Installation Overview: install.md
-    - Hardware Requirements: hardware.md
-    - Deployment Practices: deployment_practices.md
-    - Server Config: ubuntu_config.md
-    - Network Firewall: network_firewall.md
-    - OSSEC Alerts: ossec_alerts.md
-    - Yubikey Setup: yubikey_setup.md
+    - Installation Overview: installation/install.md
+    - Hardware Requirements: installation/hardware.md
+    - Deployment Practices: installation/deployment_practices.md
+    - Server Config: installation/ubuntu_config.md
+    - Network Firewall: installation/network_firewall.md
+    - OSSEC Alerts: installation/ossec_alerts.md
+    - Yubikey Setup: installation/yubikey_setup.md
 
   - Support:
     - Source User Manual: source_user_manual.md
