@@ -101,11 +101,7 @@ apache_disabled_modules:
   - setenvif
   - status
 
-apache_sites:
-  - source
-  - document
-
-app_deps:
+appserver_dependencies:
   - gnupg2
   - haveged
   - python

@@ -1,20 +1,20 @@
 ---
-- name: ensure secureDrop web application apt packages are installed
+- name: Install SecureDrop Application Server dependencies.
   apt:
     pkg: "{{ item }}"
     state: latest
-  with_items: app_deps
+  with_items: appserver_dependencies
   tags:
     - apt
 
-- name: copy the app gpg key from the admin host machine to the app server
+- name: Copy the SecureDrop Application GPG public key to the Application Server.
   copy:
     src: "{{ securedrop_app_gpg_public_key }}"
     dest: "{{ securedrop_data }}/"
   tags:
     - securedrop_config
 
-- name: import app gpg public key
+- name: Import the SecureDrop Application GPG public key to the Application Server keyring.
   # multiline format for command module, since this is a long command
   command: >
     su -s /bin/bash -c 'gpg
@@ -31,9 +31,12 @@
   # package would not overwrite the config.py on upgrades.
   # If 'config.py' exists, then the SecureDrop application
   # has already been configured, and most of the following tasks will be skipped.
-- stat:
+- name: Check whether SecureDrop config.py file already exists.
+  stat:
     path: "{{ securedrop_code }}/config.py"
   register: config
+  # Read-only task, so don't report as changed.
+  changed_when: false
   tags:
     - securedrop_config
 
