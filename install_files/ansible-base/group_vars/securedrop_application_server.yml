@@ -22,7 +22,7 @@ securedrop_app_code_deb_config: "{{ securedrop_repo }}/install_files/securedrop-
 build_app_code_dir: "{{ securedrop_repo }}/securedrop"
 securedrop_pip_requirements: "{{ securedrop_code }}/requirements/securedrop-requirements.txt"
 test_pip_requirements: "{{ securedrop_code }}/requirements/test-requirements.txt"
-dev_deps:
+development_dependencies:
   - libssl-dev
   - python-dev
   - python-pip
