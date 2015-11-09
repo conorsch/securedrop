@@ -53,3 +53,5 @@ sasl_password: "password123"
 # To use uncomment the following line and enter the correct decrypted zip
 # filename between the quotes.
 #backup_zip: ""
+
+install_local_packages: true
