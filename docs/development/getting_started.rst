@@ -203,12 +203,20 @@ to fill out your local copy of
 
 .. code:: sh
 
-   vagrant up /staging$/
+   vagrant up /staging/
    vagrant ssh app-staging
    sudo su
    cd /var/www/securedrop
    ./manage.py add_admin
    ./manage.py test
+
+To rebuild the local packages for the app code: ::
+
+   ANSIBLE_ARGS="--tags rebuild" vagrant provision /staging/
+
+The Debian packages will be rebuilt from the current state of your
+local git repository and then installed on the staging servers.
+
 
 Prod
 ~~~~
