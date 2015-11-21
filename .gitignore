@@ -92,3 +92,5 @@ spec_tests/gems/*
 # compiled assets
 securedrop/static/gen
 securedrop/static/.webassets-cache
+.kitchen/
+.kitchen.local.yml

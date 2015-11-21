@@ -1,0 +1,46 @@
+---
+driver:
+    name: vagrant
+
+provisioner:
+  name: ansible_playbook
+  roles_path: roles
+  ansible_verbose: true
+  ansible_version: 1.9.4
+  require_chef_for_busser: false
+  require_ruby_for_busser: false
+  update_package_repos: false
+
+platforms:
+  - name: ubuntu-14.04
+    driver_plugin: vagrant
+    driver_config:
+      box: ubuntu/trusty64
+
+verifier:
+  ruby_bindir: '/usr/bin'
+
+suites:
+  - name: build
+    provisioner:
+      name: ansible_playbook
+      playbook: build-deb-pkgs.yml
+      hosts: build
+      additional_copy_path:
+        - ../../securedrop
+        - ../securedrop-app-code
+        - ../securedrop-ossec-agent
+        - ../securedrop-ossec-server
+        - usr.sbin.tor
+        - usr.sbin.apache2
+      extra_vars:
+        securedrop_app_code_directory: securedrop
+        securedrop_app_code_files: securedrop-app-code
+        ossec_agent_files: securedrop-ossec-agent
+        ossec_server_files: securedrop-ossec-server
+
+  - name: staging
+    provisioner:
+      name: ansible_playbook
+      playbook: securedrop-staging.yml
+      hosts: app-staging,mon-staging
