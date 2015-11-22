@@ -38,6 +38,7 @@ suites:
         securedrop_app_code_files: securedrop-app-code
         ossec_agent_files: securedrop-ossec-agent
         ossec_server_files: securedrop-ossec-server
+        build_package_local_directory: build/
 
   - name: staging
     provisioner:
