@@ -6,3 +6,5 @@ build_debian_package_description: >
   Packages the SecureDrop application code pip dependencies
   and apparmor profiles. This package will put the apparmor
   profiles in enforce mode. This package does use pip to install the pip wheelhouse
+
+build_debian_package_local_directory: ../../build
