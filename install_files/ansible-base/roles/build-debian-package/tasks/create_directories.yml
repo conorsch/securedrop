@@ -1,0 +1,33 @@
+---
+- name: Clean up build files.
+  file:
+    state: absent
+    path: "{{ build_debian_package_directory }}"
+
+- name: Create base build directory.
+  file:
+    state: directory
+    path: "{{ item }}"
+  with_items:
+    - "{{ build_debian_package_directory }}"
+    - "{{ build_debian_package_directory }}/DEBIAN"
+
+- name: Create build subdirectories.
+  file:
+    state: directory
+    path: "{{ item }}"
+  with_items: build_debian_package_directories
+
+- name: Copy static files for packaging.
+  synchronize:
+    mode: push
+    dest: "{{ build_debian_package_directory }}/{{ item.dest }}"
+    src: "{{ item.src }}"
+    rsync_path: "sudo rsync"
+  with_items: build_debian_package_files_directories
+
+- name: Copy control file.
+  template:
+    src: debian-control-file.j2
+    dest: "{{ build_debian_package_directory }}/DEBIAN/control"
+

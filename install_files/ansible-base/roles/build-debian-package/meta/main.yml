@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: Conor Schaefer (@conorsch)
+  description: Build a generic Debian package
+  company: Freedom of the Press Foundation (@freedomofpress)
+  license: AGPL
+  min_ansible_version: 1.8
+  platforms:
+    - name: Ubuntu
+      versions:
+        - trusty
+#    - name: Debian
+#      versions:
+#        - jessie
+  categories:
+    - packaging
+dependencies: []

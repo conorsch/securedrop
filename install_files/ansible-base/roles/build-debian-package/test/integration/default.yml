@@ -1,0 +1,5 @@
+---
+- name: Test the build-debian-package role.
+  hosts: all
+  roles:
+    - role: build-debian-package
