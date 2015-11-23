@@ -37,6 +37,8 @@
       build_debian_package_files_directories:
         - src: "{{ ossec_server_files }}"
           dest: ""
+      build_debian_package_depends:
+        - ossec-server
       tags:
         - ossec
         - securedrop-ossec-server
@@ -47,6 +49,8 @@
       build_debian_package_files_directories:
         - src: "{{ ossec_agent_files }}"
           dest: ""
+      build_debian_package_depends:
+        - ossec-agent
       tags:
         - ossec
         - securedrop-ossec-agent
