@@ -2,8 +2,6 @@
 - name: Build Debian package.
   command: dpkg-deb --build {{ build_debian_package_directory }}
 
-- debug: var="{{ build_debian_package_directory }}.deb"
-
 - name: Fetch build Debian package back to localhost.
   fetch:
     src: "{{ build_debian_package_deb_file }}"

@@ -15,5 +15,6 @@
     update_cache: yes
     cache_valid_time: 3600
   sudo: yes
-  with_items: build_debian_package_base_dependencies
-
+  with_flattened:
+    - "{{ build_debian_package_base_dependencies }}"
+    - "{{ build_debian_package_extra_dependencies }}"
