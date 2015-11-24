@@ -2,6 +2,9 @@
 # TODO: Idempotence will be difficult here. We could register the
 # output of aa-status and read the "complain" lines, but grepping
 # the aa-status would be painful.
+# TODO: Another thing to note. If the path is not found for some reason,
+# `aa-complain` will inanely exit 0, spitting to stdout:
+#   /etc/apparmor.d/usr.sbin.apache2 does not exist, please double-check the path.
 - name: Set AppArmor profiles to complain mode.
   command: aa-complain /etc/apparmor.d/{{ item }}
   with_items: apparmor_profiles
