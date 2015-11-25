@@ -17,16 +17,21 @@ build_debian_package_base_dependencies:
   - gcc-4.8
   - make
 
+# List of system packages to install on the build host prior to building.
+build_debian_package_extra_dependencies: []
+
+# DEBIAN/control fields
 build_debian_package_name: dummy-package
-build_debian_package_source:
+build_debian_package_source: ""
 build_debian_package_section: ""
 build_debian_package_version: 0.1
 build_debian_package_priority: optional
 build_debian_package_arch: amd64
 build_debian_package_maintainer: ""
 build_debian_package_homepage: ""
-build_debian_package_depends: ""
+build_debian_package_depends: []
 build_debian_package_conflicts: []
+build_debian_package_replaces: []
 build_debian_package_description: ""
 
 # Build directories.

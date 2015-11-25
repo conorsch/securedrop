@@ -8,5 +8,6 @@ Version: {{ build_debian_package_version }}
 Architecture: {{ build_debian_package_arch }}
 Depends: {{ build_debian_package_depends | join(',') }}
 Conflicts: {{ build_debian_package_conflicts | join(',') }}
+Replaces: {{ build_debian_package_replaces | join(',') }}
 Description: {{ build_debian_package_description }}
 
