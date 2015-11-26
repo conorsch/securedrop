@@ -33,7 +33,7 @@ vagrant plugin install vagrant-hostmanager
 
 # Install Ansible dependencies
 sudo apt install -y python-pip
-sudo apt install -y rubygems
+sudo apt install -y rubygems-integration
 # Install Ansible via pip for fine-grained version control
 sudo pip install ansible==1.9.0.1
 
