@@ -7,6 +7,7 @@
 
 set -e
 set -x
+set -u
 
 # Support Snap-CI cache directory, but also allow this script to be run locally.
 tmp_dir="${SNAP_CACHE_DIR:-/tmp}"
@@ -23,8 +24,8 @@ vagrant_version="${vagrant_version:-1.7.2}"
 vagrant_package="vagrant_${vagrant_version}_x86_64.deb"
 vagrant_url="https://dl.bintray.com/mitchellh/vagrant/${vagrant_package}"
 
-[[ -f "${tmp_dir}/${vagrant_deb}" ]] || wget -q "$vagrant_url" -O "${tmp_dir}/${vagrant_deb}"
-[[ -x /usr/bin/vagrant ]] || sudo -E dpkg -i "${tmp_dir}/$vagrant_deb"
+[[ -f "${tmp_dir}/${vagrant_package}" ]] || wget -q "$vagrant_url" -O "${tmp_dir}/${vagrant_package}"
+[[ -x /usr/bin/vagrant ]] || sudo -E dpkg -i "${tmp_dir}/$vagrant_package"
 
 # Install Vagrant plugins
 vagrant plugin install vagrant-digitalocean
