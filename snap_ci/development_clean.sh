@@ -12,11 +12,11 @@ function cleanup {
 
 # Ensure that DigitalOcean droplet will be cleaned up
 # even if script errors (e.g., if serverspec tests fail).
-trap cleanup EXIT
+#trap cleanup EXIT
 
 # If the previous build in snap-ci failed, the droplet
 # will still exist. Ensure that it's gone with a pre-emptive destroy.
-cleanup
+#cleanup
 
 # Find the root of the git repository. A simpler implementation
 # would be `git rev-parse --show-toplevel`, but that must be run
