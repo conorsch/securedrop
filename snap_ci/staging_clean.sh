@@ -15,8 +15,8 @@ VAGRANT_DEFAULT_PROVIDER="${VAGRANT_DEFAULT_PROVIDER:-virtualbox}"
 # Only enable auto-destroy for testing droplets
 # if we're running in Snap-CI. If not running in Snap-CI,
 # then executing this bash script will run all the tests
-# locally.
-if [[ "${SNAP_CI}" == "true" ]]; then
+# locally. Using the "CI" env var supports both Snap-CI and Semaphore.
+if [[ "${CI}" == "true" ]]; then
     # declare function for EXIT trap
     function cleanup {
         echo "Destroying droplet..."
