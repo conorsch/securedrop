@@ -144,6 +144,7 @@ Vagrant.configure("2") do |config|
     build.vm.box = "build"
     build.vm.box = "trusty64"
     build.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
+    build.vm.synced_folder './', '/vagrant', disabled: true
     build.vm.provision "ansible" do |ansible|
       ansible.playbook = "install_files/ansible-base/build-deb-pkgs.yml"
       ansible.verbose = 'v'
