@@ -86,6 +86,8 @@ Vagrant.configure("2") do |config|
         'staging:children' => %w(securedrop_application_server securedrop_monitor_server),
         'securedrop:children' => %w(staging development),
       }
+      provider = get_provider_for_vm "app-staging"
+      ansible.extra_vars = "install_files/ansible-base/group_vars/#{provider}.yml"
     end
   end
 
@@ -214,6 +216,43 @@ Vagrant.configure("2") do |config|
     end
   end
 end
+
+
+# Hack to get the provider in a variable, so vars can be overridden.
+# Mostly this is necessary to sure the correct network interfaces in VirtualBox,
+# and to prevent grsecurity-patched kernels from being installed in DigitalOcean.
+# See mailing list thread on the ARGV hack:
+# https://groups.google.com/forum/#!msg/vagrant-up/XIxGdm78s4I/5gFFKoIIS4wJ
+def get_requested_provider
+  provider = ENV['VAGRANT_DEFAULT_PROVIDER'] || "virtualbox"
+  if ARGV[0] == "up" and ARGV[1]
+    ARGV[1..-1].each_with_index do |a, i|
+      if a.include? "--provider="
+        provider = a.split("=")[1]
+      elsif a.include? "--provider"
+        provider = ARGV[i+2]
+      end
+    end
+  end
+  return provider
+end
+
+def get_provider_for_vm(machine_name)
+  repo_root = File.expand_path(File.dirname(__FILE__))
+  machine_provider_directory = File.join(repo_root, ".vagrant", "machines", machine_name)
+  candidate_provider = ''
+  Dir.foreach(machine_provider_directory) do |p|
+    next if p == "." or p == ".." or File.file?(p)
+    if Dir.entries(File.join(machine_provider_directory, p)).length > 2
+      candidate_provider = p
+    end
+  end
+  if candidate_provider == ''
+    candidate_provider = get_requested_provider
+  end
+  return candidate_provider
+end
+
 
 
 # Get .onion URL for connecting to instances over Tor.
