@@ -9,12 +9,15 @@ Vagrant.configure("2") do |config|
   # so the key insertion feature should be disabled.
   config.ssh.insert_key = false
 
+  # All boxes should default to prebuilt ubuntu/trusty64 images,
+  # to avoid long download times during apt upgrade. Individual VMs
+  # can override the base box as necessary.
+  config.vm.box = "ubuntu/trusty64"
+
   config.vm.define 'development', primary: true do |development|
     development.vm.hostname = "development"
-    development.vm.box = "trusty64"
     development.vm.network "forwarded_port", guest: 8080, host: 8080
     development.vm.network "forwarded_port", guest: 8081, host: 8081
-    development.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
     development.vm.provision "ansible" do |ansible|
       # Hack to trick Vagrant into parsing the command-line args for
       # Ansible options, see https://gist.github.com/phantomwhale/9657134
@@ -44,10 +47,8 @@ Vagrant.configure("2") do |config|
   # for the web interfaces and ssh.
   config.vm.define 'mon-staging', autostart: false do |staging|
     staging.vm.hostname = "mon-staging"
-    staging.vm.box = "trusty64"
     staging.vm.network "private_network", ip: "10.0.1.3", virtualbox__intnet: true
     staging.hostmanager.aliases = %w(securedrop-monitor-server-alias)
-    staging.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
     staging.vm.synced_folder './', '/vagrant', disabled: true
     staging.vm.provider "virtualbox" do |v|
       v.name = "mon-staging"
@@ -56,12 +57,10 @@ Vagrant.configure("2") do |config|
 
   config.vm.define 'app-staging', autostart: false do |staging|
     staging.vm.hostname = "app-staging"
-    staging.vm.box = "trusty64"
     staging.vm.network "private_network", ip: "10.0.1.2", virtualbox__intnet: true
     staging.vm.network "forwarded_port", guest: 80, host: 8082
     staging.vm.network "forwarded_port", guest: 8080, host: 8083
     staging.vm.synced_folder './', '/vagrant', disabled: true
-    staging.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
     staging.vm.provider "virtualbox" do |v|
       v.name = "app-staging"
       # Running the functional tests with Selenium/Firefox has started causing out-of-memory errors.
@@ -141,9 +140,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define 'build', autostart: false do |build|
-    build.vm.box = "build"
-    build.vm.box = "trusty64"
-    build.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
+    build.vm.box = "ubuntu/trusty64"
     build.vm.synced_folder './', '/vagrant', disabled: true
     build.vm.provision "ansible" do |ansible|
       ansible.playbook = "install_files/ansible-base/build-deb-pkgs.yml"
