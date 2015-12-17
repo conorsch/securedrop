@@ -1,0 +1,4 @@
+---
+# eth0 is NAT device in VirtualBox, so use eth1 instead, otherwise OSSEC registration will fail.
+monitor_ip: "{{ hostvars[groups.securedrop_monitor_server.0].ansible_eth1.ipv4.address }}"
+app_ip: "{{ hostvars[groups.securedrop_application_server.0].ansible_eth1.ipv4.address }}"

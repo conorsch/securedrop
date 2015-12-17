@@ -1,0 +1,7 @@
+---
+# DigitalOcean does not support custom kernels for Ubuntu 14.04 LTS.
+grsecurity: false
+
+# eth0 is public-facing address in DigitalOcean, so use that for OSSEC registration.
+monitor_ip: "{{ hostvars[groups.securedrop_monitor_server.0].ansible_eth0.ipv4.address }}"
+app_ip: "{{ hostvars[groups.securedrop_application_server.0].ansible_eth0.ipv4.address }}"
