@@ -16,7 +16,7 @@ OPTIND=1
 # Respect environment variables, but default to VirtualBox.
 provider="${VAGRANT_DEFAULT_PROVIDER:-virtualbox}"
 vm_reload="1"
-wait_time="5s"
+wait_time="15s"
 while getopts "c?d?x?p:?w:?" opt; do
     case "$opt" in
     c) cleanup ;;
@@ -82,6 +82,11 @@ converge) provision && exit 0 ;;
 verify) verify && exit 0 ;;
 test)
     cleanup
+    if [[ "$provider" == "digital_ocean" ]]; then
+        sleep "60s"
+    else
+        sleep "${wait_time}"
+    fi
     create
     provision
     if [[ "$vm_reload" == "1" ]]; then
