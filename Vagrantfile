@@ -48,7 +48,6 @@ Vagrant.configure("2") do |config|
   config.vm.define 'mon-staging', autostart: false do |staging|
     staging.vm.hostname = "mon-staging"
     staging.vm.network "private_network", ip: "10.0.1.3", virtualbox__intnet: true
-    staging.hostmanager.aliases = %w(securedrop-monitor-server-alias)
     staging.vm.synced_folder './', '/vagrant', disabled: true
     staging.vm.provider "virtualbox" do |v|
       v.name = "mon-staging"
