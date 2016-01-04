@@ -1,13 +1,13 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-Vagrant.configure("2") do |config|
+# Vagrant 1.7.0 broke Ansible provision in multi-machine configs,
+# since the dynamically generated SSH key was not added to the
+# inventory file. Fixed in 1.7.3, so require at least that version.
+# See https://github.com/mitchellh/vagrant/pull/5765 for details.
+Vagrant.require_version ">= 1.7.3"
 
-  # Vagrant 1.7.0+ removes the insecure_private_key by default
-  # and substitutes a dynamically generated SSH key for each box.
-  # Unfortunately this breaks Ansible provisioning with Vagrant,
-  # so the key insertion feature should be disabled.
-  config.ssh.insert_key = false
+Vagrant.configure("2") do |config|
 
   # All boxes should default to prebuilt ubuntu/trusty64 images,
   # to avoid long download times during apt upgrade. Individual VMs
