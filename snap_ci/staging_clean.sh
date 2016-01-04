@@ -11,6 +11,12 @@ repo_root=$( dirname "$( cd "$( dirname "${BASH_SOURCE[0]}"  )" && pwd )" )
 # Support Snap-CI cache directory, but also allow this script to be run locally.
 tmp_dir="${SNAP_CACHE_DIR:-/tmp}"
 
+function cleanup {
+    # declare function for EXIT trap
+    echo "Destroying VMs..."
+    vagrant destroy build /staging/ -f
+}
+
 # Initialize getopts for opt parsing
 OPTIND=1
 # Respect environment variables, but default to VirtualBox.
@@ -29,12 +35,6 @@ done
 
 # Remove short options from arg list, so $1 becomes the command to run.
 shift "$((OPTIND - 1))"
-
-function cleanup {
-    # declare function for EXIT trap
-    echo "Destroying VMs..."
-    vagrant destroy build /staging/ -f
-}
 
 function create {
     # Create target hosts, but don't provision them yet. The shell provisioner
