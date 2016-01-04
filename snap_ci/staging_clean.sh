@@ -55,6 +55,7 @@ function provision {
 function verify {
     # Run serverspec tests
     cd "${repo_root}/spec_tests/"
+    bundle install
     bundle exec rake spec:build
     bundle exec rake spec:app-staging
     bundle exec rake spec:mon-staging
