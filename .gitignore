@@ -21,7 +21,9 @@ secrets.rb
 vagrant_ansible_inventory*
 
 # ignore some things for the rspec tests
+spec_tests/.bundle/*
 spec_tests/gems/*
+.bundle/*
 Gemfile.lock
 
 # ignore "external" Ansible configuration file
