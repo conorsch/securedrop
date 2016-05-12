@@ -12,14 +12,13 @@ Newer versions of SecureDrop leverage improvements to the Tails OS since the int
 	#. A separate USB stick used to store encrypted backups of the old Tails sticks.
 	#. Your existing SecureDrop Tails USB sticks (Admin, Journalist, and Secure Viewing Station).
 
-1. Prepare the "master" Tails USB
+1. Prepare the master Tails USB
 -------------------------------------
 
 Because Tails 2.x is incompatible with older versions, you must create a new "master" Tails USB stick for subsequent installations and upgrades to the USB sticks already in-use by your organization.
+To create this brand-new master Tails, follow the same :doc:`directions for provisioning the first USB sticks <set_up_tails>` on another networked computer.
 
-To create this brand-new "master" Tails, follow the same :doc:`directions for provisioning the first USB sticks <set_up_tails>` on another networked computer.
-
-You may now boot into this new "master" Tails from your airgapped computer to perform the next step. At the Tails Greeter screen, be sure to enable admin privileges.
+You may now boot into the master Tails device from your airgapped computer to perform the next steps. At the Tails Greeter screen, be sure to enable admin privileges.
 
 2. Prepare the Transfer Device
 ------------------------------
