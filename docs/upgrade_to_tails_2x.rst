@@ -23,9 +23,10 @@ You may now boot into the master Tails device from your airgapped computer to pe
 2. Prepare the Transfer Device
 ------------------------------
 
-While it's recommended to use a fresh USB stick for any backup operation, to cut down on cost, clutter, and/or waste, you may also repurpose older USB sticks to function as Transfer Devices.
+.. tip::
+    While it's recommended to use a fresh USB stick for any backup operation, to cut down on cost, clutter, and/or waste, you may also repurpose older USB sticks to function as Transfer Devices.
 
-Open the Disks Utility by navigating to Applications ▸ Utilities ▸ Disks.
+After logging into the master Tails device, open the Disks Utility by navigating to Applications ▸ Utilities ▸ Disks.
 
 Insert your Transfer Device into a USB port and select it from the left column. Brand new devices sometimes have pre-configured partitions, which you will need to remove. Select any block of partitioned data, and click the minus (``-``) button to remove any unwanted partitions.
 
