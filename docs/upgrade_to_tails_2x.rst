@@ -3,7 +3,7 @@ Upgrade Tails from 1.x to 2.x
 
 .. warning:: Tails 1.x is no longer receiving updates, and is therefore vulnerable to a growing list of security vulnerabilities.
 
-Newer versions of SecureDrop leverage improvements to the Tails OS since the introduction of Tails 2.0 (and subsequent versions). It is critical to upgrade all Tails USBs to the latest version before upgrading SecureDrop. For some admins, this might be complicated, since the upgrade from 1.x to 2.x must be done manually. Please follow this guide to updating the entire system, and be sure use the Secure Viewing Station computer so you benefit from its airgap while transfering sensitive data.
+Newer versions of SecureDrop leverage improvements to the Tails OS since the introduction of Tails 2.0. It is critical to upgrade all Tails USBs to the latest version before upgrading SecureDrop. Upgrading Tails from 1.x to 2.x must be done manually. Please follow this guide to updating each Tails USB stick used in your SecureDrop instance. Be sure to use the Secure Viewing Station computer so you benefit from its airgap while transfering sensitive data.
 
 .. note::
 	You will need:
