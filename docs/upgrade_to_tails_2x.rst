@@ -26,7 +26,7 @@ You may now boot into the master Tails device from your airgapped computer to pe
 .. tip::
     While it's recommended to use a fresh USB stick for any backup operation, to cut down on cost, clutter, and/or waste, you may also repurpose older USB sticks to function as Transfer Devices.
 
-After logging into the master Tails device, open the Disks Utility by navigating to Applications ▸ Utilities ▸ Disks.
+After logging into the master Tails device, open the Disks Utility by navigating to **Applications ▸ Utilities ▸ Disks**.
 
 Insert your Transfer Device into a USB port and select it from the left column. Brand new devices sometimes have pre-configured partitions, which you will need to remove. Select any block of partitioned data, and click the minus (``-``) button to remove any unwanted partitions.
 
@@ -34,7 +34,7 @@ Insert your Transfer Device into a USB port and select it from the left column. 
 
 Click the plus (``+``) button to register a new partition to cover the entire available space. This should automatically be filled out for you in the wizard.
 
-Be sure to do a full wipe of the existing data during this step, especially if you choose to repurpose an older USB stick. Select "Overwrite existing data with zeroes (Slow)" from the "Erase" options. This does mean that the reformatting step will take some extra time, but it is the best way to insure that previous data from older transfers, or manufacturer bloatware, are removed from the Transfer Device.
+Be sure to do a full wipe of the existing data during this step, especially if you choose to repurpose an older USB stick. Select **Overwrite existing data with zeroes (Slow)** from the **Erase** options. This does mean that the reformatting step will take some extra time, but it is the best way to insure that previous data from older transfers, or manufacturer bloatware, are removed from the Transfer Device.
 
 Give your new partition a strong passphrase. 
 
@@ -47,7 +47,7 @@ Give your new partition a strong passphrase.
 
 Insert the Tails USB (that you want to back up) into a free USB port. 
 
-Mount it by navigating to Places ▸ Computer, and clicking on the encrypted disk. You will be prompted to enter the passphrase to unlock the disk (the same passphrase you normally use to log into Tails on that USB stick).
+Mount it by navigating to **Places ▸ Computer**, and clicking on the encrypted disk. You will be prompted to enter the passphrase to unlock the disk (the same passphrase you normally use to log into Tails on that USB stick).
 
 Open a Nautilus window with admin priviledges by navigating to **Applications ▸ System Tools ▸ Root Terminal**. At the terminal prompt, simply type ``nautilus``.
 
@@ -71,7 +71,7 @@ Once data are correctly copied, unmount the TailsData partition.
 4. Upgrade a Tails USB
 ------------------------------------------------------
 
-With the Admin/Journo/SVS Tails USB still insterted in the machine, navigate to the Tails Installer (Applications ▸ Tails ▸ Tails Installer) and select the "Upgrade by cloning" option.
+With the Admin/Journo/SVS Tails USB still insterted in the machine, navigate to **Applications ▸ Tails ▸ Tails Installer** and select the **Upgrade by cloning** option.
 
 |Upgrade by cloning|
 
@@ -82,9 +82,9 @@ The Tails Installer program should reliably upgrade the inserted Tails USB, but 
 
 On the same airgapped machine, boot up the Tails USB stick you want to restore, with both persistence and admin privileges.
 
-Insert your Transfer Device into a free USB port, and mount it by navigating to Places ▸ Computer, and clicking on the encrypted disk. You will be prompted to enter its passphrase.
+Insert your Transfer Device into a free USB port, and mount it by navigating to **Places ▸ Computer**, and clicking on the encrypted disk. You will be prompted to enter its passphrase.
 
-Open a Nautilus window with admin priviledges by navigating to Applications ▸ System Tools ▸ Root Terminal. At the terminal prompt, simply type `nautilus`.
+Open a Nautilus window with admin priviledges by navigating to **Applications ▸ System Tools ▸ Root Terminal**. At the terminal prompt, simply type `nautilus`.
 
 Type ``ctrl`` + ``l`` and navigate to `/live/persistence/TailsData_unlocked`.
 
@@ -92,7 +92,7 @@ Type ``ctrl`` + ``l`` and navigate to `/live/persistence/TailsData_unlocked`.
 
 Open a new tab (``ctrl`` + ``t``) and navigate to your Transfer Device. Drag and drop the backup data from your Transfer Device onto the TailsData_unlocked tab.
 
-When copying a folder, select the *Apply this action to all files* option and click *Merge* to apply to all subfolders. Then you might have to select again the *Apply this action to all files* option and click *Replace* to apply to all files.
+When copying a folder, select the **Apply this action to all files** option and click **Merge** to apply to all subfolders. Then you might have to select again the **Apply this action to all files** option and click **Replace** to apply to all files.
 
 In a root terminal, or as sudo, execute the following command to fix the ownership of your personal files:
 
