@@ -1,0 +1,4 @@
+---
+build_securedrop_app_source_date_epoch: "{{ lookup('pipe', 'git show --no-patch --format=%ct') }}"
+build_securedrop_app_code_env:
+  SOURCE_DATE_EPOCH: "{{ build_securedrop_app_source_date_epoch }}"
