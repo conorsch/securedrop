@@ -141,3 +141,36 @@ def test_deb_package_contains_no_config_file(File, Command, deb):
     # would be cleaner. Will defer to adding lintian tests later.
     c = Command("dpkg-deb --contents {}".format(deb_package.path))
     assert not re.search("^.*config\.py$", c.stdout, re.M)
+
+
+@pytest.mark.parametrize("deb", deb_packages)
+def test_securedrop_app_code_is_reproducible(File, Command, LocalCommand, deb):
+    """
+    Ensures the `securedrop-app-code` package build process is deterministic,
+    specifically that multiple runs with the same source code will create
+    deb packages with identical checksums.
+    """
+
+    # Prepare dict for storing results of repeated builds.
+    package_checksums = {}
+
+    deb_package = File(deb.format(
+        securedrop_test_vars.securedrop_version))
+
+    if "securedrop-app-code" in deb_package.path:
+        # Build 3 times and compare output of each file.
+        for i in range(1, 4):
+            # No need to build on the first iteration; we've already done that
+            # as part of the provisioning run.
+            if i != 1:
+                LocalCommand("vagrant provision build")
+            # Store temporary deb package for later analysis, otherwise
+            # subsequent builds will clobber output.
+            temporary_deb = "~/app-code-{}.deb".format(i)
+            cmd = "cp {} {}".format(deb_package.path, temporary_deb)
+            Command.check_output(cmd)
+
+            package_checksums[i] = File(temporary_deb).sha256sum
+
+        assert package_checksums[1] == package_checksums[2]
+        assert package_checksums[2] == package_checksums[3]
