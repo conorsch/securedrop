@@ -82,6 +82,7 @@
 
 - name: Create pip wheel archive for Debian package requirements.
   command: pip wheel -r {{ securedrop_pip_requirements }} -w /tmp/{{ securedrop_app_code_deb }}/var/securedrop/wheelhouse
+  environment: "{{ build_securedrop_app_code_env }}"
   tags:
     - pip
     - build
