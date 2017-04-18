@@ -151,13 +151,13 @@ def test_securedrop_app_code_is_reproducible(File, Command, LocalCommand, deb):
     deb packages with identical checksums.
     """
 
-    # Prepare dict for storing results of repeated builds.
-    package_checksums = {}
-
     deb_package = File(deb.format(
         securedrop_test_vars.securedrop_version))
 
     if "securedrop-app-code" in deb_package.path:
+        # Prepare dict for storing results of repeated builds.
+        package_checksums = {}
+
         # Build 3 times and compare output of each file.
         for i in range(1, 4):
             # No need to build on the first iteration; we've already done that
@@ -174,3 +174,9 @@ def test_securedrop_app_code_is_reproducible(File, Command, LocalCommand, deb):
 
         assert package_checksums[1] == package_checksums[2]
         assert package_checksums[2] == package_checksums[3]
+
+
+        # The dict-based lookups above are unexpectedly passing, so let's add
+        # a more explicit check that all the checksums are the same.
+        checksum_count = Command.check_output("sha256sum ~/app-code-*.deb | uniq | wc -l")
+        assert checksum_count == 1
