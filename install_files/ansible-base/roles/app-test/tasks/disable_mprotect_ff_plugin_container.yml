@@ -9,9 +9,9 @@
   failed_when: false
   register: paxctl_firefox_header_check
   when: ansible_kernel.endswith('-grsec')
-  with_items:
-    - /usr/lib/firefox/firefox
-    - /usr/lib/firefox/plugin-container
+  with_nested:
+    - ['/usr/lib/firefox', "{{ tbb_dir }}/tor-browser_{{ tbb_locale }}/Browser"]
+    - ['firefox', 'plugin-container']
 
 # Flags as snagged from app-staging: '-----m-x-e--'
 - name: Adjust paxctl headers on firefox binaries.
