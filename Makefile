@@ -27,3 +27,8 @@ ci-debug:
 docs-lint:
 	# The `-Wn` option converts warnings to errors.
 	make -C docs/ clean && sphinx-build -Wn docs/ docs/_build/html
+
+.PHONY: docs
+docs:
+	# Spins up livereload environment for editing; blocks.
+	make -C docs/ clean && sphinx-autobuild docs/ docs/_build/html
