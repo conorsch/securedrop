@@ -66,13 +66,6 @@ directory, you can just run: ::
 Or you may use the copy and paste capabilities of the file manager.
 Repeat this step for the Admin GPG key and custom header image.
 
-Now you must edit a couple configuration files. You can do so using
-gedit, vim, or nano. Double-clicking will suffice to open them.
-
-Edit the inventory file, ``inventory``, and update the default IP
-addresses with the ones you chose for app and mon. When you're done,
-save the file.
-
 Run the configuration playbook and answer the prompts with values that
 match your environment: ::
 
@@ -107,7 +100,7 @@ the servers and install SecureDrop and all of its dependencies.
 installation, and should be the same user you copied the SSH public keys
 to. ::
 
-    ansible-playbook -i inventory -u <username> -K --sudo securedrop-prod.yml
+    ansible-playbook -u <username> -K --sudo securedrop-prod.yml
 
 You will be prompted to enter the sudo password for the app and monitor
 servers (which should be the same).
@@ -134,10 +127,8 @@ Service will be available in the following files in
 -  ``mon-ssh-aths``: Same as above, for SSH access to the Monitor
    Server.
 
-Update the inventory, replacing the IP addresses with the corresponding
-onion addresses from ``app-ssh-aths`` and ``mon-ssh-aths``. This will
-allow you to re-run the Ansible playbooks in the future, even though
-part of SecureDrop's hardening restricts SSH to only being over the
-specific authenticated Tor Hidden Services.
+The dynamic inventory file will automatically read the Onion URLs for SSH
+from the ``app-ssh-aths`` and ``mon-ssh-aths`` files, and use them to connect
+to the servers during subsequent playbook runs.
 
 .. |Custom notification| image:: images/install/custom-notification.png
