@@ -1,0 +1,52 @@
+---
+version: '2'
+services:
+  app-source:
+    # Using both "build" and "image" directives causes docker-compose
+    # to generate a single image that gets reused between services,
+    # dramatically reducing runtime of `docker-compose build [--no-cache]`.
+    build: .
+    image: securedrop-development
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./securedrop:/securedrop
+      - securedropdata:/var/lib/securedrop
+    working_dir: /securedrop
+    command: python source.py
+
+  app-journalist:
+    build: .
+    image: securedrop-development
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./securedrop:/securedrop
+      - securedropdata:/var/lib/securedrop
+    working_dir: /securedrop
+    command: python journalist.py
+    links:
+      - redis:redis
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+
+# Pytest app unit test suite running far too slow to be usable
+#  app-test:
+#    build: .
+#    ports:
+#     - "5000:5000"
+#    volumes:
+#     - ./securedrop:/securedrop
+#    command: >
+#      find /securedrop/tests -maxdepth 1 -iname 'test_*.py'
+#      -exec pytest -v {} +
+#    links:
+#      - redis
+
+volumes:
+  # Create a common volume for mounting in both app containers,
+  # so the same database file is used for Source and Journalist.
+  securedropdata: {}
