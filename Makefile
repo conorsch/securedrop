@@ -6,6 +6,17 @@ ci-spinup:
 ci-teardown:
 	./devops/scripts/ci-teardown.sh
 
+.PHONY: clean
+clean:
+# CSS files are dynamically generated from SASS, so destroy the CSS
+# target directory to clean out any previously built assets.
+	rm -rf \
+		securedrop/css \
+		securedrop/static/gen \
+		securedrop/static/.webassets-cache
+# Python bytecode is bad.
+	find -type f -name '*.pyc' -delete
+
 .PHONY: ci-run
 ci-run:
 	./devops/scripts/ci-runner.sh
@@ -37,6 +48,15 @@ docs-lint:
 docs:
 # Spins up livereload environment for editing; blocks.
 	make -C docs/ clean && sphinx-autobuild docs/ docs/_build/html
+
+.PHONY: dev-test
+dev-test:
+# Run dev tests. Filtering by top-level tests
+# to avoid running the Selenium functional tests, since a separate
+# container is needed for those.
+	docker-compose run app-test \
+		find /securedrop/tests -maxdepth 1 -iname 'test_*.py' \
+		-exec pytest --cache-clear -v {} +
 
 help:
 	@echo Makefile for developing and testing SecureDrop.
