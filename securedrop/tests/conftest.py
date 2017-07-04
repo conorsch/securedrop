@@ -19,9 +19,10 @@ TEST_WORKER_PIDFILE = '/tmp/securedrop_test_worker.pid'
 
 @pytest.fixture(scope='session')
 def setUptearDown():
-    _start_test_rqworker(config)
+    # Let docker-compose handle the rqworker container
+    # _start_test_rqworker(config)
     yield
-    _stop_test_rqworker()
+    # _stop_test_rqworker()
     _cleanup_test_securedrop_dataroot(config)
 
 

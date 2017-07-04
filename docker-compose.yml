@@ -24,14 +24,33 @@ services:
       - ./securedrop:/securedrop
       - securedropdata:/var/lib/securedrop
     working_dir: /securedrop
+    environment:
+      SECUREDROP_REDIS_SERVER: redis
     command: python journalist.py
-    links:
-      - redis:redis
+    depends_on:
+      - redis
+      - redisworker
 
   redis:
     image: redis
-    ports:
-      - "6379:6379"
+    expose:
+      - "6379"
+
+  redisworker:
+    build: .
+    image: securedrop-development
+    volumes:
+      - ./securedrop:/securedrop
+      - securedropdatatesttmp:/tmp
+    command: >
+      rqworker test
+      -P /securedrop
+      -u http://redis:6379
+    environment:
+      SECUREDROP_ENV: test
+      SECUREDROP_REDIS_SERVER: redis
+    depends_on:
+      - redis
 
   app-test:
     build: .
@@ -49,10 +68,12 @@ services:
       SECUREDROP_ENV: test
       SECUREDROP_REDIS_SERVER: redis
       #    PYTEST_DEBUG: 1
-    links:
-      - redis:redis
+    depends_on:
+      - redis
+      - redisworker
 
 volumes:
   # Create a common volume for mounting in both app containers,
   # so the same database file is used for Source and Journalist.
   securedropdata: {}
+  securedropdatatesttmp: {}
