@@ -33,18 +33,24 @@ services:
     ports:
       - "6379:6379"
 
-# Pytest app unit test suite running far too slow to be usable
-#  app-test:
-#    build: .
-#    ports:
-#     - "5000:5000"
-#    volumes:
-#     - ./securedrop:/securedrop
-#    command: >
-#      find /securedrop/tests -maxdepth 1 -iname 'test_*.py'
-#      -exec pytest -v {} +
-#    links:
-#      - redis
+  app-test:
+    build: .
+    image: securedrop-development
+    volumes:
+      - ./securedrop:/securedrop
+      # Don't mount volume
+      # - securedropdata:/var/lib/securedrop
+      # Need more entropy in container for crypto calls
+      - /dev/urandom:/dev/random
+      - securedropdatatesttmp:/tmp
+    # Omit "command" since we just want the container present in order to run
+    # tests. Bringing the containers up shouldn't trigger a test run.
+    environment:
+      SECUREDROP_ENV: test
+      SECUREDROP_REDIS_SERVER: redis
+      #    PYTEST_DEBUG: 1
+    links:
+      - redis:redis
 
 volumes:
   # Create a common volume for mounting in both app containers,
