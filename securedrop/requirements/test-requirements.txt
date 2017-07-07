@@ -31,3 +31,4 @@ selenium==2.53.6
 six==1.10.0               # via mock, pip-tools
 urllib3==1.21.1           # via requests
 werkzeug==0.12.2          # via flask
+pytest-xdist

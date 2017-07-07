@@ -3,6 +3,7 @@ import os
 import shutil
 import signal
 import subprocess
+import tempfile
 
 import psutil
 import pytest
@@ -21,9 +22,19 @@ TEST_WORKER_PIDFILE = '/tmp/securedrop_test_worker.pid'
 def setUptearDown():
     # Let docker-compose handle the rqworker container
     # _start_test_rqworker(config)
+    temporary_directory_overrides()
     yield
     # _stop_test_rqworker()
     _cleanup_test_securedrop_dataroot(config)
+
+
+@pytest.fixture(scope='session')
+def temporary_directory_overrides():
+    """
+    Create temporary directories for data storage so tests can be
+    parallelized via python-xdist.
+    """
+    config.SECUREDROP_DATA_ROOT = tempfile.mkdtemp()
 
 
 def _start_test_rqworker(config):
