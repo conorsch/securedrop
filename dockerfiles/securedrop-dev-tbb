@@ -3,4 +3,31 @@ USER root
 RUN whoami
 RUN pip install tbselenium
 
+RUN apt-get install -y curl
+
 COPY securedrop/tests/functional/test_tbb.py /securedrop/tests/functional/test_tbb.py
+
+
+ENV DEBIAN_FRONTEND noninteractive
+ENV VERSION 7.0.2
+ENV TBB_DIR /home/securedrop
+
+# Shamelessly stolen from https://github.com/paulczar/docker-torbrowser/blob/master/Dockerfile
+#
+USER securedrop
+
+# Add TOR browser
+RUN \
+    gpg --keyserver ha.pool.sks-keyservers.net \
+      --recv-keys "EF6E 286D DA85 EA2A 4BA7  DE68 4E2C 6E87 9329 8290"
+RUN \
+    curl -sSL -o ${TBB_DIR}/tor.tar.xz \
+      https://www.torproject.org/dist/torbrowser/${VERSION}/tor-browser-linux64-${VERSION}_en-US.tar.xz && \
+    curl -sSL -o ${TBB_DIR}/tor.tar.xz.asc \
+      https://www.torproject.org/dist/torbrowser/${VERSION}/tor-browser-linux64-${VERSION}_en-US.tar.xz.asc
+RUN \
+    gpg --verify ${TBB_DIR}/tor.tar.xz.asc ${TBB_DIR}/tor.tar.xz && \
+    tar xvf ${TBB_DIR}/tor.tar.xz && \
+    rm -f ${TBB_DIR}/tor.tar.xz*
+
+#CMD ${TBB_DIR}/tor-browser_en-US/Browser/start-tor-browser
