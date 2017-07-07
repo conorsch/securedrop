@@ -56,7 +56,12 @@ dev-test:
 # container is needed for those.
 	docker-compose run app-test \
 		find /securedrop/tests -maxdepth 1 -iname 'test_*.py' \
-		-exec pytest --cache-clear -v -n auto {} +
+		-exec pytest --cache-clear -v {} +
+
+.PHONY: dev-test-tbb
+dev-test-tbb:
+	docker-compose run app-test-tbb \
+		pytest --cache-clear -v /securedrop/tests/functional/test_tbb.py
 
 help:
 	@echo Makefile for developing and testing SecureDrop.
