@@ -1,6 +1,8 @@
 ---
 version: '2'
 services:
+  # Container for Source Interface web view. Does not connect to any other
+  # services, just needs the SecureDrop data and code directories mounted.
   app-source:
     # Using both "build" and "image" directives causes docker-compose
     # to generate a single image that gets reused between services,
@@ -15,6 +17,9 @@ services:
     working_dir: /securedrop
     command: python source.py
 
+
+  # Container for Journalist Interface web view. Connects to redis queue, and
+  # depends on redis worker even though it queues connect directly to it.
   app-journalist:
     build: .
     image: securedrop-development
@@ -31,11 +36,17 @@ services:
       - redis
       - redisworker
 
+  # Container for Redis server. Used for tracking asynchronous jobs delegated
+  # from the Journalist Interface app, e.g. secure-deleting source directories.
   redis:
     image: redis
     expose:
       - "6379"
 
+  # Container for Redis Queue worker. Used for handling jobs dispatched from
+  # the Journalist Interface app to the Redis server. The worker connects
+  # to the Redis server container and handles the work. Therefore requires
+  # mounts for SecureDrop data and code directories.
   redisworker:
     build: .
     image: securedrop-development
@@ -52,6 +63,8 @@ services:
     depends_on:
       - redis
 
+  # Container for running the unit and integration tests for the application
+  # code, both Source and Journalist Interfaces.
   app-test:
     build: .
     image: securedrop-development
