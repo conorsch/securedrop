@@ -1,0 +1,6 @@
+FROM securedrop-development
+USER root
+RUN whoami
+RUN pip install tbselenium
+
+COPY securedrop/tests/functional/test_tbb.py /securedrop/tests/functional/test_tbb.py
