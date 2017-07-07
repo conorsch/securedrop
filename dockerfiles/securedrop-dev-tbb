@@ -25,9 +25,12 @@ RUN \
       https://www.torproject.org/dist/torbrowser/${VERSION}/tor-browser-linux64-${VERSION}_en-US.tar.xz && \
     curl -sSL -o ${TBB_DIR}/tor.tar.xz.asc \
       https://www.torproject.org/dist/torbrowser/${VERSION}/tor-browser-linux64-${VERSION}_en-US.tar.xz.asc
-RUN \
-    gpg --verify ${TBB_DIR}/tor.tar.xz.asc ${TBB_DIR}/tor.tar.xz && \
-    tar xvf ${TBB_DIR}/tor.tar.xz && \
-    rm -f ${TBB_DIR}/tor.tar.xz*
+
+
+WORKDIR /home/securedrop
+RUN gpg --verify ${TBB_DIR}/tor.tar.xz.asc ${TBB_DIR}/tor.tar.xz
+
+RUN tar xvf ${TBB_DIR}/tor.tar.xz
+
 
 #CMD ${TBB_DIR}/tor-browser_en-US/Browser/start-tor-browser
