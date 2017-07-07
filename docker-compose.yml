@@ -7,7 +7,9 @@ services:
     # Using both "build" and "image" directives causes docker-compose
     # to generate a single image that gets reused between services,
     # dramatically reducing runtime of `docker-compose build [--no-cache]`.
-    build: .
+    build:
+      context: ./
+      dockerfile: dockerfiles/securedrop-dev
     image: securedrop-development
     ports:
       - "8080:8080"
@@ -21,7 +23,9 @@ services:
   # Container for Journalist Interface web view. Connects to redis queue, and
   # depends on redis worker even though it queues connect directly to it.
   app-journalist:
-    build: .
+    build:
+      context: ./
+      dockerfile: dockerfiles/securedrop-dev
     image: securedrop-development
     ports:
       - "8081:8081"
@@ -48,7 +52,9 @@ services:
   # to the Redis server container and handles the work. Therefore requires
   # mounts for SecureDrop data and code directories.
   redisworker:
-    build: .
+    build:
+      context: ./
+      dockerfile: dockerfiles/securedrop-dev
     image: securedrop-development
     volumes:
       - ./securedrop:/securedrop
@@ -66,7 +72,9 @@ services:
   # Container for running the unit and integration tests for the application
   # code, both Source and Journalist Interfaces.
   app-test:
-    build: .
+    build:
+      context: ./
+      dockerfile: dockerfiles/securedrop-dev
     image: securedrop-development
     volumes:
       - ./securedrop:/securedrop
