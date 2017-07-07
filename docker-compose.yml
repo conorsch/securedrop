@@ -93,6 +93,28 @@ services:
       - redis
       - redisworker
 
+  # Container for running the functional tests for the application code,
+  # using Tor Browser via Selenium.
+  app-test-tbb:
+    build:
+      context: ./
+      dockerfile: dockerfiles/securedrop-dev-tbb
+    volumes:
+      - ./securedrop:/securedrop
+      # Don't mount volume
+      # - securedropdata:/var/lib/securedrop
+      # Need more entropy in container for crypto calls
+      - securedropdatatesttmp:/tmp
+    # Omit "command" since we just want the container present in order to run
+    # tests. Bringing the containers up shouldn't trigger a test run.
+    environment:
+      SECUREDROP_ENV: test
+      SECUREDROP_REDIS_SERVER: redis
+      #    PYTEST_DEBUG: 1
+    depends_on:
+      - redis
+      - redisworker
+
 volumes:
   # Create a common volume for mounting in both app containers,
   # so the same database file is used for Source and Journalist.
