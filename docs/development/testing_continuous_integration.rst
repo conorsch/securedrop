@@ -15,6 +15,8 @@ for running automated test suites on code changes:
 Travis tests
 ------------
 
+.. todo:: No-op docs edit to trigger CI rebuild.
+
 The Travis_ test suite provisions the development VM and runs the application
 test suite against the latest version of the code. It also performs basic
 linting and validation, e.g. checking for mistakes in the Sphinx documentation
