@@ -15,6 +15,10 @@ jobs:
       - checkout
 
       - run:
+          name: Determine whether CI should run (don't if docs-only)
+          command: git diff develop --name-only | grep --quiet --invert-match '^docs'
+
+      - run:
           name: Installation pre-reqs
           command: pip install -U -r ./testinfra/requirements.txt
 
