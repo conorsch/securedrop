@@ -16,7 +16,7 @@ jobs:
 
       - run:
           name: Determine whether CI should run (don't if docs-only)
-          command: git diff develop --name-only | grep --quiet --invert-match '^docs'
+          command: git diff develop --name-only | grep --invert-match '^docs'
 
       - run:
           name: Installation pre-reqs
