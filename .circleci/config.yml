@@ -15,6 +15,11 @@ jobs:
       - checkout
 
       - run:
+          # Docs say it's shallow but scripts don't look like it
+          name: Check whether we're shallow.
+          command: git rev-list --count HEAD
+
+      - run:
           name: Determine whether CI should run (don't if docs-only)
           command: >
             git fetch origin develop &&
