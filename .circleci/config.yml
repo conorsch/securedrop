@@ -33,7 +33,7 @@ jobs:
           environment:
             TERM: xterm
           command: >
-            git diff develop.."$CIRCLE_SHA1" --name-only
+            git diff develop --name-only --no-ext-diff
 
       - run:
           name: Installation pre-reqs
