@@ -22,10 +22,11 @@ jobs:
       - run:
           # Shouldn't be necessary, because we're not shallow, but just checking.
           name: Prep repo.
-          command: >
-            git fetch origin develop &&
-            git checkout develop &&
-            git pull origin develop &&
+          command: |
+            set -xu
+            git fetch origin develop
+            git checkout develop
+            git pull origin develop
             git checkout -
 
       - run:
