@@ -30,6 +30,8 @@ jobs:
 
       - run:
           name: Determine whether CI should run (don't if docs-only)
+          environment:
+            TERM: msys
           command: >
             git diff develop.."$CIRCLE_SHA1" --name-only
 
