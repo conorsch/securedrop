@@ -18,6 +18,9 @@ jobs:
           name: Determine whether CI should run (don't if docs-only)
           command: >
             git fetch origin develop &&
+            git checkout develop &&
+            git pull origin develop &&
+            git checkout - &&
             git diff develop --name-only | grep --invert-match '^docs'
 
       - run:
