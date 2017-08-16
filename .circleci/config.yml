@@ -76,16 +76,6 @@ jobs:
           command: git rev-list --count HEAD
 
       - run:
-          # Shouldn't be necessary, because we're not shallow, but just checking.
-          name: Prep repo.
-          command: |
-            set -xu
-            git fetch origin develop
-            git checkout develop
-            git pull origin develop
-            git checkout -
-
-      - run:
           name: Determine whether CI should run (don't if docs-only)
           environment:
             TERM: xterm
