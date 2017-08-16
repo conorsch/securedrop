@@ -20,13 +20,18 @@ jobs:
           command: git rev-list --count HEAD
 
       - run:
-          name: Determine whether CI should run (don't if docs-only)
+          # Shouldn't be necessary, because we're not shallow, but just checking.
+          name: Prep repo.
           command: >
             git fetch origin develop &&
             git checkout develop &&
             git pull origin develop &&
-            git checkout - &&
-            git diff develop.."$CIRCLE_SHA1" --name-only | grep --invert-match '^docs'
+            git checkout -
+
+      - run:
+          name: Determine whether CI should run (don't if docs-only)
+          command: >
+            git diff develop.."$CIRCLE_SHA1" --name-only
 
       - run:
           name: Installation pre-reqs
