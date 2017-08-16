@@ -33,7 +33,7 @@ jobs:
           environment:
             TERM: xterm
           command: >
-            git diff develop --name-only --no-ext-diff
+            git diff develop..$CIRCLE_BRANCH --name-only --no-ext-diff
 
       - run:
           name: Installation pre-reqs
