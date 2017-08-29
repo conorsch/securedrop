@@ -35,6 +35,7 @@ install:
   - dpkg -l | grep -i firefox || true
   - firefox -version || true
   - sudo apt-get remove -y firefox
+  - rm -rf /home/travis/firefox-46.0.1
   - firefox -version || true
   - which firefox || true
   # We're running many commands as root that likely don't need it...
