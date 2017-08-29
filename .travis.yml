@@ -30,6 +30,7 @@ install:
   - pip uninstall pytest pbr -y
   - pip install -r testinfra/requirements.txt
   - pip freeze -l
+  - sudo pip freeze -l
   # Check whether firefox is already installed
   - sudo apt-get install -y dpkg
   - dpkg -l | grep -i firefox || true
@@ -65,6 +66,7 @@ script:
   - pip freeze -l
   - SECUREDROP_TESTINFRA_TARGET_HOST=travis testinfra -v testinfra/development/
   - pip freeze -l
+  - sudo pip freeze -l
   # Performing new pip install step *after* build VM tests pass, so as not
   # to alter the pip requirements, which would cause config tests to fail.
   # The develop requirements include sphinx tooling for docs linting.
