@@ -4,31 +4,38 @@
 #
 #    pip-compile --output-file test-requirements.txt test-requirements.in
 #
+asn1crypto==0.22.0        # via cryptography
 beautifulsoup4==4.6.0
 blinker==1.4
-certifi==2017.4.17        # via requests
+certifi==2017.7.27.1      # via requests, urllib3
+cffi==1.10.0              # via cryptography
 chardet==3.0.4            # via requests
 click==6.7                # via flask, pip-tools
 coverage==4.4.1           # via coveralls, pytest-cov
-coveralls==1.1
+coveralls==1.2.0
+cryptography==2.0.3       # via pyopenssl, urllib3
 docopt==0.6.2             # via coveralls
+enum34==1.1.6             # via cryptography
 first==2.0.1              # via pip-tools
 flask-testing==0.6.2
 flask==0.12.2             # via flask-testing
 funcsigs==1.0.2           # via mock
-idna==2.5                 # via requests
+idna==2.6                 # via cryptography, requests, urllib3
+ipaddress==1.0.18         # via cryptography, urllib3
 itsdangerous==0.24        # via flask
 jinja2==2.9.6             # via flask
 markupsafe==1.0           # via jinja2
 mock==2.0.0
-pbr==3.0.1                # via mock
+pbr==3.1.1                # via mock
 pip-tools==1.9.0
 py==1.4.34
+pycparser==2.18           # via cffi
+pyopenssl==17.2.0         # via urllib3
 pytest-capturelog==0.7
 pytest-cov==2.5.1
-pytest==3.1.1
-requests==2.17.3          # via coveralls
+pytest==3.2.1
+requests==2.18.4          # via coveralls
 selenium==2.53.6
-six==1.10.0               # via mock, pip-tools
-urllib3==1.21.1           # via requests
+six==1.10.0               # via cryptography, mock, pip-tools, pyopenssl
+urllib3[secure]==1.22     # via coveralls, requests
 werkzeug==0.12.2          # via flask
