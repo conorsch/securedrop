@@ -30,11 +30,11 @@ def test_development_app_dependencies(Package):
     ('funcsigs', '1.0.2'),
     ('itsdangerous', '0.24'),
     ('mock', '2.0.0'),
-    ('pbr', '3.0.1'),
+    ('pbr', '3.1.1'),
     ('pip-tools', '1.9.0'),
     ('py', '1.4.34'),
     ('pytest-cov', '2.5.1'),
-    ('pytest', '3.1.1'),
+    ('pytest', '3.2.1'),
     ('selenium', '2.53.6'),
     ('six', '1.10.0'),
 ])
