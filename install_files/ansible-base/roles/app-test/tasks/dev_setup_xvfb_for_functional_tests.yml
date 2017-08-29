@@ -19,6 +19,7 @@
     dest: /etc/init.d/xvfb
     owner: root
     mode: "0700"
+  notify: restart xvfb
   tags:
     - xvfb
     - permissions
@@ -27,7 +28,7 @@
   command: update-rc.d xvfb defaults
   register: xvfb_setup
   changed_when: "'System start/stop links for /etc/init.d/xvfb already exist' not in xvfb_setup.stdout"
-  notify: start xvfb
+  notify: restart xvfb
   tags:
     - xvfb
 
@@ -37,7 +38,13 @@
     dest: /etc/profile.d/xvfb_display.sh
     owner: root
     mode: "0444"
+  notify: restart xvfb
   tags:
     - xvfb
     - environment
     - permissions
+
+- name: Start xvfb.
+  service:
+    name: xvfb
+    state: started
