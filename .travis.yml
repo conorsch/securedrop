@@ -30,6 +30,16 @@ install:
   - pip uninstall pytest pbr -y
   - pip install -r testinfra/requirements.txt
   - pip freeze -l
+  # Check whether firefox is already installed
+  - sudo apt-get install -y dpkg
+  - dpkg -l | grep -i firefox || true
+  - firefox -version || true
+  - sudo apt-get remove -y firefox
+  - firefox -version || true
+  - which firefox || true
+  # We're running many commands as root that likely don't need it...
+  # Let's check for user info and pass vars appropriately.
+  - whoami
 script:
   # Using YAML folding operator '>' to aid in readability and avoid
   # extremely long lines.
