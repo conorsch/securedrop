@@ -23,7 +23,9 @@ def test_firefox_is_installed(Package, Command):
         assert p.is_installed
 
     c = Command("firefox --version")
-    assert c.stdout == "Mozilla Firefox 46.0.1"
+    # Reminder: the rstrip is only necessary for local-context actions,
+    # e.g. in Travis, but it's a fine practice in all contexts.
+    assert c.stdout.rstrip() == "Mozilla Firefox 46.0.1"
 
 
 def test_xvfb_service_config(File, Sudo):
