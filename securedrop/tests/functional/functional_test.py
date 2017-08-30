@@ -56,16 +56,6 @@ class FunctionalTest():
         connrefused_retry_count = 3
         connrefused_retry_interval = 5
 
-        if "TRAVIS" in os.environ:
-            # In Travis, the Firefox path isn't in /usr/bin, and Selenium
-            # doesn't find it automatically.
-            firefox_path = "/home/travis/firefox-46.0.1/firefox/firefox"
-            firefox = firefox_binary.FirefoxBinary(firefox_path,
-                                                   log_file=log_file)
-        else:
-            # Selenium's PATH inference is smart enough outside Travis.
-            firefox = firefox_binary.FirefoxBinary(log_file=log_file)
-
         for i in range(connrefused_retry_count + 1):
             try:
                 driver = webdriver.Firefox(firefox_binary=firefox,
@@ -88,7 +78,17 @@ class FunctionalTest():
             '\n\n[%s] Running Functional Tests\n' % str(
                 datetime.now()))
         log_file.flush()
-        return firefox_binary.FirefoxBinary(log_file=log_file)
+        if "TRAVIS" in os.environ:
+            # In Travis, the Firefox path isn't in /usr/bin, and Selenium
+            # doesn't find it automatically.
+            firefox_path = "/home/travis/firefox-46.0.1/firefox/firefox"
+            firefox = firefox_binary.FirefoxBinary(firefox_path,
+                                                   log_file=log_file)
+        else:
+            # Selenium's PATH inference is smart enough outside Travis.
+            firefox = firefox_binary.FirefoxBinary(log_file=log_file)
+
+        return firefox
 
     def setup(self):
         # Patch the two-factor verification to avoid intermittent errors
