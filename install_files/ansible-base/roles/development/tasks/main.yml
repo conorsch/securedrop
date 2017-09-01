@@ -31,8 +31,12 @@
   tags:
     - development
 
-- name: Check for SASS gem
+- name: Check for SASS gem via which
   command: which sass
+  ignore_errors: yes
+
+- name: Check for SASS gem on disk.
+  command: ls -l /usr/local/bin/sass
   ignore_errors: yes
 
 - name: Compile sass to css
