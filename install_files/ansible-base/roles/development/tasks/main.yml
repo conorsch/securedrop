@@ -31,6 +31,10 @@
   tags:
     - development
 
+- name: List all installed gems.
+  command: gem list
+  ignore_errors: yes
+
 - name: Find gem binary via which.
   command: which gem
   ignore_errors: yes
