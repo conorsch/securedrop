@@ -17,6 +17,8 @@ before_install:
   - 'for e in /.packer-env/*; do echo -n "${e}: "; cat "${e}"; done'
   # Removes Travis-specific PATH customizations that affect Python.
   - export PATH="$(echo $PATH | tr ':' "\n" | sed '/\/opt\/python/d' | tr "\n" ":" | sed "s|::|:|g")"
+  # Removes Travis-specific PATH customizations that affect Ruby.
+  - export PATH="$(echo $PATH | tr ':' "\n" | sed '/\/home\/travis\/\.rvm/d' | tr "\n" ":" | sed "s|::|:|g")"
   - printenv | sort # dump Travis environment for debugging
   - pip freeze -l
 install:
