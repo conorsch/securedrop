@@ -31,6 +31,10 @@
   tags:
     - development
 
+- name: Check for SASS gem
+  command: which sass
+  ignore_errors: yes
+
 - name: Compile sass to css
   command: sass --update sass:static/css
   args:

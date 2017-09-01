@@ -34,7 +34,7 @@ install:
       ansible-playbook -i inventory -vv --syntax-check
       install_files/ansible-base/securedrop-development.yml
   - >
-      ansible-playbook -i inventory -vv --connection=local
+      ansible-playbook -i inventory -vvv --connection=local
       install_files/ansible-base/securedrop-development.yml
 script:
   # The `cd securedrop` is necessary due to two tests failing based on
