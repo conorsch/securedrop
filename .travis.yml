@@ -44,11 +44,6 @@ script:
   - sh -c "DISPLAY=:1 pytest -v securedrop/tests"
   - pip freeze -l
   - SECUREDROP_TESTINFRA_TARGET_HOST=travis testinfra -v testinfra/development/
-  - pip freeze -l
-  # Performing new pip install step *after* build VM tests pass, so as not
-  # to alter the pip requirements, which would cause config tests to fail.
-  # The develop requirements include sphinx tooling for docs linting.
-  - pip install -r securedrop/requirements/develop-requirements.txt
   - make -k lint
 after_success:
   cd securedrop/ && coveralls
