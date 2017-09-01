@@ -37,10 +37,7 @@ install:
       ansible-playbook -i inventory -vv --connection=local
       install_files/ansible-base/securedrop-development.yml
 script:
-  # The `cd securedrop` is necessary due to two tests failing based on
-  # invocation directory. Swap out the lines below once #2239 is closed.
-  # - DISPLAY=:1 pytest -v securedrop/tests --page-layout
-  - sh -c "export DISPLAY=:1 ; cd securedrop && pytest -v tests --page-layout"
+  - DISPLAY=:1 pytest -v securedrop/tests --page-layout
   - pip freeze -l
   - SECUREDROP_TESTINFRA_TARGET_HOST=travis testinfra -v testinfra/development/
 after_success:
