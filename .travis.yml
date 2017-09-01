@@ -19,6 +19,7 @@ before_install:
   - export PATH="$(echo $PATH | tr ':' "\n" | sed '/\/opt\/python/d' | tr "\n" ":" | sed "s|::|:|g")"
   - printenv | sort # dump Travis environment for debugging
   - pip freeze -l
+  - sudo ls -l /dev
 install:
   # Installing Python dependencies globally, to match SecureDrop deployment.
   - sudo -H pip install -r securedrop/requirements/develop-requirements.txt
