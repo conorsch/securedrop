@@ -31,6 +31,10 @@
   tags:
     - development
 
+- name: Find gem binary via which.
+  command: which gem
+  ignore_errors: yes
+
 - name: Check for SASS gem via which
   command: which sass
   ignore_errors: yes
