@@ -63,7 +63,7 @@
     - name: render ssh_config for instances
       template:
         src: ssh_config.j2
-        dest: "/tmp/moleclue-qubes-ssh-config"
+        dest: "/tmp/molecule-qubes-ssh-config"
       when: start_result.changed | bool
 
     - debug: var=instance_conf
