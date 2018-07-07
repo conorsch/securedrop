@@ -4,3 +4,9 @@
 primary_network_iface: eth0
 app_ip: "{{ hostvars['app-staging']['ansible_'+primary_network_iface].ipv4.address }}"
 monitor_ip: "{{ hostvars['mon-staging']['ansible_'+primary_network_iface].ipv4.address }}"
+
+# Shouldn't be necessary, but we're still using `ansible_ssh_host` in some places,
+# and `ansible_host` in others, as vestiges of the Ansible v1 -> v2 conversion.
+# Used to determine hostname, e.g. when waiting for reboots. Critically, Molecule
+# writes `ansible_host` to the inventory file, `ansible_ssh_host` will be undefined.
+remote_host_ref: "{{ ansible_host }}"
